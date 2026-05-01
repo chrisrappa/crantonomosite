@@ -1,66 +1,87 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useState, useEffect, useMemo } from 'react';
+import { Box, useTheme, useMediaQuery } from '@mui/material';
+import TopNavBar from './components/TopNavBar';
+import LeftNavBar from './components/LeftNavBar';
+import RightSidebar from './components/RightSidebar';
+import ContentArea from './components/ContentArea';
 
 export default function Home() {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+
+  const [selectedNav, setSelectedNav] = useState('dashboard');
+  const [hoveredNav, setHoveredNav] = useState(null);
+  const [selectedSubMenu, setSelectedSubMenu] = useState(null);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  // Determine if sidebar should be auto-collapsed based on screen size changes
+  const shouldAutoCollapse = useMemo(() => {
+    return isSmallScreen;
+  }, [isSmallScreen]);
+
+  // Auto-collapse sidebar when transitioning to small screens
+  useEffect(() => {
+    if (shouldAutoCollapse) {
+      setSidebarCollapsed(true);
+    }
+  }, [shouldAutoCollapse]);
+
+  // Use hovered nav if available, otherwise use selected nav
+  const activeNav = hoveredNav || selectedNav;
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        width: '100vw',
+        overflow: 'hidden',
+        backgroundColor: theme.palette.background.default,
+      }}
+    >
+      {/* Top Navigation Bar */}
+      <TopNavBar />
+
+      {/* Main Content Container */}
+      <Box
+        sx={{
+          display: 'flex',
+          flex: 1,
+          overflow: 'hidden',
+        }}
+      >
+        {/* Left Navigation Bar */}
+        <LeftNavBar
+          selectedNav={selectedNav}
+          onSelectNav={(nav) => {
+            setSelectedNav(nav);
+            setHoveredNav(null);
+            setSelectedSubMenu(null);
+          }}
+          onHoverNav={setHoveredNav}
+          sidebarCollapsed={sidebarCollapsed}
+          onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
         />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        {/* Right Sidebar */}
+        <RightSidebar
+          selectedNav={activeNav}
+          selectedSubMenu={selectedSubMenu}
+          onSelectSubMenu={setSelectedSubMenu}
+          isCollapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+          isSmallScreen={isSmallScreen}
+        />
+
+        {/* Content Area */}
+        <ContentArea
+          selectedNav={selectedNav}
+          selectedSubMenu={selectedSubMenu}
+        />
+      </Box>
+    </Box>
   );
 }
