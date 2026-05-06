@@ -11,10 +11,12 @@ export default function Home() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const [selectedNav, setSelectedNav] = useState('dashboard');
+  const [selectedNav, setSelectedNav] = useState('overview');
   const [hoveredNav, setHoveredNav] = useState(null);
   const [selectedSubMenu, setSelectedSubMenu] = useState(null);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  console.log('selected sub menu', selectedSubMenu);
 
   // Determine if sidebar should be auto-collapsed based on screen size changes
   const shouldAutoCollapse = useMemo(() => {

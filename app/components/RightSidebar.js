@@ -13,8 +13,8 @@ import {
 import { useState } from 'react';
 
 const subMenuItems = {
-  dashboard: [
-    { id: 'home', label: 'Home', icon: Home, description: 'Dashboard Overview' },
+  overview: [
+    { id: 'overview', label: 'Basic Info', icon: Home, description: 'Primary Stats' },
     { id: 'analytics', label: 'Analytics', icon: BarChart, description: 'View Analytics' },
   ],
   settings: [
@@ -41,6 +41,7 @@ export default function RightSidebar({
   const [anchorEl, setAnchorEl] = useState(null);
 
   const items = subMenuItems[selectedNav] || [];
+  console.log('selected sub menu', selectedSubMenu);
 
   // Handle popover open/close for small screens
   const handleMouseEnter = (event) => {
@@ -103,25 +104,12 @@ export default function RightSidebar({
               backgroundColor: theme.palette.background.paper,
               display: 'flex',
               flexDirection: 'column',
-              overflowY: 'auto',
+              overflow: 'hidden',
               boxShadow: `2px 0 4px ${theme.palette.divider || 'rgba(0,0,0,0.1)'}`,
-              '&::-webkit-scrollbar': {
-                width: '8px',
-              },
-              '&::-webkit-scrollbar-track': {
-                backgroundColor: theme.palette.background.default,
-              },
-              '&::-webkit-scrollbar-thumb': {
-                backgroundColor: theme.palette.action.disabled,
-                borderRadius: '4px',
-                '&:hover': {
-                  backgroundColor: theme.palette.action.hover,
-                },
-              },
             }}
           >
             {/* Header */}
-            <Box sx={{ padding: '16px', borderBottom: `1px solid ${theme.palette.divider}` }}>
+            <Box sx={{ padding: '16px', borderBottom: `1px solid ${theme.palette.divider}`, flexShrink: 0 }}>
               <Typography
                 variant="h6"
                 sx={{
@@ -134,7 +122,7 @@ export default function RightSidebar({
             </Box>
 
             {/* Menu Items */}
-            <List sx={{ flex: 1, padding: '8px 0' }}>
+            <List sx={{ flex: 1, padding: '8px 0', overflow: 'hidden' }}>
               {items.map((item) => (
                 <ListItem
                   key={item.id}
@@ -178,7 +166,7 @@ export default function RightSidebar({
                     secondaryTypographyProps={{
                       sx: {
                         color: selectedSubMenu === item.id
-                          ? 'rgba(255,255,255,0.7)'
+                          ? '#ffffff'
                           : theme.palette.text.secondary,
                       },
                     }}
@@ -213,22 +201,9 @@ export default function RightSidebar({
         borderRight: `1px solid ${theme.palette.divider || 'rgba(0,0,0,0.12)'}`,
         display: 'flex',
         flexDirection: 'column',
-        overflowY: 'auto',
+        overflow: 'hidden',
         boxShadow: `2px 0 4px ${theme.palette.divider || 'rgba(0,0,0,0.1)'}`,
         transition: 'all 0.3s ease',
-        '&::-webkit-scrollbar': {
-          width: '8px',
-        },
-        '&::-webkit-scrollbar-track': {
-          backgroundColor: theme.palette.background.default,
-        },
-        '&::-webkit-scrollbar-thumb': {
-          backgroundColor: theme.palette.action.disabled,
-          borderRadius: '4px',
-          '&:hover': {
-            backgroundColor: theme.palette.action.hover,
-          },
-        },
       }}
     >
       {/* Header with Collapse Button */}
@@ -239,6 +214,7 @@ export default function RightSidebar({
           alignItems: 'center',
           padding: '16px',
           borderBottom: `1px solid ${theme.palette.divider}`,
+          flexShrink: 0,
         }}
       >
         <Typography
@@ -268,7 +244,7 @@ export default function RightSidebar({
       </Box>
 
       {/* Menu Items */}
-      <List sx={{ flex: 1, padding: '8px 0' }}>
+      <List sx={{ flex: 1, padding: '8px 0', overflow: 'hidden' }}>
         {items.map((item) => (
           <ListItem
             key={item.id}
@@ -309,7 +285,7 @@ export default function RightSidebar({
               secondaryTypographyProps={{
                 sx: {
                   color: selectedSubMenu === item.id
-                    ? 'rgba(255,255,255,0.7)'
+                    ? '#ffffff'
                     : theme.palette.text.secondary,
                 },
               }}

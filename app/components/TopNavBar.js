@@ -35,7 +35,7 @@ export default function TopNavBar() {
             ...muiTheme.typography.primaryFont,
           }}
         >
-          Portfolio
+          Crantonomo
         </Typography>
 
         <IconButton

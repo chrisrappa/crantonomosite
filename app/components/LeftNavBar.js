@@ -10,7 +10,7 @@ import {
 } from '@mui/icons-material';
 
 const topMenuItems = [
-  { id: 'dashboard', label: 'Dashboard', icon: Dashboard },
+  { id: 'overview', label: 'Overview', icon: Dashboard },
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
