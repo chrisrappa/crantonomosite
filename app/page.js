@@ -13,7 +13,7 @@ export default function Home() {
 
   const [selectedNav, setSelectedNav] = useState('overview');
   const [hoveredNav, setHoveredNav] = useState(null);
-  const [selectedSubMenu, setSelectedSubMenu] = useState(null);
+  const [selectedSubMenu, setSelectedSubMenu] = useState('overview');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   console.log('selected sub menu', selectedSubMenu);

@@ -2,13 +2,10 @@
 
 import { Box, Typography, Card, CardContent, useTheme } from "@mui/material";
 import OverviewCard from "../contentCards/OverviewCard";
-import {
-  Dashboard,
-  Settings,
-  Help,
-  Logout,
-  ChevronRight,
-} from '@mui/icons-material';
+import VerifiedIcon from '@mui/icons-material/Verified';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 
 const contentData = {
   overview: {
@@ -20,9 +17,17 @@ const contentData = {
       content:
         "This is your main dashboard view. Customize this area with your portfolio information.",
       stats: [
-        { label: "Years of Experience", value: "10+", icon: Dashboard },
-        { label: "Projects Completed", value: "50+", icon: Settings },
-        { label: "AI Systems Integrated", value: "20+", icon: Help},
+        { label: "Specialty", value: "Client Development & Cloud Based AI Automation", icon: VerifiedIcon},
+        { label: "Years of Experience", value: "10+", icon: CalendarMonthIcon },
+        { label: "Features Shipped", value: "50+", icon: RocketLaunchIcon },
+        { label: "AI Systems Deployed", value: "15+", icon: SettingsSuggestIcon },
+      ],
+      techs: [
+        { name: "Next.js / React", icon: "", statLevel: 5 },
+        { name: "Vercel & Github CI/CD", icon: "", statLevel: 4 },
+        { name: "TypeScript", icon: "", statLevel: 4 },
+        { name: "Node.js / API Dev", icon: "", statLevel: 3 },
+        { name: "AWS Cloud / Bedrock AI", icon: "", statLevel: 3 },
       ]
     },
     analytics: {
