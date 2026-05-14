@@ -1,8 +1,9 @@
-import { Box, Card, CardContent, Typography, useTheme } from "@mui/material";
+import { Box, Button, Card, CardContent, Typography, useTheme } from "@mui/material";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import React from "react";
+import experienceEntries from "../consts/experienceEntries";
 
 function ExperienceCard({ data }) {
-
   const theme = useTheme();
 
   return (
@@ -14,15 +15,21 @@ function ExperienceCard({ data }) {
       }}
     >
       <CardContent>
-        <Typography
-          variant="body1"
+        <Button
+          variant="contained"
+          component="a"
+          href="/Chris_Rappa.pdf"
+          download="Chris_Rappa.pdf"
+          startIcon={<PictureAsPdfIcon />}
           sx={{
             ...theme.typography.secondaryFont,
-            lineHeight: "1.6",
+            textTransform: "none",
+            fontWeight: 600,
+            color: "#ffffff",
           }}
         >
-          {data?.content}
-        </Typography>
+          Download PDF Version
+        </Button>
 
         {/* Sample Content Grid */}
         <Box
@@ -33,9 +40,9 @@ function ExperienceCard({ data }) {
             marginTop: "24px",
           }}
         >
-          {[1, 2, 3].map((i) => (
+          {experienceEntries.map((i) => (
             <Card
-              key={i}
+              key={i.id}
               sx={{
                 backgroundColor: theme.palette.primary.main,
                 color: "#ffffff",
@@ -49,14 +56,51 @@ function ExperienceCard({ data }) {
                 },
               }}
             >
+              {/* Title - Role and Company */}
               <Typography
                 variant="h6"
-                sx={{ fontWeight: 600, marginBottom: "8px" }}
+                sx={{ fontWeight: 700, marginBottom: "4px" }}
               >
-                Item {i}
+                {i.title} - {i.company}
               </Typography>
-              <Typography variant="body2">
-                Sample content for item {i}
+
+              {/* Year Range */}
+              <Typography
+                variant="caption"
+                sx={{
+                  color: "rgba(255,255,255,0.7)",
+                  marginBottom: "12px",
+                  display: "block",
+                }}
+              >
+                {i.duration}
+              </Typography>
+
+              {/* Tech Stack Icons */}
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: "8px",
+                  marginBottom: "12px",
+                  flexWrap: "wrap",
+                }}
+              >
+                {i.techStack.map((tech, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      width: "28px",
+                      height: "28px",
+                      backgroundColor: "rgba(255,255,255,0.2)",
+                      borderRadius: "4px",
+                    }}
+                  />
+                ))}
+              </Box>
+
+              {/* Description */}
+              <Typography variant="body2" sx={{ lineHeight: "1.6" }}>
+                {i.description}
               </Typography>
             </Card>
           ))}

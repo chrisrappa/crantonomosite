@@ -32,9 +32,8 @@ const contentData = {
       ]
     },
     experience: {
-      title: "Analytics",
-      description: "View detailed analytics and metrics.",
-      content: "Analytics content will be displayed here.",
+      title: "Experience",
+      description: "Classic style resume entries detailing my career journey.",
     },
   },
   settings: {
