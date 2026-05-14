@@ -15,7 +15,7 @@ import { useState } from 'react';
 const subMenuItems = {
   overview: [
     { id: 'overview', label: 'Basic Info', icon: Home, description: 'Primary Stats' },
-    { id: 'analytics', label: 'Analytics', icon: BarChart, description: 'View Analytics' },
+    { id: 'experience', label: 'Experience', icon: BarChart, description: 'Primary Resume' },
   ],
   settings: [
     { id: 'account', label: 'Account', icon: SettingsIcon, description: 'Account Settings' },
@@ -163,13 +163,6 @@ export default function RightSidebar({
                   <ListItemText
                     primary={item.label}
                     secondary={item.description}
-                    secondaryTypographyProps={{
-                      sx: {
-                        color: selectedSubMenu === item.id
-                          ? '#ffffff'
-                          : theme.palette.text.secondary,
-                      },
-                    }}
                     sx={{
                       '& .MuiListItemText-primary': {
                         fontWeight: 500,
@@ -248,7 +241,7 @@ export default function RightSidebar({
         {items.map((item) => (
           <ListItem
             key={item.id}
-            button
+            component="button"
             onClick={() => onSelectSubMenu(item.id)}
             sx={{
               backgroundColor:
@@ -282,13 +275,6 @@ export default function RightSidebar({
             <ListItemText
               primary={item.label}
               secondary={item.description}
-              secondaryTypographyProps={{
-                sx: {
-                  color: selectedSubMenu === item.id
-                    ? '#ffffff'
-                    : theme.palette.text.secondary,
-                },
-              }}
               sx={{
                 '& .MuiListItemText-primary': {
                   fontWeight: 500,

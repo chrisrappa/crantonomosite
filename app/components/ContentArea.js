@@ -6,6 +6,7 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import ExperienceCard from "../contentCards/ExperienceCard";
 
 const contentData = {
   overview: {
@@ -30,7 +31,7 @@ const contentData = {
         { name: "AWS Cloud / Bedrock AI", icon: "", statLevel: 3 },
       ]
     },
-    analytics: {
+    experience: {
       title: "Analytics",
       description: "View detailed analytics and metrics.",
       content: "Analytics content will be displayed here.",
@@ -68,6 +69,8 @@ function ContentCardView({ selectedSubMenu, data, theme }) {
   switch (selectedSubMenu) {
     case "overview":
       return <OverviewCard data={data} />;
+    case "experience":
+      return <ExperienceCard data={data} />;
     default:
       return (
         <Card

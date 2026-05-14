@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Avatar,
   Box,
   Card,
   CardContent,
@@ -12,13 +13,15 @@ import {
   useTheme,
 } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
+import LaunchIcon from '@mui/icons-material/Launch';
 
 const logos = [
   { src: "/bluecrossshieldblackwhite.png", alt: "BlueCrossBlueShield" },
   { src: "/carelonbw.png", alt: "CarelonRx" },
   { src: "/launchdarklygray.png", alt: "LaunchDarkly" },
   { src: "/vmwaregray.png", alt: "VMware" },
-  { src: "/futuresgraysmaller.png", alt: "US Army Software Factory" },
+  { src: "/futuresgrayevensmaller.png", alt: "US Army Software Factory" },
   { src: "/wellsfargogray.png", alt: "Wells Fargo" },
   { src: "/applelogogray.png", alt: "Apple" },
 ];
@@ -35,7 +38,10 @@ export default function OverviewCard({ data }) {
         width: "100%",
       }}
     >
-      <CardContent width={"100%"} sx={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      <CardContent
+        width={"100%"}
+        sx={{ display: "flex", flexDirection: "column", gap: "24px" }}
+      >
         <Grid
           container
           columns={3}
@@ -58,14 +64,14 @@ export default function OverviewCard({ data }) {
               {data.stats.map((item) => (
                 <ListItem
                   key={item.label}
-                  button
+                  component="button"
                   sx={{
                     backgroundColor: "transparent",
                     color: theme.palette.text.primary,
                     margin: "0px 8px",
                     borderRadius: "8px",
                     "&:hover": {
-                      backgroundColor: 'transparent',
+                      backgroundColor: "transparent",
                       cursor: "default",
                     },
                     transition: "all 0.2s ease",
@@ -83,11 +89,6 @@ export default function OverviewCard({ data }) {
                   <ListItemText
                     primary={item.label}
                     secondary={item.value}
-                    secondaryTypographyProps={{
-                      sx: {
-                        color: theme.palette.text.primary,
-                      },
-                    }}
                     sx={{
                       "& .MuiListItemText-primary": {
                         fontSize: "0.75rem",
@@ -117,19 +118,19 @@ export default function OverviewCard({ data }) {
               {data.techs.map((item) => (
                 <ListItem
                   key={item.name}
-                  button
+                  component="button"
                   sx={{
                     backgroundColor: "transparent",
                     color: theme.palette.text.primary,
                     margin: "10px 0px",
                     borderRadius: "8px",
                     "&:hover": {
-                      backgroundColor: 'transparent',
+                      backgroundColor: "transparent",
                       cursor: "default",
                     },
                     transition: "all 0.2s ease",
                     cursor: "pointer",
-                    width: '100%',
+                    width: "100%",
                     boxShadow: `0 1px 3px ${theme.palette.primary.main}40`,
                   }}
                 >
@@ -138,8 +139,7 @@ export default function OverviewCard({ data }) {
                       color: "inherit",
                       minWidth: "40px",
                     }}
-                  >
-                  </ListItemIcon>
+                  ></ListItemIcon>
                   <ListItemText
                     primary={item.name}
                     sx={{
@@ -161,7 +161,7 @@ export default function OverviewCard({ data }) {
                     {Array.from({ length: 5 }).map((_, barIndex) => {
                       const statLevel = Math.min(
                         5,
-                        Math.max(0, Number(item.statLevel) || 0)
+                        Math.max(0, Number(item.statLevel) || 0),
                       );
 
                       return (
@@ -184,7 +184,6 @@ export default function OverviewCard({ data }) {
               ))}
             </List>
           </Grid>
-
         </Grid>
         {/* Sample Content Grid */}
         <Typography variant="h5">Trusted By...</Typography>
@@ -211,6 +210,7 @@ export default function OverviewCard({ data }) {
             padding: "16px",
             borderRadius: "8px",
             cursor: "pointer",
+            display: "flex",
             transition: "transform 0.2s ease, box-shadow 0.2s ease",
             "&:hover": {
               transform: "translateY(-4px)",
@@ -218,13 +218,38 @@ export default function OverviewCard({ data }) {
             },
           }}
         >
-          <Typography
-            variant="h6"
-            sx={{ fontWeight: 600, marginBottom: "8px" }}
+          <Grid
+            container
+            sx={{ flex: 1, gap: "25px", alignItems: "flex-start" }}
           >
-            Item
-          </Typography>
-          <Typography variant="body2">Sample content for item</Typography>
+            <Avatar
+              alt="Ashlee Barsky"
+              src="/ashleebarsky.png"
+              sx={{ width: 100, height: 100, marginRight: '1rem'}}
+            />
+          </Grid>
+          <Grid sx={{ flex: 11, minWidth: "220px" }}>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 600 }}
+            >
+              Ashlee Barsky - UI Design Engineer, Elevate Health
+            </Typography>
+            <Link
+              href="https://www.linkedin.com/in/ashlee-barsky-91202a91/"
+              target="_blank"
+            >
+              View LinkedIn Profile
+              <LaunchIcon sx={{ fontSize: '1rem', marginLeft: '4px' }} />
+            </Link>
+            <Typography variant="body2" sx={{ marginTop: "8px" }}>
+              {`"I've had the pleasure of working closely with Christian
+              across multiple projects. He leads with clarity, collaborates
+              seamlessly across teams, and creates a strong sense of alignment.
+              As a designer, I truly appreciate his ability to elevate ideas
+              while balancing technical excellence with strong collaboration."`}
+            </Typography>
+          </Grid>
         </Card>
       </CardContent>
     </Card>
