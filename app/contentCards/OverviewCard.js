@@ -191,12 +191,12 @@ export default function OverviewCard({ data }) {
         </Grid>
         {/* Sample Content Grid */}
         <Divider sx={{ my: 2, mx: 5 }} />
-        <Typography variant="h5">Trusted By...</Typography>
+        <Typography variant="h2" sx={{ fontWeight: 900, opacity: 0.2, mx: 5}}>Trusted By...</Typography>
         <Grid
           container
           columns={7}
           spacing={2}
-          sx={{ justifyContent: "space-between", alignItems: "center" }}
+          sx={{ justifyContent: "space-between", alignItems: "center", mx: 5 }}
         >
           {logos.map((i) => (
             <Image
