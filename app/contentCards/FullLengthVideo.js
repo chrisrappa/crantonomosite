@@ -6,7 +6,7 @@ import {
   Card,
   CardContent,
   CardMedia,
-  CircularProgress,
+  Skeleton,
   Typography,
 } from "@mui/material";
 
@@ -38,10 +38,29 @@ function FullLengthVideo() {
     getFullLengthVideos();
   }, []);
 
-  if (loading) {
+  const showSkeletons = loading || (!error && videos.length === 0);
+
+  if (showSkeletons) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", py: 3 }}>
-        <CircularProgress size={28} />
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+          gap: 2,
+          width: "100%",
+        }}
+      >
+        {Array.from({ length: 8 }).map((_, index) => (
+          <Skeleton
+            key={index}
+            variant="rectangular"
+            sx={{
+              width: "100%",
+              height: 220,
+              borderRadius: "12px",
+            }}
+          />
+        ))}
       </Box>
     );
   }
@@ -55,33 +74,54 @@ function FullLengthVideo() {
   }
 
   return (
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, width: "100%" }}>
-      {videos.map((video) => (
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+        gap: 2,
+        width: "100%",
+      }}
+    >
+      {videos?.map((video) => (
         <Card
           key={video.id}
           sx={{
-            flex: "1 1 240px",
-            maxWidth: {
-              xs: "100%",
-              sm: "calc(50% - 8px)",
-              md: "calc(33.333% - 11px)",
-              lg: "calc(25% - 12px)",
-            },
-            minWidth: 0,
             borderRadius: "12px",
+            height: 320,
+            display: "flex",
+            flexDirection: "column",
           }}
         >
           <CardMedia
             component="img"
             image={video.thumbnail}
             alt={video.title}
-            sx={{ aspectRatio: "16/9", objectFit: "cover" }}
+            sx={{ height: 190, objectFit: "cover" }}
           />
-          <CardContent>
-            <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>
+          <CardContent sx={{ py: 1, px: 1.5, flex: 1, minHeight: 0 }}>
+            <Typography
+              variant="subtitle2"
+              sx={{
+                fontWeight: 700,
+                mb: 0.5,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
               {video.title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+              }}
+            >
               {video.description}
             </Typography>
           </CardContent>
