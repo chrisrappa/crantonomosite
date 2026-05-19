@@ -116,7 +116,7 @@ export default function RightSidebar({
                     color:
                       selectedSubMenu === item.id
                         ? '#ffffff'
-                        : theme.palette.text.primary,
+                        : theme.palette.text.light,
                     margin: '4px 8px',
                     borderRadius: '8px',
                     '&:hover': {
@@ -142,12 +142,20 @@ export default function RightSidebar({
                     secondary={item.description}
                     sx={{
                       '& .MuiListItemText-primary': {
-                        fontWeight: 500,
                         ...theme.typography.primaryFont,
+                        fontWeight: 500,
+                        color:
+                          selectedSubMenu === item.id
+                            ? theme.palette.text.light
+                            : theme.palette.text.primary,
                       },
                       '& .MuiListItemText-secondary': {
                         ...theme.typography.secondaryFont,
                         fontSize: '0.75rem',
+                        color:
+                          selectedSubMenu === item.id
+                            ? theme.palette.text.tertiary
+                            : theme.palette.text.secondary,
                       },
                     }}
                   />
@@ -234,7 +242,7 @@ export default function RightSidebar({
               '&:hover': {
                 backgroundColor:
                   selectedSubMenu === item.id
-                    ? theme.palette.primary.dark
+                    ? theme.palette.primary.light
                     : theme.palette.action.hover,
               },
               transition: 'all 0.2s ease',
@@ -256,10 +264,18 @@ export default function RightSidebar({
                 '& .MuiListItemText-primary': {
                   fontWeight: 500,
                   ...theme.typography.primaryFont,
+                  color:
+                    selectedSubMenu === item.id
+                      ? theme.palette.text.light
+                      : theme.palette.text.primary,
                 },
                 '& .MuiListItemText-secondary': {
                   ...theme.typography.secondaryFont,
                   fontSize: '0.75rem',
+                  color:
+                    selectedSubMenu === item.id
+                      ? theme.palette.text.tertiary
+                      : theme.palette.text.secondary,
                 },
               }}
             />

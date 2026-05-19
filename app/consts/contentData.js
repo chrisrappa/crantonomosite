@@ -23,7 +23,7 @@ const contentData = {
         { name: "Next.js / React", icon: "", statLevel: 5 },
         { name: "Vercel & Github CI/CD", icon: "", statLevel: 4 },
         { name: "TypeScript", icon: "", statLevel: 4 },
-        { name: "Node.js / API Dev", icon: "", statLevel: 3 },
+        { name: "Node.js / Java / Python", icon: "", statLevel: 3 },
         { name: "AWS Cloud / Bedrock AI", icon: "", statLevel: 3 },
       ]
     },
