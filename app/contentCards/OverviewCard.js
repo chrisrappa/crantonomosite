@@ -4,6 +4,7 @@ import {
   Box,
   Card,
   CardContent,
+  Divider,
   Grid,
   List,
   ListItem,
@@ -57,10 +58,11 @@ export default function OverviewCard({ data }) {
               height: "300px",
               borderRadius: "8px",
               marginBottom: "16px",
+              marginTop: "8px"
             }}
           />
-          <Grid sx={{ minWidth: "220px" }}>
-            <List sx={{ flex: 1, padding: "1px 0", overflow: "hidden" }}>
+          <Grid sx={{ minWidth: "320px", flex: 1 }}>
+            <List sx={{ flex: 1, padding: "0" }}>
               {data.stats.map((item) => (
                 <ListItem
                   key={item.label}
@@ -68,7 +70,7 @@ export default function OverviewCard({ data }) {
                   sx={{
                     backgroundColor: "transparent",
                     color: theme.palette.text.primary,
-                    margin: "0px 8px",
+                    margin: "8px 0px",
                     borderRadius: "8px",
                     "&:hover": {
                       backgroundColor: "transparent",
@@ -112,9 +114,10 @@ export default function OverviewCard({ data }) {
               flex: 1,
               minWidth: "320px",
               maxWidth: "520px",
+              display: "flex",
             }}
           >
-            <List sx={{ flex: 1, width: "100%", padding: "1px 0" }}>
+            <List sx={{ flex: 1, width: "100%", pt: 0 }}>
               {data.techs.map((item) => (
                 <ListItem
                   key={item.name}
@@ -186,6 +189,7 @@ export default function OverviewCard({ data }) {
           </Grid>
         </Grid>
         {/* Sample Content Grid */}
+        <Divider sx={{ my: 2, mx: 5 }} />
         <Typography variant="h5">Trusted By...</Typography>
         <Grid
           container

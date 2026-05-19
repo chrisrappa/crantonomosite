@@ -3,17 +3,21 @@
 import React, { useEffect, useState } from "react";
 import {
   Box,
+  Button,
   Card,
   CardContent,
   CardMedia,
   Skeleton,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 
 function FullLengthVideo() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  console.log("vidoes", videos);
 
   useEffect(() => {
     const getFullLengthVideos = async () => {
@@ -87,7 +91,7 @@ function FullLengthVideo() {
           key={video.id}
           sx={{
             borderRadius: "12px",
-            height: 320,
+            height: 360,
             display: "flex",
             flexDirection: "column",
           }}
@@ -98,7 +102,17 @@ function FullLengthVideo() {
             alt={video.title}
             sx={{ height: 190, objectFit: "cover" }}
           />
-          <CardContent sx={{ py: 1, px: 1.5, flex: 1, minHeight: 0 }}>
+          <CardContent
+            sx={{
+              py: 1,
+              px: 1.5,
+              flex: 1,
+              minHeight: 0,
+              display: "flex",
+              flexDirection: "column",
+              "&:last-child": { pb: 1.5 },
+            }}
+          >
             <Typography
               variant="subtitle2"
               sx={{
@@ -124,6 +138,13 @@ function FullLengthVideo() {
             >
               {video.description}
             </Typography>
+            <Box
+              sx={{ mt: "auto", display: "flex", justifyContent: "flex-end" }}
+            >
+              <Link href={video.url} passHref>
+                <Button variant="outlined">Watch Video</Button>
+              </Link>
+            </Box>
           </CardContent>
         </Card>
       ))}

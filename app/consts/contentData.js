@@ -14,7 +14,7 @@ const contentData = {
       content:
         "This is your main dashboard view. Customize this area with your portfolio information.",
       stats: [
-        { label: "Specialty", value: "Client Development & Cloud Based AI Automation", icon: VerifiedIcon},
+        { label: "Specialty", value: "Full-Stack Development & AWS Cloud + A.I.", icon: VerifiedIcon},
         { label: "Years of Experience", value: "10+", icon: CalendarMonthIcon },
         { label: "Features Shipped", value: "50+", icon: RocketLaunchIcon },
         { label: "AI Systems Deployed", value: "15+", icon: SettingsSuggestIcon },

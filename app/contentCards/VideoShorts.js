@@ -1,7 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Box, Card, CardContent, CardMedia, Skeleton, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Skeleton,
+  Typography,
+} from "@mui/material";
+import Link from "next/link";
 
 function VideoShorts() {
   const [videos, setVideos] = useState([]);
@@ -90,7 +99,7 @@ function VideoShorts() {
           key={video.id}
           sx={{
             borderRadius: "12px",
-            height: 440,
+            height: 475,
             display: "flex",
             flexDirection: "column",
           }}
@@ -131,6 +140,13 @@ function VideoShorts() {
             >
               {video.description}
             </Typography>
+            <Box
+              sx={{ mt: "auto", display: "flex", justifyContent: "flex-end" }}
+            >
+              <Link href={video.url} passHref>
+                <Button variant="outlined">Watch</Button>
+              </Link>
+            </Box>
           </CardContent>
         </Card>
       ))}

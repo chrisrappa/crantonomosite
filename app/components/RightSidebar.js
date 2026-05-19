@@ -19,7 +19,6 @@ export default function RightSidebar({
   const [anchorEl, setAnchorEl] = useState(null);
 
   const items = subMenuItems[selectedNav] || [];
-  console.log('selected sub menu', selectedSubMenu);
 
   // Handle popover open/close for small screens
   const handleMouseEnter = (event) => {
