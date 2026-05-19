@@ -14,6 +14,8 @@ import ExperienceCard from "../contentCards/ExperienceCard";
 import FullLengthVideo from "../contentCards/FullLengthVideo";
 import VideoShorts from "../contentCards/VideoShorts";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import MEDDPICCPalCard from "../contentCards/MEDDPICCPalCard";
+import SparkBinsCard from "../contentCards/SparkBinsCard";
 
 function ContentCardView({ selectedSubMenu, data, theme }) {
   switch (selectedSubMenu) {
@@ -25,6 +27,10 @@ function ContentCardView({ selectedSubMenu, data, theme }) {
       return <FullLengthVideo data={data} />;
     case "shorts":
       return <VideoShorts data={data} />;
+    case "meddpiccPal":
+      return <MEDDPICCPalCard data={data} />;
+    case "sparkBins":
+      return <SparkBinsCard data={data} />;
     default:
       return (
         <Card
