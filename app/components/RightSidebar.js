@@ -2,32 +2,10 @@
 
 import { Box, Typography, List, ListItem, ListItemIcon, ListItemText, useTheme, Popover, IconButton, useMediaQuery } from '@mui/material';
 import {
-  Home,
-  BarChart,
-  Settings as SettingsIcon,
-  Lock,
-  Help,
-  Logout as LogoutIcon,
   ChevronLeft,
 } from '@mui/icons-material';
 import { useState } from 'react';
-
-const subMenuItems = {
-  overview: [
-    { id: 'overview', label: 'Basic Info', icon: Home, description: 'Primary Stats' },
-    { id: 'experience', label: 'Experience', icon: BarChart, description: 'Primary Resume' },
-  ],
-  settings: [
-    { id: 'account', label: 'Account', icon: SettingsIcon, description: 'Account Settings' },
-    { id: 'security', label: 'Security', icon: Lock, description: 'Security Settings' },
-  ],
-  help: [
-    { id: 'faq', label: 'FAQ', icon: Help, description: 'Frequently Asked Questions' },
-  ],
-  logout: [
-    { id: 'logout', label: 'Logout', icon: LogoutIcon, description: 'Sign Out' },
-  ],
-};
+import { subMenuItems } from '../contentCards/MenuItems';
 
 export default function RightSidebar({
   selectedNav,

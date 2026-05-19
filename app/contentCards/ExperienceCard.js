@@ -1,9 +1,8 @@
 import { Box, Button, Card, CardContent, Typography, useTheme } from "@mui/material";
-import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import React from "react";
 import experienceEntries from "../consts/experienceEntries";
 
-function ExperienceCard({ data }) {
+function ExperienceCard() {
   const theme = useTheme();
 
   return (
@@ -15,29 +14,11 @@ function ExperienceCard({ data }) {
       }}
     >
       <CardContent>
-        <Button
-          variant="contained"
-          component="a"
-          href="/Chris_Rappa.pdf"
-          download="Chris_Rappa.pdf"
-          startIcon={<PictureAsPdfIcon />}
-          sx={{
-            ...theme.typography.secondaryFont,
-            textTransform: "none",
-            fontWeight: 600,
-            color: "#ffffff",
-          }}
-        >
-          Download PDF Version
-        </Button>
-
-        {/* Sample Content Grid */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             gap: "16px",
-            marginTop: "24px",
           }}
         >
           {experienceEntries.map((i) => (

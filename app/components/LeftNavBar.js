@@ -1,23 +1,8 @@
-'use client';
+"use client";
 
-import { Box, IconButton, Tooltip, Divider, useTheme } from '@mui/material';
-import {
-  Dashboard,
-  Settings,
-  Help,
-  Logout,
-  ChevronRight,
-} from '@mui/icons-material';
-
-const topMenuItems = [
-  { id: 'overview', label: 'Overview', icon: Dashboard },
-  { id: 'settings', label: 'Settings', icon: Settings },
-];
-
-const bottomMenuItems = [
-  { id: 'help', label: 'Help', icon: Help },
-  { id: 'logout', label: 'Logout', icon: Logout },
-];
+import { Box, IconButton, Tooltip, Divider, useTheme } from "@mui/material";
+import { ChevronRight } from "@mui/icons-material";
+import { bottomMenuItems, topMenuItems } from "../contentCards/MenuItems";
 
 export default function LeftNavBar({
   selectedNav,
@@ -47,24 +32,26 @@ export default function LeftNavBar({
         onMouseEnter={() => handleNavHover(id)}
         onMouseLeave={handleNavLeave}
         sx={{
-          width: '100%',
-          height: '60px',
-          borderRadius: '12px',
-          margin: '8px 0',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: selectedNav === id ? theme.palette.primary.main : 'transparent',
-          color: selectedNav === id ? '#ffffff' : theme.palette.text.primary,
-          '&:hover': {
-            backgroundColor: selectedNav === id
-              ? theme.palette.primary.dark
-              : theme.palette.action.hover,
+          width: "100%",
+          height: "60px",
+          borderRadius: "12px",
+          margin: "8px 0",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor:
+            selectedNav === id ? theme.palette.primary.main : "transparent",
+          color: selectedNav === id ? "#ffffff" : theme.palette.text.primary,
+          "&:hover": {
+            backgroundColor:
+              selectedNav === id
+                ? theme.palette.primary.dark
+                : theme.palette.action.hover,
           },
-          transition: 'all 0.3s ease',
+          transition: "all 0.3s ease",
         }}
       >
-        <Icon sx={{ fontSize: '24px' }} />
+        <Icon sx={{ fontSize: "24px" }} />
       </IconButton>
     </Tooltip>
   );
@@ -72,28 +59,28 @@ export default function LeftNavBar({
   return (
     <Box
       sx={{
-        width: '80px',
-        maxWidth: '80px',
-        height: '100%',
+        width: "80px",
+        maxWidth: "80px",
+        height: "100%",
         backgroundColor: theme.palette.background.paper,
-        borderRight: `1px solid ${theme.palette.divider || 'rgba(0,0,0,0.12)'}`,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '16px 8px',
-        overflow: 'hidden',
-        boxShadow: `2px 0 4px ${theme.palette.divider || 'rgba(0,0,0,0.1)'}`,
+        borderRight: `1px solid ${theme.palette.divider || "rgba(0,0,0,0.12)"}`,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "16px 8px",
+        overflow: "hidden",
+        boxShadow: `2px 0 4px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
       }}
     >
       {/* Top Section with Expand Button */}
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '4px',
-          width: '100%',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "column",
+          gap: "4px",
+          width: "100%",
+          alignItems: "center",
         }}
       >
         {/* Expand Button - Only show when sidebar is collapsed */}
@@ -103,28 +90,28 @@ export default function LeftNavBar({
               <IconButton
                 onClick={onToggleSidebar}
                 sx={{
-                  width: '100%',
-                  height: '60px',
-                  borderRadius: '12px',
-                  margin: '8px 0',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  width: "100%",
+                  height: "60px",
+                  borderRadius: "12px",
+                  margin: "8px 0",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                   backgroundColor: theme.palette.primary.main,
-                  color: '#ffffff',
-                  '&:hover': {
+                  color: "#ffffff",
+                  "&:hover": {
                     backgroundColor: theme.palette.primary.dark,
                   },
-                  transition: 'all 0.3s ease',
+                  transition: "all 0.3s ease",
                 }}
               >
-                <ChevronRight sx={{ fontSize: '24px' }} />
+                <ChevronRight sx={{ fontSize: "24px" }} />
               </IconButton>
             </Tooltip>
             <Divider
               sx={{
-                width: '80%',
-                margin: '8px 0',
+                width: "80%",
+                margin: "8px 0",
                 backgroundColor: theme.palette.divider,
               }}
             />
@@ -145,11 +132,11 @@ export default function LeftNavBar({
       {/* Bottom Menu Group */}
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '4px',
-          width: '100%',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "column",
+          gap: "4px",
+          width: "100%",
+          alignItems: "center",
         }}
       >
         {bottomMenuItems.map((item) => (

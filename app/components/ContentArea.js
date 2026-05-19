@@ -1,68 +1,19 @@
 "use client";
 
-import { Box, Typography, Card, CardContent, useTheme } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  useTheme,
+  Button,
+} from "@mui/material";
 import OverviewCard from "../contentCards/OverviewCard";
-import VerifiedIcon from '@mui/icons-material/Verified';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import contentData from "../consts/contentData";
 import ExperienceCard from "../contentCards/ExperienceCard";
-
-const contentData = {
-  overview: {
-    home: {
-      title: "A.I. Supercharged Engineering Lead",
-      img: "primaryHeadshot.png",
-      description:
-        "Years of classic style programming, experience at pre-revenue to Fortune 50 companies, and highly leveraged with agentic AI systems.",
-      content:
-        "This is your main dashboard view. Customize this area with your portfolio information.",
-      stats: [
-        { label: "Specialty", value: "Client Development & Cloud Based AI Automation", icon: VerifiedIcon},
-        { label: "Years of Experience", value: "10+", icon: CalendarMonthIcon },
-        { label: "Features Shipped", value: "50+", icon: RocketLaunchIcon },
-        { label: "AI Systems Deployed", value: "15+", icon: SettingsSuggestIcon },
-      ],
-      techs: [
-        { name: "Next.js / React", icon: "", statLevel: 5 },
-        { name: "Vercel & Github CI/CD", icon: "", statLevel: 4 },
-        { name: "TypeScript", icon: "", statLevel: 4 },
-        { name: "Node.js / API Dev", icon: "", statLevel: 3 },
-        { name: "AWS Cloud / Bedrock AI", icon: "", statLevel: 3 },
-      ]
-    },
-    experience: {
-      title: "Experience",
-      description: "Classic style resume entries detailing my career journey.",
-    },
-  },
-  settings: {
-    account: {
-      title: "Account Settings",
-      description: "Manage your account information.",
-      content: "Update your account settings here.",
-    },
-    security: {
-      title: "Security Settings",
-      description: "Manage your security preferences.",
-      content: "Security options will appear here.",
-    },
-  },
-  help: {
-    faq: {
-      title: "Frequently Asked Questions",
-      description: "Find answers to common questions.",
-      content: "FAQ content will be displayed here.",
-    },
-  },
-  logout: {
-    logout: {
-      title: "Logout",
-      description: "You have been logged out.",
-      content: "Redirecting to login page...",
-    },
-  },
-};
+import FullLengthVideo from "../contentCards/FullLengthVideo";
+import VideoShorts from "../contentCards/VideoShorts";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 
 function ContentCardView({ selectedSubMenu, data, theme }) {
   switch (selectedSubMenu) {
@@ -70,6 +21,10 @@ function ContentCardView({ selectedSubMenu, data, theme }) {
       return <OverviewCard data={data} />;
     case "experience":
       return <ExperienceCard data={data} />;
+    case "fullLength":
+      return <FullLengthVideo data={data} />;
+    case "shorts":
+      return <VideoShorts data={data} />;
     default:
       return (
         <Card
@@ -168,26 +123,54 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
       }}
     >
       {/* Header */}
-      <Box sx={{ marginBottom: "32px" }}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 700,
-            marginBottom: "8px",
-            ...theme.typography.primaryFont,
-          }}
-        >
-          {data?.title}
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            color: theme.palette.text.secondary,
-            ...theme.typography.secondaryFont,
-          }}
-        >
-          {data?.description}
-        </Typography>
+      <Box
+        sx={{
+          marginBottom: "32px",
+          display: "flex",
+          gap: "12px",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+        }}
+      >
+        <Box>
+          <Typography
+            variant="h4"
+            sx={{
+              fontWeight: 700,
+              marginBottom: "8px",
+              ...theme.typography.primaryFont,
+            }}
+          >
+            {data?.title}
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: theme.palette.text.secondary,
+              ...theme.typography.secondaryFont,
+            }}
+          >
+            {data?.description}
+          </Typography>
+        </Box>
+
+        {data?.title === "Experience" && (
+          <Button
+            variant="contained"
+            component="a"
+            href="/Chris_Rappa.pdf"
+            download="Chris_Rappa.pdf"
+            startIcon={<PictureAsPdfIcon />}
+            sx={{
+              ...theme.typography.secondaryFont,
+              textTransform: "none",
+              fontWeight: 600,
+              color: "#ffffff",
+            }}
+          >
+            Download PDF Version
+          </Button>
+        )}
       </Box>
 
       {/* Content Card */}
