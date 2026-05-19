@@ -66,7 +66,6 @@ export default function OverviewCard({ data }) {
               {data.stats.map((item) => (
                 <ListItem
                   key={item.label}
-                  component="button"
                   sx={{
                     backgroundColor: "transparent",
                     color: theme.palette.text.primary,
@@ -78,6 +77,8 @@ export default function OverviewCard({ data }) {
                     },
                     transition: "all 0.2s ease",
                     cursor: "pointer",
+                    border: `1px solid ${theme.palette.primary.main}80`,
+                    boxShadow: `0 1px 25px ${theme.palette.primary.main}40`,
                   }}
                 >
                   <ListItemIcon
@@ -121,7 +122,6 @@ export default function OverviewCard({ data }) {
               {data.techs.map((item) => (
                 <ListItem
                   key={item.name}
-                  component="button"
                   sx={{
                     backgroundColor: "transparent",
                     color: theme.palette.text.primary,
@@ -134,7 +134,8 @@ export default function OverviewCard({ data }) {
                     transition: "all 0.2s ease",
                     cursor: "pointer",
                     width: "100%",
-                    boxShadow: `0 1px 3px ${theme.palette.primary.main}40`,
+                    border: `1px solid ${theme.palette.primary.main}80`,
+                    boxShadow: `0 1px 25px ${theme.palette.primary.main}40`,
                   }}
                 >
                   <ListItemIcon
