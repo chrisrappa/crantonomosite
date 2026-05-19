@@ -6,6 +6,7 @@ import TopNavBar from './components/TopNavBar';
 import LeftNavBar from './components/LeftNavBar';
 import RightSidebar from './components/RightSidebar';
 import ContentArea from './components/ContentArea';
+import { subMenuItems } from './consts/MenuItems';
 
 export default function Home() {
   const theme = useTheme();
@@ -61,7 +62,7 @@ export default function Home() {
           onSelectNav={(nav) => {
             setSelectedNav(nav);
             setHoveredNav(null);
-            setSelectedSubMenu(null);
+            setSelectedSubMenu(subMenuItems[nav]?.[0]?.id || null);
           }}
           onHoverNav={setHoveredNav}
           sidebarCollapsed={sidebarCollapsed}

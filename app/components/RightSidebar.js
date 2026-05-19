@@ -5,7 +5,7 @@ import {
   ChevronLeft,
 } from '@mui/icons-material';
 import { useState } from 'react';
-import { subMenuItems } from '../contentCards/MenuItems';
+import { subMenuItems } from '../consts/MenuItems';
 
 export default function RightSidebar({
   selectedNav,

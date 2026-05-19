@@ -2,7 +2,7 @@
 
 import { Box, IconButton, Tooltip, Divider, useTheme } from "@mui/material";
 import { ChevronRight } from "@mui/icons-material";
-import { bottomMenuItems, topMenuItems } from "../contentCards/MenuItems";
+import { bottomMenuItems, topMenuItems } from "../consts/MenuItems";
 
 export default function LeftNavBar({
   selectedNav,
