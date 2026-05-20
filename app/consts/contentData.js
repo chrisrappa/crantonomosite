@@ -20,7 +20,7 @@ const contentData = {
         { label: "AI Systems Deployed", value: "15+", icon: SettingsSuggestIcon },
       ],
       techs: [
-        { name: "Next.js / React", icon: "", statLevel: 5 },
+        { name: "Next.js / React / Angular", icon: "", statLevel: 5 },
         { name: "Vercel & Github CI/CD", icon: "", statLevel: 4 },
         { name: "TypeScript", icon: "", statLevel: 4 },
         { name: "Node.js / Java / Python", icon: "", statLevel: 3 },

@@ -49,6 +49,24 @@ const lightTheme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: (theme) => ({
+        '*::-webkit-scrollbar': {
+          width: '8px',
+          height: '8px',
+        },
+        '*::-webkit-scrollbar-track': {
+          backgroundColor: theme.palette.background.default,
+        },
+        '*::-webkit-scrollbar-thumb': {
+          backgroundColor: theme.palette.secondary.light,
+          borderRadius: '4px',
+        },
+        '*::-webkit-scrollbar-thumb:hover': {
+          backgroundColor: theme.palette.secondary.main,
+        },
+      }),
+    },
     MuiButton: {
       styleOverrides: {
         contained: {
@@ -111,6 +129,24 @@ const darkTheme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: (theme) => ({
+        '*::-webkit-scrollbar': {
+          width: '8px',
+          height: '8px',
+        },
+        '*::-webkit-scrollbar-track': {
+          backgroundColor: theme.palette.background.default,
+        },
+        '*::-webkit-scrollbar-thumb': {
+          backgroundColor: theme.palette.secondary.light,
+          borderRadius: '4px',
+        },
+        '*::-webkit-scrollbar-thumb:hover': {
+          backgroundColor: theme.palette.secondary.main,
+        },
+      }),
+    },
     MuiButton: {
       styleOverrides: {
         contained: {

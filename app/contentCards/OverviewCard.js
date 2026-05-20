@@ -57,8 +57,9 @@ export default function OverviewCard({ data }) {
               width: "265px",
               height: "300px",
               borderRadius: "8px",
-              marginBottom: "16px",
-              marginTop: "8px"
+              marginBottom: "8px",
+              marginTop: "8px",
+              marginLeft: "8px",
             }}
           />
           <Grid sx={{ minWidth: "320px", flex: 1 }}>
@@ -69,7 +70,6 @@ export default function OverviewCard({ data }) {
                   sx={{
                     backgroundColor: "transparent",
                     color: theme.palette.text.primary,
-                    margin: "8px 0px",
                     borderRadius: "8px",
                     "&:hover": {
                       backgroundColor: "transparent",
@@ -77,8 +77,6 @@ export default function OverviewCard({ data }) {
                     },
                     transition: "all 0.2s ease",
                     cursor: "pointer",
-                    border: `1px solid ${theme.palette.primary.main}80`,
-                    boxShadow: `0 1px 25px ${theme.palette.primary.main}40`,
                   }}
                 >
                   <ListItemIcon
@@ -134,8 +132,8 @@ export default function OverviewCard({ data }) {
                     transition: "all 0.2s ease",
                     cursor: "pointer",
                     width: "100%",
-                    border: `1px solid ${theme.palette.primary.main}80`,
-                    boxShadow: `0 1px 25px ${theme.palette.primary.main}40`,
+                    border: `1px solid ${theme.palette.primary.main}20`,
+                    boxShadow: `0 1px 10px ${theme.palette.primary.main}10`,
                   }}
                 >
                   <ListItemIcon
