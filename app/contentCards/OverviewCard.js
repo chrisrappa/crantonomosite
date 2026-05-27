@@ -109,11 +109,11 @@ export default function OverviewCard({ data }) {
           <Grid
             container
             sx={{
-              marginLeft: "auto",
               flex: 1,
               minWidth: "320px",
-              maxWidth: "520px",
+              maxWidth: { sm: "none", lg: "600px" },
               display: "flex",
+              justifyContent: "flex-start",
             }}
           >
             <List sx={{ flex: 1, width: "100%", pt: 0 }}>
@@ -192,18 +192,32 @@ export default function OverviewCard({ data }) {
         <Typography variant="h2" sx={{ fontWeight: 900, opacity: 0.2, mx: 5}}>Trusted By...</Typography>
         <Grid
           container
-          columns={7}
-          spacing={2}
-          sx={{ justifyContent: "space-between", alignItems: "center", mx: 5 }}
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+            mx: 5,
+            flexWrap: "wrap",
+            gap: 2,
+          }}
         >
           {logos.map((i) => (
-            <Image
-              width={125}
-              height={125}
-              src={i.src}
-              alt={i.alt}
+            <Box
               key={i.alt}
-            />
+              sx={{
+                minWidth: 30,
+                minHeight: 30,
+                width: { xs: 100, sm: 120, md: 75, lg: 100 },
+                height: { xs: 100, sm: 120, md: 75, lg: 100 },
+                position: "relative",
+              }}
+            >
+              <Image
+                fill
+                src={i.src}
+                alt={i.alt}
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
           ))}
         </Grid>
         <Card
@@ -223,7 +237,7 @@ export default function OverviewCard({ data }) {
         >
           <Grid
             container
-            sx={{ flex: 1, gap: "25px", alignItems: "flex-start" }}
+            sx={{ flex: 1, gap: "25px", alignItems: "flex-start", minWidth: "125px" }}
           >
             <Avatar
               alt="Ashlee Barsky"
