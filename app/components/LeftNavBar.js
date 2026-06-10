@@ -13,8 +13,9 @@ export default function LeftNavBar({
 }) {
   const theme = useTheme();
 
-  const handleNavClick = (navId) => {
-    onSelectNav(navId);
+  const handleNavClick = ({ id, label, Icon }) => {
+    console.log('id, label, Icon', id, label, Icon);
+    onSelectNav({ id, label, Icon });
   };
 
   const handleNavHover = (navId) => {
@@ -28,7 +29,7 @@ export default function LeftNavBar({
   const NavItem = ({ id, icon: Icon, label }) => (
     <Tooltip title={label} placement="right">
       <IconButton
-        onClick={() => handleNavClick(id)}
+        onClick={() => handleNavClick({ id, label, Icon })}
         onMouseEnter={() => handleNavHover(id)}
         onMouseLeave={handleNavLeave}
         sx={{

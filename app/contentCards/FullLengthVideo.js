@@ -80,10 +80,10 @@ function FullLengthVideo() {
   return (
     <Box
       sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+        display: "flex",
         gap: 2,
         width: "100%",
+        flexWrap: "wrap",
       }}
     >
       {videos?.map((video) => (
@@ -91,16 +91,17 @@ function FullLengthVideo() {
           key={video.id}
           sx={{
             borderRadius: "12px",
-            height: 360,
+            height: 300,
             display: "flex",
             flexDirection: "column",
+            width: 300
           }}
         >
           <CardMedia
             component="img"
             image={video.thumbnail}
             alt={video.title}
-            sx={{ height: 190, objectFit: "cover" }}
+            sx={{ height: 150, objectFit: "cover" }}
           />
           <CardContent
             sx={{

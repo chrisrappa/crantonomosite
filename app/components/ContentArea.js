@@ -16,6 +16,10 @@ import VideoShorts from "../contentCards/VideoShorts";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import MEDDPICCPalCard from "../contentCards/MEDDPICCPalCard";
 import SparkBinsCard from "../contentCards/SparkBinsCard";
+import AIChatCard from "../contentCards/AIChatCard";
+import EmailSubmission from "../contentCards/EmailSubmission";
+import SocialMediaLinksCard from "../contentCards/SocialMediaLinksCard";
+import MeetingScheduleCard from "../contentCards/MeetingScheduleCard";
 
 function ContentCardView({ selectedSubMenu, data, theme }) {
   switch (selectedSubMenu) {
@@ -31,6 +35,14 @@ function ContentCardView({ selectedSubMenu, data, theme }) {
       return <MEDDPICCPalCard data={data} />;
     case "sparkBins":
       return <SparkBinsCard data={data} />;
+    case "aichatplacholder":
+      return <AIChatCard data={data} />;
+    case "emailForm":
+      return <EmailSubmission data={data} />;
+     case "socialMediaLinks":
+      return <SocialMediaLinksCard data={data} />;
+     case "scheduleMeeting":
+      return <MeetingScheduleCard data={data} />;
     default:
       return (
         <Card
@@ -97,11 +109,11 @@ function ContentCardView({ selectedSubMenu, data, theme }) {
 export default function ContentArea({ selectedNav, selectedSubMenu }) {
   const theme = useTheme();
 
-  console.log("selectedNav:", selectedNav);
-
   const data =
     contentData[selectedNav]?.[selectedSubMenu] ||
     contentData[selectedNav]?.[Object.keys(contentData[selectedNav])[0]];
+
+    console.log('data', data)
 
   return (
     <Box

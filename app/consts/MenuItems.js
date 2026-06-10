@@ -24,7 +24,7 @@ const topMenuItems = [
 ];
 
 const bottomMenuItems = [
-  { id: "chat", label: "Agent Chat", icon: AssistantIcon },
+  { id: "aichat", label: "Agent Chat", icon: AssistantIcon },
   { id: "contact", label: "Contact", icon: AlternateEmailIcon },
 ];
 
@@ -70,6 +70,34 @@ const subMenuItems = {
       icon: Help,
       description: "Frequently Asked Questions",
     },
+  ],
+  aichat: [
+    {
+      id: "aichatplacholder",
+      label: "AI Chat",
+      icon: AssistantIcon,
+      description: "Conversational AI assistant for developers.",
+    },
+  ],
+  contact: [
+    {
+      id: "emailForm",
+      label: "Email Me",
+      icon: AlternateEmailIcon,
+      description: "Send me an email",
+    },
+    {
+      id: "socialMediaLinks",
+      label: "Social Media Links",
+      icon: AlternateEmailIcon,
+      description: "Connect with me on social media",
+    },
+    {
+      id: "scheduleMeeting",
+      label: "Schedule a Meeting",
+      icon: AlternateEmailIcon,
+      description: "Book a meeting with me",
+    }
   ],
   logout: [
     {

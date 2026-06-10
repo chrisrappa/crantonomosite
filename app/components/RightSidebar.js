@@ -9,12 +9,14 @@ import { subMenuItems } from '../consts/MenuItems';
 
 export default function RightSidebar({
   selectedNav,
+  selectedNavLabel,
   selectedSubMenu,
   onSelectSubMenu,
   isCollapsed,
   onToggleCollapse,
   isSmallScreen,
 }) {
+  console.log('selected nav label in sidebar', selectedNavLabel);
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -94,7 +96,7 @@ export default function RightSidebar({
                   ...theme.typography.primaryFont,
                 }}
               >
-                {selectedNav.charAt(0).toUpperCase() + selectedNav.slice(1)}
+                {selectedNavLabel}
               </Typography>
             </Box>
 
@@ -202,7 +204,7 @@ export default function RightSidebar({
             ...theme.typography.primaryFont,
           }}
         >
-          {selectedNav.charAt(0).toUpperCase() + selectedNav.slice(1)}
+          {selectedNavLabel}
         </Typography>
 
         {/* Collapse Button - Show on all screens when not collapsed */}

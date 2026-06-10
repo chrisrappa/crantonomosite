@@ -1,8 +1,7 @@
-
-import VerifiedIcon from '@mui/icons-material/Verified';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import VerifiedIcon from "@mui/icons-material/Verified";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 const contentData = {
   overview: {
@@ -14,10 +13,18 @@ const contentData = {
       content:
         "This is your main dashboard view. Customize this area with your portfolio information.",
       stats: [
-        { label: "Specialty", value: "Full-Stack Development & AWS Cloud + A.I.", icon: VerifiedIcon},
+        {
+          label: "Specialty",
+          value: "Full-Stack Development & AWS Cloud + A.I.",
+          icon: VerifiedIcon,
+        },
         { label: "Years of Experience", value: "10+", icon: CalendarMonthIcon },
         { label: "Features Shipped", value: "50+", icon: RocketLaunchIcon },
-        { label: "AI Systems Deployed", value: "15+", icon: SettingsSuggestIcon },
+        {
+          label: "AI Systems Deployed",
+          value: "15+",
+          icon: SettingsSuggestIcon,
+        },
       ],
       techs: [
         { name: "Next.js / React / Angular", icon: "", statLevel: 5 },
@@ -25,7 +32,7 @@ const contentData = {
         { name: "TypeScript", icon: "", statLevel: 4 },
         { name: "Node.js / Java / Python", icon: "", statLevel: 3 },
         { name: "AWS Cloud / Bedrock AI", icon: "", statLevel: 3 },
-      ]
+      ],
     },
     experience: {
       title: "Experience",
@@ -44,11 +51,40 @@ const contentData = {
       content: "Security options will appear here.",
     },
   },
-  help: {
-    faq: {
-      title: "Frequently Asked Questions",
-      description: "Find answers to common questions.",
-      content: "FAQ content will be displayed here.",
+  projects: {
+    meddpiccPal: {
+      title: "MEDDPICC Pal",
+      description: "Sales call intelligence made simple.",
+      content: "Details about the MEDDPICC Pal project will be displayed here.",
+    },
+    sparkBins: {
+      title: "SparkBins",
+      description: "AI-powered code snippet manager.",
+      content: "Details about the SparkBins project will be displayed here.",
+    },
+  },
+  aichat: {
+    aichatplacholder: {
+      title: "AI Chat",
+      description: "Conversational AI assistant for developers.",
+      content: "Details about the AI Chat project will be displayed here.",
+    },
+  },
+  contact: {
+    emailForm: {
+      title: "Email Form",
+      description: "Submit your email for inquiries.",
+      content: "Email form content will be displayed here.",
+    },
+    socialMediaLinks: {
+      title: "Social Media Links",
+      description: "Connect with me on social media.",
+      content: "Social media links content will be displayed here.",
+    },
+    scheduleMeeting: {
+      title: "Schedule a Meeting",
+      description: "Book a meeting with me.",
+      content: "Meeting schedule content will be displayed here.",
     },
   },
   logout: {

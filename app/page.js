@@ -13,6 +13,7 @@ export default function Home() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const [selectedNav, setSelectedNav] = useState('overview');
+  const [selectedNavLabel, setSelectedNavLabel] = useState('Overview');
   const [hoveredNav, setHoveredNav] = useState(null);
   const [selectedSubMenu, setSelectedSubMenu] = useState('overview');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -59,10 +60,12 @@ export default function Home() {
         {/* Left Navigation Bar */}
         <LeftNavBar
           selectedNav={selectedNav}
-          onSelectNav={(nav) => {
-            setSelectedNav(nav);
+          onSelectNav={({ id, label, Icon }) => {
+            console.log('id, label', id, label);
+            setSelectedNav(id);
+            setSelectedNavLabel(label);
             setHoveredNav(null);
-            setSelectedSubMenu(subMenuItems[nav]?.[0]?.id || null);
+            setSelectedSubMenu(subMenuItems[id]?.[0]?.id || null);
           }}
           onHoverNav={setHoveredNav}
           sidebarCollapsed={sidebarCollapsed}
@@ -72,6 +75,7 @@ export default function Home() {
         {/* Right Sidebar */}
         <RightSidebar
           selectedNav={activeNav}
+          selectedNavLabel={selectedNavLabel}
           selectedSubMenu={selectedSubMenu}
           onSelectSubMenu={setSelectedSubMenu}
           isCollapsed={sidebarCollapsed}
@@ -82,6 +86,7 @@ export default function Home() {
         {/* Content Area */}
         <ContentArea
           selectedNav={selectedNav}
+          selectedNavLabel={selectedNavLabel}
           selectedSubMenu={selectedSubMenu}
         />
       </Box>
