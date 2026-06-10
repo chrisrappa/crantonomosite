@@ -9,13 +9,13 @@ import {
   Settings,
   Logout,
 } from "@mui/icons-material";
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import FastForwardIcon from '@mui/icons-material/FastForward';
-import TerminalIcon from '@mui/icons-material/Terminal';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import AssistantIcon from '@mui/icons-material/Assistant';
-import InfoIcon from '@mui/icons-material/Info';
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import FastForwardIcon from "@mui/icons-material/FastForward";
+import TerminalIcon from "@mui/icons-material/Terminal";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import AssistantIcon from "@mui/icons-material/Assistant";
+import InfoIcon from "@mui/icons-material/Info";
 
 const topMenuItems = [
   { id: "overview", label: "Overview", icon: InfoIcon },
@@ -87,17 +87,17 @@ const subMenuItems = {
       description: "Send me an email",
     },
     {
-      id: "socialMediaLinks",
-      label: "Social Media Links",
-      icon: AlternateEmailIcon,
-      description: "Connect with me on social media",
-    },
-    {
       id: "scheduleMeeting",
       label: "Schedule a Meeting",
       icon: AlternateEmailIcon,
       description: "Book a meeting with me",
-    }
+    },
+    {
+      id: "socialMediaLinks",
+      label: "Social Media",
+      icon: AlternateEmailIcon,
+      description: "Connect with me on social media",
+    },
   ],
   logout: [
     {
