@@ -1,81 +1,81 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
+import { NextResponse } from "next/server";
 
-// Configure your SMTP service here
-// Example using Gmail: 
-// const transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: process.env.SMTP_USER,
-//     pass: process.env.SMTP_PASS,
-//   },
-// });
-
-// Example using a custom SMTP server:
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const BETA_NOTIFICATION_RECIPIENT = "christian@vortexmediaconsulting.com";
 
 export async function POST(req) {
+  const transporter = nodemailer.createTransport({
+    host: "smtp-relay.brevo.com",
+    port: 587,
+    auth: {
+      user: `${process.env.EMAILUSERNAME}`,
+      pass: `${process.env.BREVO_SMTP_AUTH_KEY}`,
+    },
+    debug: false,
+    logger: true,
+  });
+
   try {
-    const { email, subject, body } = await req.json();
+    const { emailAddress, emailSubject, emailBody } = await req.json();
 
-    // Validate input
-    if (!email || !subject || !body) {
-      return new Response(
-        JSON.stringify({ error: 'Missing required fields' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
+    const validationError = validateCorrectProps({ emailAddress });
+    if (validationError) {
+      return NextResponse.json(
+        { error: validationError.error },
+        { status: validationError.status }
       );
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return new Response(
-        JSON.stringify({ error: 'Invalid email address' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
+    const notificationMailOptions = {
+      from: `${process.env.EMAIL_SENDER_ADDRESS}`,
+      to: BETA_NOTIFICATION_RECIPIENT,
+      subject: `Crantonomo: ${emailSubject}`,
+      text: `User with email address ${emailAddress} sends: ${emailBody}`,
+      html: `<p>User with email address <strong>${emailAddress}</strong> sends: ${emailBody}</p>`,
+    };
 
-    // Send email
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM_EMAIL,
-      to: process.env.SMTP_TO_EMAIL, // Your email address to receive messages
-      replyTo: email,
-      subject: `Portfolio Contact: ${subject}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <hr />
-        <h3>Message:</h3>
-        <p>${body.replace(/\n/g, '<br>')}</p>
-      `,
-      text: `
-New Contact Form Submission
+    const confirmationMailOptions = {
+      from: `${process.env.EMAIL_SENDER_ADDRESS}`,
+      to: emailAddress,
+      subject: `Crantonomo: ${emailSubject}`,
+      text: `Thanks for your email! If it is an interview request or you wish to contract my services, I will be with you within 24 - 48 hours. All other requests I'll respond within a week.`,
+      html: `<p>Thanks for your email! If it is an interview request or you wish to contract my services, I will be with you within 24 - 48 hours. All other requests I'll respond within a week.</p>`,
+    };
 
-From: ${email}
-Subject: ${subject}
+    const [info] = await Promise.all([
+      transporter.sendMail(notificationMailOptions),
+      transporter.sendMail(confirmationMailOptions),
+    ]);
 
-Message:
-${body}
-      `,
-    });
-
-    return new Response(
-      JSON.stringify({ success: true, message: 'Email sent successfully' }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
+    return NextResponse.json(
+      {
+        message: "Email confirmation to submitter sent successfully",
+        data: info?.response,
+      },
+      { status: 200 }
     );
   } catch (error) {
-    console.error('Email sending error:', error);
-    return new Response(
-      JSON.stringify({ error: 'Failed to send email' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    console.error("Error handling user sent email:", error);
+    return NextResponse.json(
+      { error: error.message || "Internal Server Error" },
+      { status: 500 }
     );
+  }
+}
+
+export function validateCorrectProps({ emailAddress }) {
+  if (!emailAddress) {
+    return {
+      error: "Email address is required",
+      status: 400,
+    };
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailAddress)) {
+    return {
+      error: "Invalid email address format",
+      status: 400,
+    };
   }
 }

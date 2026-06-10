@@ -66,9 +66,9 @@ function EmailSubmission(){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email,
-          subject: finalSubject,
-          body,
+          emailAddress: email,
+          emailSubject: finalSubject,
+          emailBody: body,
         }),
       });
 
@@ -129,7 +129,7 @@ function EmailSubmission(){
         backgroundColor: theme.palette.background.paper,
         boxShadow: `0 2px 8px ${theme.palette.divider || 'rgba(0,0,0,0.1)'}`,
         borderRadius: '12px',
-        overflow: 'hidden',
+        overflow: 'auto',
         width: '100%',
         height: '100%',
         display: 'flex',
