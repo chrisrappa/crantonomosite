@@ -19,6 +19,32 @@ async function getPlaylistItems(playlistId, apiKey, pageToken = "") {
   return await res.json();
 }
 
+async function getVideoDetails(videoIds, apiKey) {
+  if (videoIds.length === 0) return {};
+
+  const url = new URL("https://youtube.googleapis.com/youtube/v3/videos");
+  url.searchParams.set("part", "status");
+  url.searchParams.set("id", videoIds.join(","));
+  url.searchParams.set("key", apiKey);
+
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) {
+    console.log("Failed to fetch video details:", res.status, await res.text());
+    throw new Error(`Failed to fetch video details: ${res.status}`);
+  }
+
+  const data = await res.json();
+  const videoStatusMap = {};
+  
+  if (data.items) {
+    data.items.forEach((item) => {
+      videoStatusMap[item.id] = item.status;
+    });
+  }
+
+  return videoStatusMap;
+}
+
 export async function GET() {
   const channelId = process.env.CRANTONOMO_YOUTUBE_CHANNEL_ID || "";
   const offset = Math.max(0, Number.parseInt("0", 10));
@@ -58,21 +84,30 @@ export async function GET() {
         break;
       }
 
+      // Collect video IDs to fetch their status
+      const videoIds = items.map((item) => item.snippet.resourceId.videoId);
+      const videoStatusMap = await getVideoDetails(videoIds, apiKey);
+
       for (const item of items) {
         const videoId = item.snippet.resourceId.videoId;
+        const videoStatus = videoStatusMap[videoId];
 
-          videos.push({
-            id: videoId,
-            title: item.snippet.title,
-            description: item.snippet.description,
-            thumbnail:
-              item.snippet.thumbnails?.high?.url ||
-              item.snippet.thumbnails?.default?.url ||
-              "",
-            publishedAt: item.contentDetails.videoPublishedAt,
-            url: `https://www.youtube.com/watch?v=${videoId}`,
-          });
-        
+        // Skip if video status is not available (deleted) or not public
+        if (!videoStatus || videoStatus.privacyStatus !== "public") {
+          continue;
+        }
+
+        videos.push({
+          id: videoId,
+          title: item.snippet.title,
+          description: item.snippet.description,
+          thumbnail:
+            item.snippet.thumbnails?.high?.url ||
+            item.snippet.thumbnails?.default?.url ||
+            "",
+          publishedAt: item.contentDetails.videoPublishedAt,
+          url: `https://www.youtube.com/watch?v=${videoId}`,
+        });
       }
 
       totalProcessed += items.length;

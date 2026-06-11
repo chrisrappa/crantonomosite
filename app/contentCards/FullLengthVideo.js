@@ -84,6 +84,7 @@ function FullLengthVideo() {
         gap: 2,
         width: "100%",
         flexWrap: "wrap",
+        justifyContent: { xs: "center", md: "center", lg: "flex-start" },
       }}
     >
       {videos?.map((video) => (
@@ -91,17 +92,17 @@ function FullLengthVideo() {
           key={video.id}
           sx={{
             borderRadius: "12px",
-            height: 300,
+            minHeight: 200,
             display: "flex",
             flexDirection: "column",
-            width: 300
+            maxWidth: 400
           }}
         >
           <CardMedia
             component="img"
             image={video.thumbnail}
             alt={video.title}
-            sx={{ height: 150, objectFit: "cover" }}
+            sx={{ minHeight: 150, maxHeight: 200, objectFit: "cover" }}
           />
           <CardContent
             sx={{
@@ -140,10 +141,10 @@ function FullLengthVideo() {
               {video.description}
             </Typography>
             <Box
-              sx={{ mt: "auto", display: "flex", justifyContent: "flex-end" }}
+              sx={{ mt: "auto", display: "flex", justifyContent: "flex-end", marginTop: 1 }}
             >
               <Link href={video.url} passHref>
-                <Button variant="outlined">Watch Video</Button>
+                <Button variant="outlined" color="secondary">Watch Video</Button>
               </Link>
             </Box>
           </CardContent>

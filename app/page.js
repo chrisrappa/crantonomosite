@@ -6,6 +6,7 @@ import TopNavBar from './components/TopNavBar';
 import LeftNavBar from './components/LeftNavBar';
 import RightSidebar from './components/RightSidebar';
 import ContentArea from './components/ContentArea';
+import MobileDrawer from './components/MobileDrawer';
 import { subMenuItems } from './consts/MenuItems';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
   const [hoveredNav, setHoveredNav] = useState(null);
   const [selectedSubMenu, setSelectedSubMenu] = useState('overview');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   console.log('selected sub menu', selectedSubMenu);
 
@@ -47,7 +49,11 @@ export default function Home() {
       }}
     >
       {/* Top Navigation Bar */}
-      <TopNavBar />
+      <TopNavBar
+        onMobileMenuToggle={() => setMobileDrawerOpen(!mobileDrawerOpen)}
+        isMobileDrawerOpen={mobileDrawerOpen}
+        isSmallScreen={isSmallScreen}
+      />
 
       {/* Main Content Container */}
       <Box
@@ -57,31 +63,55 @@ export default function Home() {
           overflow: 'hidden',
         }}
       >
-        {/* Left Navigation Bar */}
-        <LeftNavBar
-          selectedNav={selectedNav}
-          onSelectNav={({ id, label, Icon }) => {
-            console.log('id, label', id, label);
-            setSelectedNav(id);
-            setSelectedNavLabel(label);
-            setHoveredNav(null);
-            setSelectedSubMenu(subMenuItems[id]?.[0]?.id || null);
-          }}
-          onHoverNav={setHoveredNav}
-          sidebarCollapsed={sidebarCollapsed}
-          onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
-        />
+        {/* Mobile Drawer (xs only) */}
+        {isSmallScreen && (
+          <MobileDrawer
+            open={mobileDrawerOpen}
+            onClose={() => setMobileDrawerOpen(false)}
+            selectedNav={selectedNav}
+            onSelectNav={({ id, label }) => {
+              setSelectedNav(id);
+              setSelectedNavLabel(label);
+              setHoveredNav(null);
+              setSelectedSubMenu(subMenuItems[id]?.[0]?.id || null);
+            }}
+            selectedSubMenu={selectedSubMenu}
+            onSelectSubMenu={(subMenuId) => {
+              setSelectedSubMenu(subMenuId);
+              setMobileDrawerOpen(false);
+            }}
+          />
+        )}
 
-        {/* Right Sidebar */}
-        <RightSidebar
-          selectedNav={activeNav}
-          selectedNavLabel={selectedNavLabel}
-          selectedSubMenu={selectedSubMenu}
-          onSelectSubMenu={setSelectedSubMenu}
-          isCollapsed={sidebarCollapsed}
-          onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
-          isSmallScreen={isSmallScreen}
-        />
+        {/* Left Navigation Bar (hidden on xs) */}
+        {!isSmallScreen && (
+          <LeftNavBar
+            selectedNav={selectedNav}
+            onSelectNav={({ id, label, Icon }) => {
+              console.log('id, label', id, label);
+              setSelectedNav(id);
+              setSelectedNavLabel(label);
+              setHoveredNav(null);
+              setSelectedSubMenu(subMenuItems[id]?.[0]?.id || null);
+            }}
+            onHoverNav={setHoveredNav}
+            sidebarCollapsed={sidebarCollapsed}
+            onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)}
+          />
+        )}
+
+        {/* Right Sidebar (hidden on xs) */}
+        {!isSmallScreen && (
+          <RightSidebar
+            selectedNav={activeNav}
+            selectedNavLabel={selectedNavLabel}
+            selectedSubMenu={selectedSubMenu}
+            onSelectSubMenu={setSelectedSubMenu}
+            isCollapsed={sidebarCollapsed}
+            onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+            isSmallScreen={isSmallScreen}
+          />
+        )}
 
         {/* Content Area */}
         <ContentArea

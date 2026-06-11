@@ -70,7 +70,7 @@ function MeetingScheduleCard() {
             right: 0,
             bottom: 0,
             width: "100%",
-            height: "100%",
+            height: "10            ls -la ~/Library/AWS_CLI/0%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

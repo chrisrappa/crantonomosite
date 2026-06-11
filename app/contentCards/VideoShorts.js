@@ -141,10 +141,10 @@ function VideoShorts() {
               {video.description}
             </Typography>
             <Box
-              sx={{ mt: "auto", display: "flex", justifyContent: "flex-end" }}
+              sx={{ mt: 1, display: "flex", justifyContent: "flex-end" }}
             >
               <Link href={video.url} passHref>
-                <Button variant="outlined">Watch</Button>
+                <Button variant="outlined" color="secondary">Watch</Button>
               </Link>
             </Box>
           </CardContent>

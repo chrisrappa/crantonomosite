@@ -229,7 +229,7 @@ function EmailSubmission(){
           fullWidth
           label="Message"
           multiline
-          rows={20}
+          rows={10}
           value={body}
           onChange={(e) => setBody(e.target.value)}
           disabled={loading}

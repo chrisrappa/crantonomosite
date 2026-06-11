@@ -9,26 +9,31 @@ import {
   useTheme,
   Button,
   Divider,
+  Dialog,
+  DialogTitle,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import LaunchIcon from "@mui/icons-material/Launch";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import CloseIcon from "@mui/icons-material/Close";
 
 // Sample carousel images
 const carouselImages = [
-  { src: "/meddpiccpalSplash.png", alt: "MEDDPICC Pal - Sales Intelligence 1" },
-  { src: "/meddpiccpalRules4.png", alt: "MEDDPICC Pal - Sales Intelligence 2" },
+  { src: "/meddpiccpalSplash.png", alt: "MEDDPICC Pal - Landing" },
+  { src: "/meddpiccpalRules4.png", alt: "MEDDPICC Pal - Rules" },
   {
     src: "/meddpiccpalTranscript.png",
-    alt: "MEDDPICC Pal - Sales Intelligence 3",
+    alt: "MEDDPICC Pal - Transcript",
   },
 ];
 
 function MEDDPICCPalCard() {
   const theme = useTheme();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [openImageModal, setOpenImageModal] = useState(false);
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prev) =>
@@ -70,8 +75,8 @@ function MEDDPICCPalCard() {
             backgroundColor:
               theme.palette.mode === "dark" ? "#1e1e1e" : "#f5f5f5",
             display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            overflow: { xs: "auto", md: "hidden" },
+            flexDirection: { xs: "column", sm: "column", md: "column", lg: "row" },
+            overflow: { xs: "auto", md: "auto", lg: "hidden" },
           }}
         >
           <CardContent
@@ -105,6 +110,22 @@ function MEDDPICCPalCard() {
                   backgroundColor: theme.palette.background.default,
                 }}
               />
+              {/* Magnify Icon Button */}
+              <IconButton
+                onClick={() => setOpenImageModal(true)}
+                sx={{
+                  position: "absolute",
+                  bottom: 12,
+                  right: 12,
+                  backgroundColor: theme.palette.primary.main + "dd",
+                  color: "#fff",
+                  "&:hover": {
+                    backgroundColor: theme.palette.primary.main,
+                  },
+                }}
+              >
+                <ZoomInIcon />
+              </IconButton>
             </Box>
 
             {/* Carousel Controls */}
@@ -120,9 +141,9 @@ function MEDDPICCPalCard() {
                 onClick={handlePrevImage}
                 size="medium"
                 sx={{
-                  color: theme.palette.primary.main,
+                  color: theme.palette.secondary.main,
                   "&:hover": {
-                    backgroundColor: theme.palette.primary.main + "20",
+                    backgroundColor: theme.palette.secondary.main + "20",
                   },
                 }}
               >
@@ -148,8 +169,8 @@ function MEDDPICCPalCard() {
                       borderRadius: "50%",
                       backgroundColor:
                         index === currentImageIndex
-                          ? theme.palette.primary.main
-                          : theme.palette.primary.main + "40",
+                          ? theme.palette.secondary.main
+                          : theme.palette.secondary.main + "40",
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       "&:hover": {
@@ -164,9 +185,9 @@ function MEDDPICCPalCard() {
                 onClick={handleNextImage}
                 size="medium"
                 sx={{
-                  color: theme.palette.primary.main,
+                  color: theme.palette.secondary.main,
                   "&:hover": {
-                    backgroundColor: theme.palette.primary.main + "20",
+                    backgroundColor: theme.palette.secondary.main + "20",
                   },
                 }}
               >
@@ -178,18 +199,22 @@ function MEDDPICCPalCard() {
           {/* Description and Links Section */}
           <CardContent
             sx={{
-              flex: { xs: 1, md: 0.8 },
+              flex: { xs: 1, sm: 1, md: 1, lg: 0.8 },
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-evenly",
               padding: "24px",
               borderLeft: {
                 xs: "none",
-                md: `1px solid ${theme.palette.divider}`,
+                sm: "none",
+                md: "none",
+                lg: `1px solid ${theme.palette.divider}`,
               },
               borderTop: {
                 xs: `1px solid ${theme.palette.divider}`,
-                md: "none",
+                sm: `1px solid ${theme.palette.divider}`,
+                md: `1px solid ${theme.palette.divider}`,
+                lg: "none",
               },
             }}
           >
@@ -250,8 +275,8 @@ function MEDDPICCPalCard() {
                 target="_blank"
                 variant="outlined"
                 sx={{
-                  color: theme.palette.primary.main,
-                  borderColor: theme.palette.primary.main,
+                  color: theme.palette.secondary.main,
+                  borderColor: theme.palette.secondary.main,
                   textTransform: "none",
                   fontSize: "0.95rem",
                   display: "flex",
@@ -259,8 +284,8 @@ function MEDDPICCPalCard() {
                   justifyContent: "center",
                   gap: "8px",
                   "&:hover": {
-                    backgroundColor: theme.palette.primary.main + "10",
-                    borderColor: theme.palette.primary.main,
+                    backgroundColor: theme.palette.secondary.main + "10",
+                    borderColor: theme.palette.secondary.main,
                   },
                 }}
               >
@@ -271,6 +296,58 @@ function MEDDPICCPalCard() {
           </CardContent>
         </Card>
       </CardContent>
+
+      {/* Image Modal */}
+      <Dialog
+        open={openImageModal}
+        onClose={() => setOpenImageModal(false)}
+        maxWidth="lg"
+        fullWidth
+        PaperProps={{
+          sx: {
+            backgroundColor: theme.palette.background.paper,
+          },
+        }}
+      >
+        <DialogTitle
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "16px 24px",
+            borderBottom: `1px solid ${theme.palette.divider}`,
+          }}
+        >
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            {carouselImages[currentImageIndex].alt}
+          </Typography>
+          <IconButton
+            onClick={() => setOpenImageModal(false)}
+            sx={{
+              color: theme.palette.text.primary,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <Box
+          sx={{
+            position: "relative",
+            width: "100%",
+            aspectRatio: "16 / 9",
+            padding: "24px",
+          }}
+        >
+          <Image
+            src={carouselImages[currentImageIndex].src}
+            alt={carouselImages[currentImageIndex].alt}
+            fill
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        </Box>
+      </Dialog>
     </Card>
   );
 }

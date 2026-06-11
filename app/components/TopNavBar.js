@@ -1,10 +1,10 @@
 'use client';
 
-import { Box, AppBar, Toolbar, Typography, IconButton, useTheme } from '@mui/material';
-import { Brightness4, Brightness7 } from '@mui/icons-material';
+import { Box, AppBar, Toolbar, Typography, IconButton, useTheme, useMediaQuery } from '@mui/material';
+import { Brightness4, Brightness7, Menu } from '@mui/icons-material';
 import { useTheme as useAppTheme } from '../MUIThemeProvider';
 
-export default function TopNavBar() {
+export default function TopNavBar({ onMobileMenuToggle, isMobileDrawerOpen, isSmallScreen }) {
   const muiTheme = useTheme();
   const { isDark, toggleTheme } = useAppTheme();
 
@@ -27,16 +27,31 @@ export default function TopNavBar() {
           padding: '0 20px',
         }}
       >
-        <Typography
-          variant="h6"
-          sx={{
-            fontWeight: 600,
-            letterSpacing: '0.5px',
-            ...muiTheme.typography.primaryFont,
-          }}
-        >
-          Crantonomo
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          {isSmallScreen && (
+            <IconButton
+              onClick={onMobileMenuToggle}
+              sx={{
+                color: muiTheme.palette.text.primary,
+                '&:hover': {
+                  backgroundColor: muiTheme.palette.action.hover,
+                },
+              }}
+            >
+              <Menu />
+            </IconButton>
+          )}
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 600,
+              letterSpacing: '0.5px',
+              ...muiTheme.typography.primaryFont,
+            }}
+          >
+            Crantonomo
+          </Typography>
+        </Box>
 
         <IconButton
           onClick={toggleTheme}

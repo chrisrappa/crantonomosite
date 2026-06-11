@@ -88,13 +88,13 @@ const darkTheme = createTheme({
     mode: 'dark',
     primary: {
       main: '#803226',
-      light: '#b3e5fc',
-      dark: '#1565c0',
+      light: '#8d281f',
+      dark: '#3a1313',
     },
     secondary: {
-      main: '#f48fb1',
-      light: '#f8bbd0',
-      dark: '#c2185b',
+      main: '#f0cf6b',
+      light: '#f2e49f',
+      dark: '#8b6f1b',
     },
     background: {
       default: '#121212',

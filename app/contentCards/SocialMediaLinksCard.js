@@ -115,8 +115,9 @@ function SocialMediaLinksCard() {
                   target="_blank"
                   variant="outlined"
                   sx={{
-                    color: theme.palette.primary.main,
-                    borderColor: theme.palette.primary.main,
+                    color: theme.palette.secondary.main,
+                    borderColor: theme.palette.primary.light,
+                    backgroundColor: theme.palette.primary.light,
                     textTransform: "none",
                     fontSize: "0.85rem",
                     display: "flex",
@@ -124,8 +125,8 @@ function SocialMediaLinksCard() {
                     gap: "6px",
                     padding: "8px 12px",
                     "&:hover": {
-                      backgroundColor: theme.palette.primary.main + "10",
-                      borderColor: theme.palette.primary.main,
+                      backgroundColor: theme.palette.secondary.main + "10",
+                      borderColor: theme.palette.secondary.main,
                     },
                   }}
                 >

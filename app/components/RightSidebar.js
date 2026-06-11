@@ -240,6 +240,7 @@ export default function RightSidebar({
                   ? '#ffffff'
                   : theme.palette.text.primary,
               margin: '4px 8px',
+              border: 'none',
               borderRadius: '8px',
               '&:hover': {
                 backgroundColor:
