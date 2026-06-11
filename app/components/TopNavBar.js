@@ -15,7 +15,7 @@ export default function TopNavBar({ onMobileMenuToggle, isMobileDrawerOpen, isSm
         height: '64px',
         backgroundColor: muiTheme.palette.background.paper,
         color: muiTheme.palette.text.primary,
-        boxShadow: `0 2px 4px ${muiTheme.palette.divider || 'rgba(0,0,0,0.1)'}`,
+        boxShadow: 'none',
         borderBottom: `1px solid ${muiTheme.palette.divider || 'rgba(0,0,0,0.12)'}`,
       }}
     >

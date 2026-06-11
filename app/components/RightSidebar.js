@@ -84,7 +84,7 @@ export default function RightSidebar({
               display: 'flex',
               flexDirection: 'column',
               overflow: 'hidden',
-              boxShadow: `2px 0 4px ${theme.palette.divider || 'rgba(0,0,0,0.1)'}`,
+              borderRadius: '1rem',
             }}
           >
             {/* Header */}
@@ -174,15 +174,16 @@ export default function RightSidebar({
   return (
     <Box
       sx={{
-        width: isCollapsed ? '0px' : '320px',
-        minWidth: isCollapsed ? '0px' : '320px',
-        height: '100%',
+        width: isCollapsed ? '0px' : '250px',
+        height: '98%',
+        margin: '0.5rem',
+        marginLeft: '0',
         backgroundColor: theme.palette.background.paper,
         borderRight: `1px solid ${theme.palette.divider || 'rgba(0,0,0,0.12)'}`,
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden',
-        boxShadow: `2px 0 4px ${theme.palette.divider || 'rgba(0,0,0,0.1)'}`,
+        borderRadius: '1rem',
         transition: 'all 0.3s ease',
       }}
     >
@@ -262,7 +263,6 @@ export default function RightSidebar({
             </ListItemIcon>
             <ListItemText
               primary={item.label}
-              secondary={item.description}
               sx={{
                 '& .MuiListItemText-primary': {
                   fontWeight: 500,

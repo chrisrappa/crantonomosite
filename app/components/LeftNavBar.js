@@ -60,18 +60,18 @@ export default function LeftNavBar({
   return (
     <Box
       sx={{
-        width: "80px",
-        maxWidth: "80px",
-        height: "100%",
-        backgroundColor: theme.palette.background.paper,
-        borderRight: `1px solid ${theme.palette.divider || "rgba(0,0,0,0.12)"}`,
+        width: "70px",
+        margin: '0.5rem',
+        height: "98%",
+        border: `1px solid transparent`,
+        background: `linear-gradient(${theme.palette.background.paper}, ${theme.palette.background.paper}) padding-box, linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main}) border-box`,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "16px 8px",
+        padding: "0px 8px",
         overflow: "hidden",
-        boxShadow: `2px 0 4px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
+        borderRadius: '1rem',
       }}
     >
       {/* Top Section with Expand Button */}
