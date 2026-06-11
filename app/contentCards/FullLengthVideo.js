@@ -143,7 +143,7 @@ function FullLengthVideo() {
             <Box
               sx={{ mt: "auto", display: "flex", justifyContent: "flex-end", marginTop: 1 }}
             >
-              <Link href={video.url} passHref>
+              <Link href={video.url} target="_blank" passHref>
                 <Button variant="outlined" color="secondary">Watch Video</Button>
               </Link>
             </Box>
