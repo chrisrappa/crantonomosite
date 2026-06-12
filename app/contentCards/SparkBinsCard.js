@@ -27,7 +27,10 @@ const carouselImages = [
     src: "/sparkbinsIdeaCaptureVoicerecord.png",
     alt: "Spark Bins - Idea Capture",
   },
-  { src: "/sparkbinsRichTextEditing.png", alt: "Spark Bins - Rich Text Editing" },
+  {
+    src: "/sparkbinsRichTextEditing.png",
+    alt: "Spark Bins - Rich Text Editing",
+  },
 ];
 
 function SparkBinsCard() {
@@ -50,7 +53,7 @@ function SparkBinsCard() {
   return (
     <Card
       sx={{
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: "transparent",
         boxShadow: `0 2px 8px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
         borderRadius: "12px",
         overflow: "auto",
@@ -69,13 +72,16 @@ function SparkBinsCard() {
           padding: "32px",
         }}
       >
-        <Card
+        <Box
           sx={{
             flex: 1,
-            backgroundColor:
-              theme.palette.mode === "dark" ? "#1e1e1e" : "#f5f5f5",
             display: "flex",
-            flexDirection: { xs: "column", sm: "column", md: "column", lg: "row" },
+            flexDirection: {
+              xs: "column",
+              sm: "column",
+              md: "column",
+              lg: "row",
+            },
             overflow: { xs: "auto", md: "auto", lg: "hidden" },
           }}
         >
@@ -99,16 +105,14 @@ function SparkBinsCard() {
                 borderRadius: "8px",
                 overflow: "hidden",
                 mb: 2,
+                backgroundColor: "transparent",
               }}
             >
               <Image
                 src={carouselImages[currentImageIndex].src}
                 alt={carouselImages[currentImageIndex].alt}
                 fill
-                style={{
-                  objectFit: "contain",
-                  backgroundColor: theme.palette.background.default,
-                }}
+                style={{ objectFit: "fill" }}
               />
               {/* Magnify Icon Button */}
               <IconButton
@@ -141,9 +145,9 @@ function SparkBinsCard() {
                 onClick={handlePrevImage}
                 size="medium"
                 sx={{
-                  color: theme.palette.secondary.main,
+                  color: theme.palette.secondary.dark,
                   "&:hover": {
-                    backgroundColor: theme.palette.secondary.main + "20",
+                    backgroundColor: theme.palette.secondary.dark + "20",
                   },
                 }}
               >
@@ -169,8 +173,8 @@ function SparkBinsCard() {
                       borderRadius: "50%",
                       backgroundColor:
                         index === currentImageIndex
-                          ? theme.palette.secondary.main
-                          : theme.palette.secondary.main + "40",
+                          ? theme.palette.secondary.dark
+                          : theme.palette.secondary.dark + "40",
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       "&:hover": {
@@ -185,9 +189,9 @@ function SparkBinsCard() {
                 onClick={handleNextImage}
                 size="medium"
                 sx={{
-                  color: theme.palette.secondary.main,
+                  color: theme.palette.secondary.dark,
                   "&:hover": {
-                    backgroundColor: theme.palette.secondary.main + "20",
+                    backgroundColor: theme.palette.secondary.dark + "20",
                   },
                 }}
               >
@@ -297,7 +301,7 @@ function SparkBinsCard() {
               </Button>
             </Box>
           </CardContent>
-        </Card>
+        </Box>
       </CardContent>
 
       {/* Image Modal */}

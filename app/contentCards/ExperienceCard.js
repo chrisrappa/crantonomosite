@@ -8,13 +8,14 @@ function ExperienceCard() {
   return (
     <Card
       sx={{
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: 'transparent',
+        // backgroundColor: theme.palette.background.paper,
         boxShadow: `0 2px 8px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
         borderRadius: "12px",
         overflow: "auto"
       }}
     >
-      <CardContent>
+      <CardContent sx={{ backgroundColor: 'transparent'}}>
         <Box
           sx={{
             display: "flex",

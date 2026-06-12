@@ -11,9 +11,10 @@ export default function TopNavBar({ onMobileMenuToggle, isMobileDrawerOpen, isSm
   return (
     <AppBar
       position="static"
+      elevation={0}
       sx={{
         height: '64px',
-        backgroundColor: muiTheme.palette.background.paper,
+        backgroundColor: 'transparent',
         color: muiTheme.palette.text.primary,
         boxShadow: 'none',
         borderBottom: `1px solid ${muiTheme.palette.divider || 'rgba(0,0,0,0.12)'}`,

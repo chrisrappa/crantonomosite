@@ -50,7 +50,7 @@ function MEDDPICCPalCard() {
   return (
     <Card
       sx={{
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: 'transparent',
         boxShadow: `0 2px 8px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
         borderRadius: "12px",
         overflow: "auto",
@@ -67,13 +67,13 @@ function MEDDPICCPalCard() {
           gap: "24px",
           height: "100%",
           padding: "32px",
+          backgroundColor: 'transparent'
         }}
       >
-        <Card
+        <Box
           sx={{
             flex: 1,
-            backgroundColor:
-              theme.palette.mode === "dark" ? "#1e1e1e" : "#f5f5f5",
+            backgroundColor: 'transparent',
             display: "flex",
             flexDirection: { xs: "column", sm: "column", md: "column", lg: "row" },
             overflow: { xs: "auto", md: "auto", lg: "hidden" },
@@ -88,6 +88,7 @@ function MEDDPICCPalCard() {
               alignItems: "center",
               padding: "24px",
               minWidth: 0,
+              backgroundColor: 'transparent',
             }}
           >
             {/* Image Carousel */}
@@ -105,10 +106,7 @@ function MEDDPICCPalCard() {
                 src={carouselImages[currentImageIndex].src}
                 alt={carouselImages[currentImageIndex].alt}
                 fill
-                style={{
-                  objectFit: "contain",
-                  backgroundColor: theme.palette.background.default,
-                }}
+                style={{ objectFit: "fill" }}
               />
               {/* Magnify Icon Button */}
               <IconButton
@@ -141,7 +139,7 @@ function MEDDPICCPalCard() {
                 onClick={handlePrevImage}
                 size="medium"
                 sx={{
-                  color: theme.palette.secondary.main,
+                  color: theme.palette.secondary.dark,
                   "&:hover": {
                     backgroundColor: theme.palette.secondary.main + "20",
                   },
@@ -169,8 +167,8 @@ function MEDDPICCPalCard() {
                       borderRadius: "50%",
                       backgroundColor:
                         index === currentImageIndex
-                          ? theme.palette.secondary.main
-                          : theme.palette.secondary.main + "40",
+                          ? theme.palette.secondary.dark
+                          : theme.palette.secondary.dark + "40",
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       "&:hover": {
@@ -185,7 +183,7 @@ function MEDDPICCPalCard() {
                 onClick={handleNextImage}
                 size="medium"
                 sx={{
-                  color: theme.palette.secondary.main,
+                  color: theme.palette.secondary.dark,
                   "&:hover": {
                     backgroundColor: theme.palette.secondary.main + "20",
                   },
@@ -294,7 +292,7 @@ function MEDDPICCPalCard() {
               </Button>
             </Box>
           </CardContent>
-        </Card>
+        </Box>
       </CardContent>
 
       {/* Image Modal */}

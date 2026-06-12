@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useMemo } from 'react';
-import { Box, useTheme, useMediaQuery } from '@mui/material';
-import TopNavBar from './components/TopNavBar';
-import LeftNavBar from './components/LeftNavBar';
-import RightSidebar from './components/RightSidebar';
-import ContentArea from './components/ContentArea';
-import MobileDrawer from './components/MobileDrawer';
-import { subMenuItems } from './consts/MenuItems';
+import { useState, useEffect, useMemo } from "react";
+import { Box, useTheme, useMediaQuery } from "@mui/material";
+import TopNavBar from "./components/TopNavBar";
+import LeftNavBar from "./components/LeftNavBar";
+import RightSidebar from "./components/RightSidebar";
+import ContentArea from "./components/ContentArea";
+import MobileDrawer from "./components/MobileDrawer";
+import { subMenuItems } from "./consts/MenuItems";
 
 export default function Home() {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  const [selectedNav, setSelectedNav] = useState('overview');
-  const [selectedNavLabel, setSelectedNavLabel] = useState('Overview');
+  const [selectedNav, setSelectedNav] = useState("overview");
+  const [selectedNavLabel, setSelectedNavLabel] = useState("Overview");
   const [hoveredNav, setHoveredNav] = useState(null);
-  const [selectedSubMenu, setSelectedSubMenu] = useState('overview');
+  const [selectedSubMenu, setSelectedSubMenu] = useState("overview");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
-  console.log('selected sub menu', selectedSubMenu);
+  console.log("selected sub menu", selectedSubMenu);
 
   // Determine if sidebar should be auto-collapsed based on screen size changes
   const shouldAutoCollapse = useMemo(() => {
@@ -40,14 +40,32 @@ export default function Home() {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        width: '100vw',
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.default,
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh",
+        width: "100vw",
+        overflow: "hidden",
+        position: "relative",
+        // backgroundColor: theme.palette.background.default,
       }}
     >
+      <video
+        autoPlay
+        muted
+        loop
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.06,
+          zIndex: -1,
+        }}
+      >
+        <source src="/darkDotsWave.mp4" type="video/mp4" />
+      </video>
       {/* Top Navigation Bar */}
       <TopNavBar
         onMobileMenuToggle={() => setMobileDrawerOpen(!mobileDrawerOpen)}
@@ -58,9 +76,9 @@ export default function Home() {
       {/* Main Content Container */}
       <Box
         sx={{
-          display: 'flex',
+          display: "flex",
           flex: 1,
-          overflow: 'hidden',
+          overflow: "hidden",
         }}
       >
         {/* Mobile Drawer (xs only) */}
@@ -88,7 +106,7 @@ export default function Home() {
           <LeftNavBar
             selectedNav={selectedNav}
             onSelectNav={({ id, label, Icon }) => {
-              console.log('id, label', id, label);
+              console.log("id, label", id, label);
               setSelectedNav(id);
               setSelectedNavLabel(label);
               setHoveredNav(null);

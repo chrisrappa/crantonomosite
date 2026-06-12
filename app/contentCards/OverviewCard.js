@@ -32,7 +32,8 @@ export default function OverviewCard({ data }) {
   return (
     <Card
       sx={{
-        backgroundColor: theme.palette.background.paper,
+        // backgroundColor: theme.palette.background.paper,
+        backgroundColor: 'transparent',
         boxShadow: `0 2px 8px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
         borderRadius: "12px",
         overflow: "auto",

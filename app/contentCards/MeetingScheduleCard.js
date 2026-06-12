@@ -48,10 +48,10 @@ function MeetingScheduleCard() {
   }, []);
 
   return (
-    <Card
+    <Box
       sx={{
-        backgroundColor: theme.palette.background.paper,
-        boxShadow: `0 2px 8px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
+        backgroundColor: 'transparent',
+        // boxShadow: `0 2px 8px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
         borderRadius: "12px",
         overflow: "hidden",
         width: "100%",
@@ -74,7 +74,8 @@ function MeetingScheduleCard() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: theme.palette.background.paper + "cc",
+            // backgroundColor: theme.palette.background.paper + "cc",
+            backgroundColor: 'transparent',
             zIndex: 10,
             borderRadius: "12px",
           }}
@@ -90,6 +91,7 @@ function MeetingScheduleCard() {
           height: "100%",
           padding: "32px",
           overflow: "hidden",
+          backgroundColor: 'transparent'
         }}
       >
         <Cal
@@ -103,7 +105,7 @@ function MeetingScheduleCard() {
           }}
         />
       </CardContent>
-    </Card>
+    </Box>
   );
 }
 

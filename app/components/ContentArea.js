@@ -120,7 +120,7 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
       sx={{
         flex: 1,
         height: "100%",
-        backgroundColor: theme.palette.background.default,
+        // backgroundColor: theme.palette.background.default,
         display: "flex",
         flexDirection: "column",
         overflowY: "auto",

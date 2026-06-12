@@ -34,7 +34,7 @@ export default function LeftNavBar({
         onMouseLeave={handleNavLeave}
         sx={{
           width: "100%",
-          height: "60px",
+          height: "50px",
           borderRadius: "12px",
           margin: "8px 0",
           display: "flex",
@@ -92,7 +92,7 @@ export default function LeftNavBar({
                 onClick={onToggleSidebar}
                 sx={{
                   width: "100%",
-                  height: "60px",
+                  height: "50px",
                   borderRadius: "12px",
                   margin: "8px 0",
                   display: "flex",

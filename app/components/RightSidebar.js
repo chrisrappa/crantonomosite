@@ -1,11 +1,20 @@
-'use client';
+"use client";
 
-import { Box, Typography, List, ListItem, ListItemIcon, ListItemText, useTheme, Popover, IconButton, useMediaQuery } from '@mui/material';
 import {
-  ChevronLeft,
-} from '@mui/icons-material';
-import { useState } from 'react';
-import { subMenuItems } from '../consts/MenuItems';
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  useTheme,
+  Popover,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import { ChevronLeft } from "@mui/icons-material";
+import { subMenuItems } from "../consts/MenuItems";
 
 export default function RightSidebar({
   selectedNav,
@@ -14,186 +23,34 @@ export default function RightSidebar({
   onSelectSubMenu,
   isCollapsed,
   onToggleCollapse,
-  isSmallScreen,
 }) {
-  console.log('selected nav label in sidebar', selectedNavLabel);
+  console.log("selected nav label in sidebar", selectedNavLabel);
   const theme = useTheme();
-  const [anchorEl, setAnchorEl] = useState(null);
-
   const items = subMenuItems[selectedNav] || [];
 
-  // Handle popover open/close for small screens
-  const handleMouseEnter = (event) => {
-    if (isSmallScreen && isCollapsed) {
-      setAnchorEl(event.currentTarget);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (isSmallScreen && isCollapsed) {
-      setAnchorEl(null);
-    }
-  };
-
-  const open = Boolean(anchorEl);
-
-  // Don't render sidebar if collapsed and on small screens
-  const shouldShowAsPopover = isSmallScreen && isCollapsed;
-
-  if (shouldShowAsPopover) {
-    return (
-      <>
-        {/* Invisible hover target for small screens */}
-        <Box
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          sx={{
-            position: 'absolute',
-            left: '80px',
-            top: '64px',
-            width: '0',
-            height: 'calc(100vh - 64px)',
-            zIndex: 1000,
-          }}
-        />
-
-        {/* Popover for small screens */}
-        <Popover
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleMouseLeave}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          onMouseLeave={handleMouseLeave}
-          onMouseEnter={(e) => setAnchorEl(e.currentTarget)}
-          sx={{
-            pointerEvents: 'auto',
-          }}
-        >
-          <Box
-            sx={{
-              width: '320px',
-              maxHeight: 'calc(100vh - 64px)',
-              backgroundColor: theme.palette.background.paper,
-              display: 'flex',
-              flexDirection: 'column',
-              overflow: 'hidden',
-              borderRadius: '1rem',
-            }}
-          >
-            {/* Header */}
-            <Box sx={{ padding: '16px', borderBottom: `1px solid ${theme.palette.divider}`, flexShrink: 0 }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 600,
-                  ...theme.typography.primaryFont,
-                }}
-              >
-                {selectedNavLabel}
-              </Typography>
-            </Box>
-
-            {/* Menu Items */}
-            <List sx={{ flex: 1, padding: '8px 0', overflow: 'hidden' }}>
-              {items.map((item) => (
-                <ListItem
-                  key={item.id}
-                  button
-                  onClick={() => {
-                    onSelectSubMenu(item.id);
-                    handleMouseLeave();
-                  }}
-                  sx={{
-                    backgroundColor:
-                      selectedSubMenu === item.id
-                        ? theme.palette.primary.main
-                        : 'transparent',
-                    color:
-                      selectedSubMenu === item.id
-                        ? '#ffffff'
-                        : theme.palette.text.light,
-                    margin: '4px 8px',
-                    borderRadius: '8px',
-                    '&:hover': {
-                      backgroundColor:
-                        selectedSubMenu === item.id
-                          ? theme.palette.primary.dark
-                          : theme.palette.action.hover,
-                    },
-                    transition: 'all 0.2s ease',
-                    cursor: 'pointer',
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      color: 'inherit',
-                      minWidth: '40px',
-                    }}
-                  >
-                    <item.icon />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.label}
-                    secondary={item.description}
-                    sx={{
-                      '& .MuiListItemText-primary': {
-                        ...theme.typography.primaryFont,
-                        fontWeight: 500,
-                        color:
-                          selectedSubMenu === item.id
-                            ? theme.palette.text.light
-                            : theme.palette.text.primary,
-                      },
-                      '& .MuiListItemText-secondary': {
-                        ...theme.typography.secondaryFont,
-                        fontSize: '0.75rem',
-                        color:
-                          selectedSubMenu === item.id
-                            ? theme.palette.text.tertiary
-                            : theme.palette.text.secondary,
-                      },
-                    }}
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-        </Popover>
-      </>
-    );
-  }
-
-  // Desktop view or expanded state
   return (
     <Box
       sx={{
-        width: isCollapsed ? '0px' : '250px',
-        height: '98%',
-        margin: '0.5rem',
-        marginLeft: '0',
-        backgroundColor: theme.palette.background.paper,
-        borderRight: `1px solid ${theme.palette.divider || 'rgba(0,0,0,0.12)'}`,
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden',
-        borderRadius: '1rem',
-        transition: 'all 0.3s ease',
+        width: isCollapsed ? "0px" : "250px",
+        height: "98%",
+        margin: "0.5rem",
+        marginLeft: "0",
+        backgroundColor: alpha(theme.palette.background.paper, 0.5),
+        borderRight: `1px solid ${theme.palette.divider || "rgba(0,0,0,0.12)"}`,
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden",
+        borderRadius: "1rem",
+        transition: "all 0.3s ease",
       }}
     >
       {/* Header with Collapse Button */}
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '16px',
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "5px 5px 0px 20px",
           borderBottom: `1px solid ${theme.palette.divider}`,
           flexShrink: 0,
         }}
@@ -214,18 +71,18 @@ export default function RightSidebar({
             onClick={onToggleCollapse}
             sx={{
               color: theme.palette.text.primary,
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: theme.palette.action.hover,
               },
             }}
           >
-            <ChevronLeft sx={{ fontSize: '20px' }} />
+            <ChevronLeft sx={{ fontSize: "20px" }} />
           </IconButton>
         )}
       </Box>
 
       {/* Menu Items */}
-      <List sx={{ flex: 1, padding: '8px 0', overflow: 'hidden' }}>
+      <List sx={{ flex: 1, padding: "8px 0", overflow: "hidden" }}>
         {items.map((item) => (
           <ListItem
             key={item.id}
@@ -235,28 +92,29 @@ export default function RightSidebar({
               backgroundColor:
                 selectedSubMenu === item.id
                   ? theme.palette.primary.main
-                  : 'transparent',
+                  : "transparent",
               color:
                 selectedSubMenu === item.id
-                  ? '#ffffff'
+                  ? "#ffffff"
                   : theme.palette.text.primary,
-              margin: '4px 8px',
-              border: 'none',
-              borderRadius: '8px',
-              '&:hover': {
+              margin: "4px 8px",
+              border: "none",
+              borderRadius: "8px",
+              "&:hover": {
                 backgroundColor:
                   selectedSubMenu === item.id
                     ? theme.palette.primary.light
                     : theme.palette.action.hover,
               },
-              transition: 'all 0.2s ease',
-              cursor: 'pointer',
+              transition: "all 0.2s ease",
+              cursor: "pointer",
+              height: "40px",
             }}
           >
             <ListItemIcon
               sx={{
-                color: 'inherit',
-                minWidth: '40px',
+                color: "inherit",
+                minWidth: "40px",
               }}
             >
               <item.icon />
@@ -264,7 +122,7 @@ export default function RightSidebar({
             <ListItemText
               primary={item.label}
               sx={{
-                '& .MuiListItemText-primary': {
+                "& .MuiListItemText-primary": {
                   fontWeight: 500,
                   ...theme.typography.primaryFont,
                   color:
@@ -272,9 +130,9 @@ export default function RightSidebar({
                       ? theme.palette.text.light
                       : theme.palette.text.primary,
                 },
-                '& .MuiListItemText-secondary': {
+                "& .MuiListItemText-secondary": {
                   ...theme.typography.secondaryFont,
-                  fontSize: '0.75rem',
+                  fontSize: "0.75rem",
                   color:
                     selectedSubMenu === item.id
                       ? theme.palette.text.tertiary
