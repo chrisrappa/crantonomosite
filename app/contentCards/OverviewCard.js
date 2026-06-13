@@ -53,7 +53,7 @@ export default function OverviewCard({ data }) {
           position: "relative",
           backgroundColor: "rgba(255, 255, 255, 0.05)",
           borderRadius: "1rem",
-          overflow: "visible",
+          overflow: "auto",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -68,6 +68,8 @@ export default function OverviewCard({ data }) {
           transform: "translateZ(0)",
           WebkitTransform: "translateZ(0)",
           isolation: "isolate",
+          boxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+          WebkitBoxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
           "&::before": {
             content: "''",
             position: "absolute",
@@ -75,10 +77,6 @@ export default function OverviewCard({ data }) {
             zIndex: 0,
             overflow: "hidden",
             borderRadius: "1rem",
-            boxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
-            WebkitBoxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
             pointerEvents: "none",
           },
         }}
