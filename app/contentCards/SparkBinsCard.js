@@ -79,12 +79,10 @@ function SparkBinsCard() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
-          WebkitFilter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
-          backdropFilter:
-                `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#sparkBinsDisplacementFilter)`,
-          WebkitBackdropFilter:
-                `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#sparkBinsDisplacementFilter)`,
+          filter: "drop-shadow(-8px -10px 30px rgba(0, 0, 0, 0.5))",
+          WebkitFilter: "drop-shadow(-8px -10px 30px rgba(0, 0, 0, 0.5))",
+          backdropFilter: `brightness(1.05) blur(3px) url(#sparkBinsDisplacementFilter)`,
+          WebkitBackdropFilter: `brightness(1.05) blur(3px) url(#sparkBinsDisplacementFilter)`,
           willChange: "backdrop-filter",
           WebkitWillChange: "backdrop-filter",
           transform: "translateZ(0)",
@@ -98,9 +96,9 @@ function SparkBinsCard() {
             overflow: "hidden",
             borderRadius: "28px",
             boxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 1), inset 0 0 1px 1px rgba(255, 255, 255, 1)",
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
             WebkitBoxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0), inset 0 0 5px 1px rgba(255, 255, 255, 0.21)",
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
             pointerEvents: "none",
           },
         }}
