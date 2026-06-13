@@ -51,17 +51,23 @@ export default function OverviewCard({ data }) {
       <Box
         sx={{
           position: "relative",
-          backgroundColor: "rgba(255, 255, 255, 0.01)",
+          backgroundColor: "rgba(255, 255, 255, 0.05)",
           borderRadius: "1rem",
-          overflow: "auto",
+          overflow: "visible",
           width: "100%",
           height: "100%",
           display: "flex",
           padding: '1rem',
           flexDirection: "column",
           filter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
-          backdropFilter: "brightness(1.1) blur(8px) url(#overviewDisplacementFilter)",
-          WebkitBackdropFilter: "brightness(1.1) blur(10px) url(#overviewDisplacementFilter)",
+          WebkitFilter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
+          backdropFilter: "brightness(1.05) blur(3px) url(#overviewDisplacementFilter)",
+          WebkitBackdropFilter: "brightness(1.05) blur(3px) url(#overviewDisplacementFilter)",
+          willChange: "backdrop-filter",
+          WebkitWillChange: "backdrop-filter",
+          transform: "translateZ(0)",
+          WebkitTransform: "translateZ(0)",
+          isolation: "isolate",
           "&::before": {
             content: "''",
             position: "absolute",
@@ -70,9 +76,9 @@ export default function OverviewCard({ data }) {
             overflow: "hidden",
             borderRadius: "1rem",
             boxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.03), inset 0 0 1px 1px rgba(255, 255, 255, 0.16)",
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
             WebkitBoxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.03), inset 0 0 5px 1px rgba(255, 255, 255, 0.16)",
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
             pointerEvents: "none",
           },
         }}

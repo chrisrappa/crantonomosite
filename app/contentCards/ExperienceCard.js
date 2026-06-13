@@ -56,12 +56,18 @@ function ExperienceCard() {
               transition:
                 "transform 0.2s ease, box-shadow 0.2s ease, opacity 0.26s ease-out",
               filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
+              WebkitFilter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
               backdropFilter:
                 `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#displacementFilter)`,
               WebkitBackdropFilter:
                 `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#displacementFilter)`,
-              overflow: "hidden",
-              backgroundColor: "rgba(255, 255, 255, 0.01)",
+              willChange: "backdrop-filter",
+              WebkitWillChange: "backdrop-filter",
+              transform: "translateZ(0)",
+              WebkitTransform: "translateZ(0)",
+              isolation: "isolate",
+              overflow: "visible",
+              backgroundColor: "rgba(255, 255, 255, 0.05)",
               "&::before": {
                 content: "''",
                 position: "absolute",

@@ -72,18 +72,24 @@ function SparkBinsCard() {
       <Box
         sx={{
           position: "relative",
-          backgroundColor: "rgba(255, 255, 255, 0.01)",
+          backgroundColor: "rgba(255, 255, 255, 0.05)",
           borderRadius: "28px",
-          overflow: "hidden",
+          overflow: "visible",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
           filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
- backdropFilter:
+          WebkitFilter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
+          backdropFilter:
                 `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#sparkBinsDisplacementFilter)`,
-              WebkitBackdropFilter:
+          WebkitBackdropFilter:
                 `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#sparkBinsDisplacementFilter)`,
+          willChange: "backdrop-filter",
+          WebkitWillChange: "backdrop-filter",
+          transform: "translateZ(0)",
+          WebkitTransform: "translateZ(0)",
+          isolation: "isolate",
           "&::before": {
             content: "''",
             position: "absolute",
