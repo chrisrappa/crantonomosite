@@ -1,6 +1,7 @@
-import { Box, Button, Card, CardContent, Typography, useTheme } from "@mui/material";
+import { Box, Button, Card, CardContent, Typography, useTheme, Tooltip } from "@mui/material";
 import React from "react";
 import experienceEntries from "../consts/experienceEntries";
+import Image from "next/image";
 
 function ExperienceCard() {
   const theme = useTheme();
@@ -69,15 +70,33 @@ function ExperienceCard() {
                 }}
               >
                 {i.techStack.map((tech, index) => (
-                  <Box
-                    key={index}
-                    sx={{
-                      width: "28px",
-                      height: "28px",
-                      backgroundColor: "rgba(255,255,255,0.2)",
-                      borderRadius: "4px",
-                    }}
-                  />
+                  <Tooltip key={index} title={tech.name}>
+                    <Box
+                      sx={{
+                        width: "28px",
+                        height: "28px",
+                        borderRadius: "4px",
+                        overflow: "hidden",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: '0.05rem',
+                        backgroundColor: "rgb(255, 255, 255)",
+                      }}
+                    >
+                      <Image
+                        src={tech.src}
+                        alt={tech.name}
+                        width={28}
+                        height={28}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                        }}
+                      />
+                    </Box>
+                  </Tooltip>
                 ))}
               </Box>
 

@@ -24,7 +24,6 @@ const logos = [
   { src: "/vmwaregray.png", alt: "VMware" },
   { src: "/futuresgrayevensmaller.png", alt: "US Army Software Factory" },
   { src: "/wellsfargogray.png", alt: "Wells Fargo" },
-  { src: "/applelogogray.png", alt: "Apple" },
 ];
 
 export default function OverviewCard({ data }) {
