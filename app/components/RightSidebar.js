@@ -29,120 +29,168 @@ export default function RightSidebar({
   const items = subMenuItems[selectedNav] || [];
 
   return (
-    <Box
-      sx={{
-        width: isCollapsed ? "0px" : "250px",
-        height: "98%",
-        margin: "0.5rem",
-        marginLeft: "0",
-        backgroundColor: alpha(theme.palette.background.paper, 0.5),
-        borderRight: `1px solid ${theme.palette.divider || "rgba(0,0,0,0.12)"}`,
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        borderRadius: "1rem",
-        transition: "all 0.3s ease",
-      }}
-    >
-      {/* Header with Collapse Button */}
+    <>
+      {/* SVG Filter for Glass Morphism Effect */}
+      <svg style={{ display: "none" }}>
+        <filter id="rightSidebarDisplacementFilter">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.02"
+            numOctaves="3"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="turbulence"
+            scale="30"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
+
       <Box
         sx={{
+          width: isCollapsed ? "0px" : "250px",
+          height: "98%",
+          margin: "0.5rem",
+          marginLeft: "0",
+          position: "relative",
+          backgroundColor: "rgba(255, 255, 255, 0.01)",
+          borderRight: `1px solid ${theme.palette.divider || "rgba(0,0,0,0.12)"}`,
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "5px 5px 0px 20px",
-          borderBottom: `1px solid ${theme.palette.divider}`,
-          flexShrink: 0,
+          flexDirection: "column",
+          overflow: "hidden",
+          borderRadius: "1rem",
+          transition: "all 0.3s ease",
+          filter: "drop-shadow(-4px -4px 12px rgba(0, 0, 0, 0.3))",
+          backdropFilter: `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#rightSidebarDisplacementFilter)`,
+          WebkitBackdropFilter: `brightness(${theme.palette.mode === "dark" ? 1.1 : 1.05}) blur(7px) url(#rightSidebarDisplacementFilter)`,
+          "&::before": {
+            content: "''",
+            position: "absolute",
+            inset: 0,
+            zIndex: 0,
+            overflow: "hidden",
+            borderRadius: "1rem",
+            boxShadow:
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 1), inset 0 0 1px 1px rgba(255, 255, 255, 1)",
+            WebkitBoxShadow:
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.08), inset 0 0 5px 1px rgba(255, 255, 255, 0.11)",
+            pointerEvents: "none",
+          },
         }}
       >
-        <Typography
-          variant="h6"
+        {/* Header with Collapse Button */}
+        <Box
           sx={{
-            fontWeight: 600,
-            ...theme.typography.primaryFont,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "5px 5px 0px 20px",
+            borderBottom: `1px solid ${theme.palette.divider}`,
+            flexShrink: 0,
+            position: "relative",
+            zIndex: 1,
           }}
         >
-          {selectedNavLabel}
-        </Typography>
-
-        {/* Collapse Button - Show on all screens when not collapsed */}
-        {!isCollapsed && (
-          <IconButton
-            onClick={onToggleCollapse}
+          <Typography
+            variant="h6"
             sx={{
-              color: theme.palette.text.primary,
-              "&:hover": {
-                backgroundColor: theme.palette.action.hover,
-              },
+              fontWeight: 600,
+              ...theme.typography.primaryFont,
             }}
           >
-            <ChevronLeft sx={{ fontSize: "20px" }} />
-          </IconButton>
-        )}
-      </Box>
+            {selectedNavLabel}
+          </Typography>
 
-      {/* Menu Items */}
-      <List sx={{ flex: 1, padding: "8px 0", overflow: "hidden" }}>
-        {items.map((item) => (
-          <ListItem
-            key={item.id}
-            component="button"
-            onClick={() => onSelectSubMenu(item.id)}
-            sx={{
-              backgroundColor:
-                selectedSubMenu === item.id
-                  ? theme.palette.primary.main
-                  : "transparent",
-              color:
-                selectedSubMenu === item.id
-                  ? "#ffffff"
-                  : theme.palette.text.primary,
-              margin: "4px 8px",
-              border: "none",
-              borderRadius: "8px",
-              "&:hover": {
-                backgroundColor:
-                  selectedSubMenu === item.id
-                    ? theme.palette.primary.light
-                    : theme.palette.action.hover,
-              },
-              transition: "all 0.2s ease",
-              cursor: "pointer",
-              height: "40px",
-            }}
-          >
-            <ListItemIcon
+          {/* Collapse Button - Show on all screens when not collapsed */}
+          {!isCollapsed && (
+            <IconButton
+              onClick={onToggleCollapse}
               sx={{
-                color: "inherit",
-                minWidth: "40px",
+                color: theme.palette.text.primary,
+                "&:hover": {
+                  backgroundColor: theme.palette.action.hover,
+                },
               }}
             >
-              <item.icon />
-            </ListItemIcon>
-            <ListItemText
-              primary={item.label}
+              <ChevronLeft sx={{ fontSize: "20px" }} />
+            </IconButton>
+          )}
+        </Box>
+
+        {/* Menu Items */}
+        <List
+          sx={{
+            flex: 1,
+            padding: "8px 0",
+            overflow: "hidden",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          {items.map((item) => (
+            <ListItem
+              key={item.id}
+              component="button"
+              onClick={() => onSelectSubMenu(item.id)}
               sx={{
-                "& .MuiListItemText-primary": {
-                  fontWeight: 500,
-                  ...theme.typography.primaryFont,
-                  color:
+                backgroundColor:
+                  selectedSubMenu === item.id
+                    ? theme.palette.primary.main
+                    : "transparent",
+                color:
+                  selectedSubMenu === item.id
+                    ? "#ffffff"
+                    : theme.palette.text.primary,
+                margin: "4px 8px",
+                border: "none",
+                borderRadius: "8px",
+                "&:hover": {
+                  backgroundColor:
                     selectedSubMenu === item.id
-                      ? theme.palette.text.light
-                      : theme.palette.text.primary,
+                      ? theme.palette.primary.light
+                      : theme.palette.action.hover,
                 },
-                "& .MuiListItemText-secondary": {
-                  ...theme.typography.secondaryFont,
-                  fontSize: "0.75rem",
-                  color:
-                    selectedSubMenu === item.id
-                      ? theme.palette.text.tertiary
-                      : theme.palette.text.secondary,
-                },
+                transition: "all 0.2s ease",
+                cursor: "pointer",
+                height: "40px",
               }}
-            />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+            >
+              <ListItemIcon
+                sx={{
+                  color: "inherit",
+                  minWidth: "40px",
+                }}
+              >
+                <item.icon />
+              </ListItemIcon>
+              <ListItemText
+                primary={item.label}
+                sx={{
+                  "& .MuiListItemText-primary": {
+                    fontWeight: 500,
+                    ...theme.typography.primaryFont,
+                    color:
+                      selectedSubMenu === item.id
+                        ? theme.palette.text.light
+                        : theme.palette.text.primary,
+                  },
+                  "& .MuiListItemText-secondary": {
+                    ...theme.typography.secondaryFont,
+                    fontSize: "0.75rem",
+                    color:
+                      selectedSubMenu === item.id
+                        ? theme.palette.text.tertiary
+                        : theme.palette.text.secondary,
+                  },
+                }}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </>
   );
 }

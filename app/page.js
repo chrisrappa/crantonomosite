@@ -60,7 +60,8 @@ export default function Home() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          opacity: 0.06,
+          // opacity: 0.06,
+          opacity: 0.2,
           zIndex: -1,
         }}
       >

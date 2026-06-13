@@ -3,7 +3,6 @@ import {
   Avatar,
   Box,
   Card,
-  CardContent,
   Divider,
   Grid,
   List,
@@ -29,20 +28,64 @@ const logos = [
 export default function OverviewCard({ data }) {
   const theme = useTheme();
   return (
-    <Card
-      sx={{
-        // backgroundColor: theme.palette.background.paper,
-        backgroundColor: 'transparent',
-        boxShadow: `0 2px 8px ${theme.palette.divider || "rgba(0,0,0,0.1)"}`,
-        borderRadius: "12px",
-        overflow: "auto",
-        width: "100%",
-      }}
-    >
-      <CardContent
-        width={"100%"}
-        sx={{ display: "flex", flexDirection: "column", gap: "24px" }}
+    <>
+      {/* SVG Filter for Glass Morphism Effect */}
+      <svg style={{ display: "none" }}>
+        <filter id="overviewDisplacementFilter">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.02"
+            numOctaves="3"
+            result="turbulence"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="turbulence"
+            scale="30"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
+
+      <Box
+        sx={{
+          position: "relative",
+          backgroundColor: "rgba(255, 255, 255, 0.01)",
+          borderRadius: "1rem",
+          overflow: "auto",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          padding: '1rem',
+          flexDirection: "column",
+          filter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
+          backdropFilter: "brightness(1.1) blur(8px) url(#overviewDisplacementFilter)",
+          WebkitBackdropFilter: "brightness(1.1) blur(10px) url(#overviewDisplacementFilter)",
+          "&::before": {
+            content: "''",
+            position: "absolute",
+            inset: 0,
+            zIndex: 0,
+            overflow: "hidden",
+            borderRadius: "1rem",
+            boxShadow:
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.03), inset 0 0 1px 1px rgba(255, 255, 255, 0.16)",
+            WebkitBoxShadow:
+              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.03), inset 0 0 5px 1px rgba(255, 255, 255, 0.16)",
+            pointerEvents: "none",
+          },
+        }}
       >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "24px",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
         <Grid
           container
           columns={3}
@@ -56,7 +99,7 @@ export default function OverviewCard({ data }) {
             sx={{
               width: "265px",
               height: "300px",
-              borderRadius: "8px",
+              borderRadius: "1rem",
               marginBottom: "8px",
               marginTop: "8px",
               marginLeft: "8px",
@@ -268,7 +311,8 @@ export default function OverviewCard({ data }) {
             </Typography>
           </Grid>
         </Card>
-      </CardContent>
-    </Card>
+        </Box>
+      </Box>
+    </>
   );
 }
