@@ -35,6 +35,17 @@ function SparkBinsCard() {
   const theme = useTheme();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [openImageModal, setOpenImageModal] = useState(false);
+  const [isChromium] = useState(() => {
+    if (typeof window === "undefined") return true;
+    
+    const userAgent = navigator.userAgent;
+    const isChrome = /Chrome|Chromium|Opera/.test(userAgent);
+    const isEdge = /Edg/.test(userAgent);
+    const isFirefox = /Firefox/.test(userAgent);
+    const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
+    
+    return (isChrome || isEdge) && !isFirefox && !isSafari;
+  });
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prev) =>
@@ -50,24 +61,26 @@ function SparkBinsCard() {
 
   return (
     <>
-      {/* SVG Filter for Glass Morphism Effect */}
-      <svg style={{ display: "none" }}>
-        <filter id="sparkBinsDisplacementFilter">
-          <feTurbulence
-            type="turbulence"
-            baseFrequency="0.02"
-            numOctaves="3"
-            result="turbulence"
-          />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="turbulence"
-            scale="30"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-      </svg>
+      {/* SVG Filter for Glass Morphism Effect - Chromium only */}
+      {isChromium && (
+        <svg style={{ display: "none" }}>
+          <filter id="sparkBinsDisplacementFilter">
+            <feTurbulence
+              type="turbulence"
+              baseFrequency="0.02"
+              numOctaves="3"
+              result="turbulence"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="turbulence"
+              scale="30"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </svg>
+      )}
 
       <Box
         sx={{
@@ -79,15 +92,34 @@ function SparkBinsCard() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          filter: "drop-shadow(-8px -10px 30px rgba(0, 0, 0, 0.5))",
-          WebkitFilter: "drop-shadow(-8px -10px 30px rgba(0, 0, 0, 0.5))",
-          backdropFilter: `brightness(1.05) blur(3px) url(#sparkBinsDisplacementFilter)`,
-          WebkitBackdropFilter: `brightness(1.05) blur(3px) url(#sparkBinsDisplacementFilter)`,
           willChange: "backdrop-filter",
           WebkitWillChange: "backdrop-filter",
           transform: "translateZ(0)",
           WebkitTransform: "translateZ(0)",
           isolation: "isolate",
+          ...(isChromium
+            ? {
+                // Chromium (Chrome, Edge, Opera): Full glass morphism with SVG
+                filter: "drop-shadow(-8px -10px 30px rgba(0, 0, 0, 0.5))",
+                WebkitFilter: "drop-shadow(-8px -10px 30px rgba(0, 0, 0, 0.5))",
+                backdropFilter: `brightness(1.05) blur(3px) url(#sparkBinsDisplacementFilter)`,
+                WebkitBackdropFilter: `brightness(1.05) blur(3px) url(#sparkBinsDisplacementFilter)`,
+              }
+            : {
+                // Firefox/Safari: Simpler styling without SVG
+                backdropFilter: "brightness(1.1) blur(8px)",
+                WebkitBackdropFilter: "brightness(1.1) blur(8px)",
+                boxShadow: `
+                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  -8px -10px 30px rgba(0, 0, 0, 0.06)
+                `,
+                WebkitBoxShadow: `
+                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  -8px -10px 30px rgba(0, 0, 0, 0.06)
+                `,
+              }),
           "&::before": {
             content: "''",
             position: "absolute",
@@ -95,10 +127,17 @@ function SparkBinsCard() {
             zIndex: 0,
             overflow: "hidden",
             borderRadius: "28px",
-            boxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
-            WebkitBoxShadow:
-              "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+            ...(isChromium
+              ? {
+                  boxShadow:
+                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                  WebkitBoxShadow:
+                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                }
+              : {
+                  boxShadow: "none",
+                  WebkitBoxShadow: "none",
+                }),
             pointerEvents: "none",
           },
         }}
