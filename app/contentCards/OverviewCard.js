@@ -191,7 +191,7 @@ export default function OverviewCard({ data }) {
             sx={{
               flex: 1,
               minWidth: "320px",
-              maxWidth: { sm: "none", lg: "600px" },
+              maxWidth: { md: "none", lg: "600px" },
               display: "flex",
               justifyContent: "flex-start",
             }}
@@ -273,22 +273,24 @@ export default function OverviewCard({ data }) {
         <Grid
           container
           sx={{
-            justifyContent: "space-between",
             alignItems: "center",
-            mx: 5,
+            // mx: 5,
             flexWrap: "wrap",
             gap: 2,
+            display: "flex",
+            width: '100%'
           }}
         >
           {logos.map((i) => (
             <Box
               key={i.alt}
               sx={{
-                minWidth: 30,
-                minHeight: 30,
-                width: { xs: 100, sm: 120, md: 75, lg: 100 },
-                height: { xs: 100, sm: 120, md: 75, lg: 100 },
+                width: { xs: "calc(50% - 8px)", md: "calc(33% - 8px)", lg: "calc(15% - 6px)" },
+                height: 100,
                 position: "relative",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
               <Image
