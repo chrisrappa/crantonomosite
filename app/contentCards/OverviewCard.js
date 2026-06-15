@@ -126,7 +126,7 @@ export default function OverviewCard({ data }) {
         <Grid
           container
           columns={3}
-          sx={{ alignItems: "flex-start", width: "100%" }}
+          sx={{ alignItems: "flex-start", justifyContent: "center", width: "100%" }}
           spacing={4}
         >
           <Box
@@ -142,7 +142,7 @@ export default function OverviewCard({ data }) {
               marginLeft: "8px",
             }}
           />
-          <Grid sx={{ minWidth: "320px", flex: 1 }}>
+          <Grid sx={{ minWidth: "200px", flex: 1 }}>
             <List sx={{ flex: 1, padding: "0" }}>
               {data.stats.map((item) => (
                 <ListItem
