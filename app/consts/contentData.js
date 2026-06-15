@@ -27,11 +27,11 @@ const contentData = {
         },
       ],
       techs: [
-        { name: "Next.js / React / Angular", icon: "", statLevel: 5 },
-        { name: "Vercel & Github CI/CD", icon: "", statLevel: 4 },
-        { name: "TypeScript", icon: "", statLevel: 4 },
-        { name: "Node.js / Java / Python", icon: "", statLevel: 3 },
-        { name: "AWS Cloud / Bedrock AI", icon: "", statLevel: 3 },
+        { name: "Next.js / React / Angular", icon: "/nextjs-icon.png", statLevel: 5 },
+        { name: "Vercel & Github CI/CD", icon: "/github-sign.png", statLevel: 4 },
+        { name: "TypeScript", icon: "/typescript-icon.png", statLevel: 4 },
+        { name: "Node.js / Java / Python", icon: "/node-js-icon.png", statLevel: 3 },
+        { name: "AWS Cloud / Bedrock AI", icon: "/aws-icon.png", statLevel: 3 },
       ],
     },
     experience: {

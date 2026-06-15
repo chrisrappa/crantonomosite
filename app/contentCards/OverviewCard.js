@@ -222,8 +222,7 @@ export default function OverviewCard({ data }) {
                   <ListItem
                     key={item.name}
                     sx={{
-                      backgroundColor: "transparent",
-                      color: theme.palette.text.primary,
+                      backgroundColor: theme.palette.background.paper + "70",
                       margin: "10px 0px",
                       borderRadius: "8px",
                       "&:hover": {
@@ -233,16 +232,36 @@ export default function OverviewCard({ data }) {
                       transition: "all 0.2s ease",
                       cursor: "pointer",
                       width: "100%",
-                      border: `1px solid ${theme.palette.primary.main}20`,
-                      boxShadow: `0 1px 10px ${theme.palette.primary.main}10`,
+                      // border: `1px solid ${theme.palette.primary.main}20`,
+                      boxShadow: `0 1px 10px ${theme.palette.primary.main}50`,
                     }}
                   >
-                    <ListItemIcon
+                    <Box
                       sx={{
-                        color: "inherit",
-                        minWidth: "40px",
+                        width: "28px",
+                        height: "28px",
+                        borderRadius: "4px",
+                        overflow: "hidden",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        mr: '1rem',
+                        padding: "0.05rem",
+                        backgroundColor: "rgb(255, 255, 255)",
                       }}
-                    ></ListItemIcon>
+                    >
+                      <Image
+                        src={item.icon}
+                        alt={item.name}
+                        width={28}
+                        height={28}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                        }}
+                      />
+                    </Box>
                     <ListItemText
                       primary={item.name}
                       sx={{
