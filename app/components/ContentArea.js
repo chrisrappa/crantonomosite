@@ -113,8 +113,6 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
     contentData[selectedNav]?.[selectedSubMenu] ||
     contentData[selectedNav]?.[Object.keys(contentData[selectedNav])[0]];
 
-  console.log("data", data);
-
   return (
     <Box
       sx={{
@@ -127,13 +125,15 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
         padding: "0px 8px",
         "&::-webkit-scrollbar": {
           width: "8px",
+          borderRadius: "1rem",
         },
         "&::-webkit-scrollbar-track": {
           backgroundColor: theme.palette.background.default,
+          borderRadius: "1rem",
         },
         "&::-webkit-scrollbar-thumb": {
           backgroundColor: theme.palette.action.disabled,
-          borderRadius: "4px",
+          borderRadius: "1rem",
           "&:hover": {
             backgroundColor: theme.palette.action.hover,
           },
@@ -184,6 +184,8 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
             sx={{
               fontWeight: 700,
               marginBottom: "8px",
+              textAlign: { xs: "center", lg: "right" },
+              textShadow: `2px 2px 4px ${theme.palette.text.primary}33`,
               ...theme.typography.primaryFont,
             }}
           >
@@ -193,6 +195,8 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
             variant="body1"
             sx={{
               color: theme.palette.text.secondary,
+              textAlign: { xs: "center", lg: "right" },
+              textShadow: `1px 1px 3px ${theme.palette.text.primary}26`,
               ...theme.typography.secondaryFont,
             }}
           >

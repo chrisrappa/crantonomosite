@@ -120,10 +120,10 @@ function EmailSubmission() {
             </filter>
           </svg>
         )}
-        <Card
+        <Box
           sx={{
             position: "relative",
-            backgroundColor: "rgba(255, 255, 255, 0.12)",
+            backgroundColor: "rgba(255, 255, 255, 0.05)",
             borderRadius: "12px",
             overflow: "visible",
             width: "100%",
@@ -145,8 +145,14 @@ function EmailSubmission() {
                   filter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
                   WebkitFilter:
                     "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
-                  backdropFilter: `brightness(1.05) blur(3px) url(#emailSubmissionDisplacementFilter)`,
-                  WebkitBackdropFilter: `brightness(1.05) blur(3px) url(#emailSubmissionDisplacementFilter)`,
+                  backdropFilter:
+                    "brightness(1.05) blur(5px) url(#emailSubmissionDisplacementFilter)",
+                  WebkitBackdropFilter:
+                    "brightness(1.05) blur(5px) url(#emailSubmissionDisplacementFilter)",
+                  boxShadow:
+                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                  WebkitBoxShadow:
+                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
                 }
               : {
                   // Firefox/Safari: Simpler styling without SVG
@@ -172,10 +178,16 @@ function EmailSubmission() {
               borderRadius: "12px",
               ...(isChromium
                 ? {
-                    boxShadow:
-                      "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
-                    WebkitBoxShadow:
-                      "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                    boxShadow: `
+                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  -8px -10px 20px rgba(0, 0, 0, 0.06)
+                `,
+                    WebkitBoxShadow: `
+                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  -8px -10px 20px rgba(0, 0, 0, 0.06)
+                `,
                   }
                 : {
                     boxShadow: "none",
@@ -210,7 +222,7 @@ function EmailSubmission() {
               Thank you for your email, I&apos;ll be in touch within 72 hours.
             </Typography>
           </CardContent>
-        </Card>
+        </Box>
       </>
     );
   }
@@ -237,10 +249,10 @@ function EmailSubmission() {
           </filter>
         </svg>
       )}
-      <Card
+      <Box
         sx={{
           position: "relative",
-          backgroundColor: "rgba(255, 255, 255, 0.12)",
+          backgroundColor: "rgba(255, 255, 255, 0.05)",
           borderRadius: "12px",
           overflow: "visible",
           width: "100%",
@@ -263,8 +275,14 @@ function EmailSubmission() {
                 filter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
                 WebkitFilter:
                   "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
-                backdropFilter: `brightness(1.05) blur(3px) url(#emailSubmissionDisplacementFilter)`,
-                WebkitBackdropFilter: `brightness(1.05) blur(3px) url(#emailSubmissionDisplacementFilter)`,
+                backdropFilter:
+                  "brightness(1.05) blur(5px) url(#emailSubmissionDisplacementFilter)",
+                WebkitBackdropFilter:
+                  "brightness(1.05) blur(5px) url(#emailSubmissionDisplacementFilter)",
+                boxShadow:
+                  "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                WebkitBoxShadow:
+                  "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
               }
             : {
                 // Firefox/Safari: Simpler styling without SVG
@@ -412,10 +430,10 @@ function EmailSubmission() {
               "& .MuiOutlinedInput-root": {
                 color: theme.palette.text.primary,
                 backgroundColor: theme.palette.background.paper,
-                alignItems: 'flex-start',
+                alignItems: "flex-start",
               },
               "& .MuiOutlinedInput-input": {
-                verticalAlign: 'top',
+                verticalAlign: "top",
               },
               "& .MuiOutlinedInput-notchedOutline": {
                 borderColor: theme.palette.divider,
@@ -476,7 +494,7 @@ function EmailSubmission() {
             </Button>
           </Box>
         </CardContent>
-      </Card>
+      </Box>
     </>
   );
 }

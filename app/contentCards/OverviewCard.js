@@ -83,8 +83,8 @@ export default function OverviewCard({ data }) {
                 // Chromium (Chrome, Edge, Opera): Full glass morphism with SVG
                 filter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
                 WebkitFilter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
-                backdropFilter: "brightness(1.05) blur(3px) url(#overviewDisplacementFilter)",
-                WebkitBackdropFilter: "brightness(1.05) blur(3px) url(#overviewDisplacementFilter)",
+                backdropFilter: "brightness(1.05) blur(5px) url(#overviewDisplacementFilter)",
+                WebkitBackdropFilter: "brightness(1.05) blur(5px) url(#overviewDisplacementFilter)",
                 boxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
                 WebkitBoxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
               }
@@ -104,13 +104,24 @@ export default function OverviewCard({ data }) {
                 `,
               }),
           "&::before": {
-            content: "''",
-            position: "absolute",
-            inset: 0,
-            zIndex: 0,
-            overflow: "hidden",
-            borderRadius: "1rem",
-            pointerEvents: "none",
+            ...(isChromium
+                ? {
+                    boxShadow: `
+                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  -8px -10px 20px rgba(0, 0, 0, 0.06)
+                `,
+                    WebkitBoxShadow: `
+                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  -8px -10px 20px rgba(0, 0, 0, 0.06)
+                `,
+                  }
+                : {
+                    boxShadow: "none",
+                    WebkitBoxShadow: "none",
+                  }),
+              pointerEvents: "none",
           },
         }}
       >

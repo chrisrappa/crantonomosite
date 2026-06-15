@@ -54,13 +54,15 @@ const lightTheme = createTheme({
         '*::-webkit-scrollbar': {
           width: '8px',
           height: '8px',
+          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-track': {
           backgroundColor: theme.palette.background.default,
+          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-thumb': {
           backgroundColor: theme.palette.secondary.light,
-          borderRadius: '4px',
+          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-thumb:hover': {
           backgroundColor: theme.palette.secondary.main,
@@ -134,13 +136,15 @@ const darkTheme = createTheme({
         '*::-webkit-scrollbar': {
           width: '8px',
           height: '8px',
+          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-track': {
           backgroundColor: theme.palette.background.default,
+          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-thumb': {
           backgroundColor: theme.palette.secondary.light,
-          borderRadius: '4px',
+          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-thumb:hover': {
           backgroundColor: theme.palette.secondary.main,
