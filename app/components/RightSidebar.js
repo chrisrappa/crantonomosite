@@ -9,11 +9,8 @@ import {
   ListItemIcon,
   ListItemText,
   useTheme,
-  Popover,
   IconButton,
-  useMediaQuery,
 } from "@mui/material";
-import { alpha } from "@mui/material/styles";
 import { ChevronLeft } from "@mui/icons-material";
 import { subMenuItems } from "../consts/MenuItems";
 
@@ -25,7 +22,6 @@ export default function RightSidebar({
   isCollapsed,
   onToggleCollapse,
 }) {
-  console.log("selected nav label in sidebar", selectedNavLabel);
   const theme = useTheme();
   const items = subMenuItems[selectedNav] || [];
   const [isChromium] = useState(() => {

@@ -9,6 +9,7 @@ import {
   Divider,
   Dialog,
   DialogTitle,
+  Chip,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,6 +27,16 @@ const carouselImages = [
     src: "/meddpiccpalTranscript.png",
     alt: "MEDDPICC Pal - Transcript",
   },
+];
+
+// Tech stack for MEDDPICC Pal
+const techStack = [
+  { techName: "React", techIcon: "⚛️" },
+  { techName: "Node.js", techIcon: "🟢" },
+  { techName: "Python", techIcon: "🐍" },
+  { techName: "OpenAI API", techIcon: "🤖" },
+  { techName: "Zoom SDK", techIcon: "📹" },
+  { techName: "MongoDB", techIcon: "🍃" },
 ];
 
 function MEDDPICCPalCard() {
@@ -301,6 +312,32 @@ function MEDDPICCPalCard() {
                 },
               }}
             >
+              {/* Tech Stack Chips */}
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                {techStack.map((tech, index) => (
+                  <Chip
+                    key={index}
+                    icon={<Box sx={{ fontSize: "1.2rem" }}>{tech.techIcon}</Box>}
+                    label={tech.techName}
+                    variant="outlined"
+                    sx={{
+                      borderColor: theme.palette.primary.main,
+                      color: theme.palette.text.primary,
+                      backgroundColor: theme.palette.primary.main + "10",
+                      "& .MuiChip-icon": {
+                        color: "inherit",
+                        marginLeft: "8px",
+                        marginRight: "-4px",
+                      },
+                      "&:hover": {
+                        backgroundColor: theme.palette.primary.main + "20",
+                        borderColor: theme.palette.primary.main,
+                      },
+                    }}
+                  />
+                ))}
+              </Box>
+
               {/* Description Text */}
               <Box sx={{ mb: 3 }}>
                 <Typography

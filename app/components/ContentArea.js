@@ -39,9 +39,9 @@ function ContentCardView({ selectedSubMenu, data, theme }) {
       return <AIChatCard data={data} />;
     case "emailForm":
       return <EmailSubmission data={data} />;
-     case "socialMediaLinks":
+    case "socialMediaLinks":
       return <SocialMediaLinksCard data={data} />;
-     case "scheduleMeeting":
+    case "scheduleMeeting":
       return <MeetingScheduleCard data={data} />;
     default:
       return (
@@ -113,18 +113,18 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
     contentData[selectedNav]?.[selectedSubMenu] ||
     contentData[selectedNav]?.[Object.keys(contentData[selectedNav])[0]];
 
-    console.log('data', data)
+  console.log("data", data);
 
   return (
     <Box
       sx={{
         flex: 1,
-        height: "100%",
-        // backgroundColor: theme.palette.background.default,
+        height: "98%",
+        margin: "0.5rem 0",
         display: "flex",
         flexDirection: "column",
         overflowY: "auto",
-        padding: "24px",
+        padding: "0px 8px",
         "&::-webkit-scrollbar": {
           width: "8px",
         },
@@ -143,14 +143,42 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
       {/* Header */}
       <Box
         sx={{
-          marginBottom: "32px",
+          mb: "1rem",
+          mt: "1rem",
           display: "flex",
-          gap: "12px",
           justifyContent: "space-between",
           alignItems: "flex-end",
         }}
       >
-        <Box>
+        {data?.title === "Experience" && (
+          <Button
+            variant="contained"
+            component="a"
+            href="/Chris_Rappa.pdf"
+            download="Chris_Rappa.pdf"
+            startIcon={<PictureAsPdfIcon />}
+            sx={{
+              ...theme.typography.secondaryFont,
+              textTransform: "none",
+              fontWeight: 600,
+              color: "#ffffff",
+              width: '300px',
+            }}
+          >
+            Download PDF Version
+          </Button>
+        )}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            width: "100%",
+            flexDirection: "column",
+            gap: "4px",
+            marginRight: "2rem",
+          }}
+        >
           <Typography
             variant="h4"
             sx={{
@@ -171,24 +199,6 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
             {data?.description}
           </Typography>
         </Box>
-
-        {data?.title === "Experience" && (
-          <Button
-            variant="contained"
-            component="a"
-            href="/Chris_Rappa.pdf"
-            download="Chris_Rappa.pdf"
-            startIcon={<PictureAsPdfIcon />}
-            sx={{
-              ...theme.typography.secondaryFont,
-              textTransform: "none",
-              fontWeight: 600,
-              color: "#ffffff",
-            }}
-          >
-            Download PDF Version
-          </Button>
-        )}
       </Box>
 
       {/* Content Card */}

@@ -14,7 +14,9 @@ import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import FastForwardIcon from "@mui/icons-material/FastForward";
 import TerminalIcon from "@mui/icons-material/Terminal";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import AssistantIcon from "@mui/icons-material/Assistant";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from "@mui/icons-material/Info";
 
 const topMenuItems = [
@@ -89,13 +91,13 @@ const subMenuItems = {
     {
       id: "scheduleMeeting",
       label: "Schedule a Meeting",
-      icon: AlternateEmailIcon,
+      icon: EditCalendarIcon,
       description: "Book a meeting with me",
     },
     {
       id: "socialMediaLinks",
       label: "Social Media",
-      icon: AlternateEmailIcon,
+      icon: LinkedInIcon,
       description: "Connect with me on social media",
     },
   ],

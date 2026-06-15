@@ -20,8 +20,6 @@ export default function Home() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
-  console.log("selected sub menu", selectedSubMenu);
-
   // Determine if sidebar should be auto-collapsed based on screen size changes
   const shouldAutoCollapse = useMemo(() => {
     return isSmallScreen;
