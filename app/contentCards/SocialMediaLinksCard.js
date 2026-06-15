@@ -48,6 +48,11 @@ function SocialMediaLinksCard() {
       href: "https://www.tiktok.com/@crantonomo",
       image: "/tiktoklogo.png",
     },
+    {
+      handle: "@chrisrappa",
+      href: "https://github.com/chrisrappa",
+      image: "/github-sign.png",
+    },
   ];
 
   return (
