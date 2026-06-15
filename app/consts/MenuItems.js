@@ -18,6 +18,7 @@ import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import AssistantIcon from "@mui/icons-material/Assistant";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from "@mui/icons-material/Info";
+import DataObjectIcon from '@mui/icons-material/DataObject';
 
 const topMenuItems = [
   { id: "overview", label: "Overview", icon: InfoIcon },
@@ -63,13 +64,13 @@ const subMenuItems = {
     {
       id: "meddpiccPal",
       label: "MEDDPICC Pal",
-      icon: Help,
+      icon: DataObjectIcon,
       description: "Frequently Asked Questions",
     },
     {
       id: "sparkBins",
       label: "Spark Bins",
-      icon: Help,
+      icon: DataObjectIcon,
       description: "Frequently Asked Questions",
     },
   ],

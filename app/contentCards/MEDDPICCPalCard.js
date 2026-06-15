@@ -10,6 +10,10 @@ import {
   Dialog,
   DialogTitle,
   Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,12 +35,14 @@ const carouselImages = [
 
 // Tech stack for MEDDPICC Pal
 const techStack = [
-  { techName: "React", techIcon: "⚛️" },
-  { techName: "Node.js", techIcon: "🟢" },
-  { techName: "Python", techIcon: "🐍" },
-  { techName: "OpenAI API", techIcon: "🤖" },
-  { techName: "Zoom SDK", techIcon: "📹" },
-  { techName: "MongoDB", techIcon: "🍃" },
+  { techName: "Next.js", techIcon: "/nextjs-icon.png" },
+  { techName: "Material UI", techIcon: "/material-ui-icon.png" },
+  { techName: "Vitest", techIcon: "/vite-dev-icon.png" },
+  { techName: "OpenAI API", techIcon: "/openai-icon.png" },
+  { techName: "Zoom SDK", techIcon: "/zoom-communications-icon.png" },
+  { techName: "MongoDB", techIcon: "/mongodb-icon.png" },
+  { techName: "Github Actions", techIcon: "/github-icon.png" },
+  { techName: "Snyk Cybersecurity", techIcon: "/snykicon.png" },
 ];
 
 function MEDDPICCPalCard() {
@@ -95,7 +101,7 @@ function MEDDPICCPalCard() {
           position: "relative",
           backgroundColor: "rgba(255, 255, 255, 0.05)",
           borderRadius: "28px",
-          overflow: "visible",
+          overflow: "hidden",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -159,6 +165,7 @@ function MEDDPICCPalCard() {
             padding: "32px",
             position: "relative",
             zIndex: 1,
+            overflow: "auto",
           }}
         >
           <Box
@@ -172,7 +179,7 @@ function MEDDPICCPalCard() {
                 md: "column",
                 lg: "row",
               },
-              overflow: { xs: "auto", md: "auto", lg: "hidden" },
+              overflow: "auto",
             }}
           >
             <Box
@@ -313,11 +320,21 @@ function MEDDPICCPalCard() {
               }}
             >
               {/* Tech Stack Chips */}
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                 {techStack.map((tech, index) => (
                   <Chip
                     key={index}
-                    icon={<Box sx={{ fontSize: "1.2rem" }}>{tech.techIcon}</Box>}
+                    icon={
+                      <Box sx={{ position: "relative", width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <Image
+                          src={tech.techIcon}
+                          alt={tech.techName}
+                          width={20}
+                          height={20}
+                          style={{ objectFit: "contain" }}
+                        />
+                      </Box>
+                    }
                     label={tech.techName}
                     variant="outlined"
                     sx={{
@@ -339,31 +356,49 @@ function MEDDPICCPalCard() {
               </Box>
 
               {/* Description Text */}
-              <Box sx={{ mb: 3 }}>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: theme.palette.text.primary,
-                    lineHeight: 1.6,
-                    ...theme.typography.primaryFont,
-                    fontSize: "1rem",
-                    fontWeight: 400,
-                  }}
-                >
-                  MEDDPICC Pal is an AI-powered application that serves as a
-                  specialized Zoom plugin, designed specifically for sales teams
-                  that rely on the MEDDPICC sales qualification methodology. It
-                  automatically analyzes and organizes transcripts from Zoom
-                  sales calls into a structured, easy-to-read format aligned
-                  with the MEDDPICC framework (covering elements like Metrics,
-                  Economic Buyer, Decision Criteria, Decision Process, Paper
-                  Process, Implications of Pain, Champion, and Competition).
-                  Users can define and customize rules for each MEDDPICC
-                  component, allowing the AI to prioritize key insights, extract
-                  relevant details from the conversation, and generate
-                  professional summaries that turn raw meeting recordings into
-                  actionable sales intelligence
+              <Box sx={{ pb: 3, pt: 1 }}>
+                <Typography variant="h6" sx={{ mb: 1 }}>
+                  Problem Statement
                 </Typography>
+                <Typography>
+                  Sales teams often struggle to capture and organize insights from Zoom sales calls or are 
+                  forced to do the tedious work of manually reviewing call transcripts for key information.
+                </Typography>
+                <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                  App Solution
+                </Typography>
+                <Typography>
+                    MEDDPICC Pal uses AI to automatically analyze Zoom sales call transcripts and extract key insights based on the MEDDPICC sales qualification framework, providing sales teams with structured, actionable intelligence without the need for manual review.
+                </Typography>
+                <Typography variant="h6" sx={{ mt: 3, mb: 1 }}>
+                  Features
+                </Typography>
+                <List sx={{ p: 0, m: 0 }}>
+                  <ListItem sx={{ p: 0, mb: 1 }}>
+                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Transcript analysis using OpenAI's language models to identify and extract critical information" />
+                  </ListItem>
+                  <ListItem sx={{ p: 0, mb: 1 }}>
+                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Customizable rules for each MEDDPICC component to prioritize key insights" />
+                  </ListItem>
+                  <ListItem sx={{ p: 0, mb: 1 }}>
+                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Easy-to-read output that turns raw meeting recordings into actionable sales intelligence" />
+                  </ListItem>
+                  <ListItem sx={{ p: 0 }}>
+                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Seamless intelligence delivery to emails or CRM systems" />
+                  </ListItem>
+                </List>
               </Box>
 
               {/* Action Links */}

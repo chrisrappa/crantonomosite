@@ -10,6 +10,10 @@ import {
   Dialog,
   DialogTitle,
   Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,12 +38,13 @@ const carouselImages = [
 
 // Tech stack for SparkBins
 const techStack = [
-  { techName: "React", techIcon: "⚛️" },
-  { techName: "Next.js", techIcon: "▲" },
-  { techName: "TypeScript", techIcon: "📘" },
-  { techName: "Supabase", techIcon: "🟢" },
-  { techName: "OpenAI API", techIcon: "🤖" },
-  { techName: "Tailwind CSS", techIcon: "🎨" },
+  { techName: "Next.js", techIcon: "/nextjs-icon.png" },
+  { techName: "TypeScript", techIcon: "/typescript-icon.png" },
+  { techName: "Redux Toolkit", techIcon: "/redux-icon.png" },
+  { techName: "MongoDB", techIcon: "/mongodb-icon.png" },
+  { techName: "OpenAI API", techIcon: "/openai-icon.png" },
+  { techName: "Material UI", techIcon: "/material-ui-icon.png" },
+  { techName: "Auth0", techIcon: "/auth0-icon.png" },
 ];
 
 function SparkBinsCard() {
@@ -319,21 +324,36 @@ function SparkBinsCard() {
                 {techStack.map((tech, index) => (
                   <Chip
                     key={index}
-                    icon={<Box sx={{ fontSize: "1.2rem" }}>{tech.techIcon}</Box>}
+                    icon={
+                      <Box
+                        sx={{
+                          position: "relative",
+                          width: "20px",
+                          height: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Image
+                          src={tech.techIcon}
+                          alt={tech.techName}
+                          width={20}
+                          height={20}
+                          style={{ objectFit: "contain" }}
+                        />
+                      </Box>
+                    }
                     label={tech.techName}
                     variant="outlined"
                     sx={{
                       borderColor: theme.palette.primary.main,
                       color: theme.palette.text.primary,
-                      backgroundColor: theme.palette.primary.main + "10",
+                      backgroundColor: theme.palette.primary.main + "30",
                       "& .MuiChip-icon": {
                         color: "inherit",
                         marginLeft: "8px",
                         marginRight: "-4px",
-                      },
-                      "&:hover": {
-                        backgroundColor: theme.palette.primary.main + "20",
-                        borderColor: theme.palette.primary.main,
                       },
                     }}
                   />
@@ -341,7 +361,76 @@ function SparkBinsCard() {
               </Box>
 
               {/* Description Text */}
-              <Box sx={{ mb: 3 }}>
+              <Box sx={{ pb: 3, pt: 1 }}>
+                <Typography variant="h6" sx={{ mb: 1 }}>
+                  Problem Statement
+                </Typography>
+                <Typography>
+                  When I take down my ideas in my notes app, I never remember
+                  where they are, have no way to easily revisit them, expand on
+                  them, or an assistant to help me ask questions against them so
+                  that they become highly useful at any time.
+                </Typography>
+                <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
+                  App Solution
+                </Typography>
+                <Typography>
+                  SparkBins is an AI-powered idea management app built to ensure
+                  users can quickly and easily capture ideas, seamlessly
+                  organize them, and integrate AI assistance into them so that
+                  they become a highly useful inspiration hub.
+                </Typography>
+                <Typography variant="h6" sx={{ mt: 3, mb: 1 }}>
+                  Features
+                </Typography>
+                <List sx={{ p: 0, m: 0 }}>
+                  <ListItem sx={{ p: 0, mb: 1 }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Typing and voice capture with AI-assisted transcription" />
+                  </ListItem>
+                  <ListItem sx={{ p: 0, mb: 1 }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Customizable file or bin system with AI auto bin assignment" />
+                  </ListItem>
+                  <ListItem sx={{ p: 0, mb: 1 }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Automatic title generation, auto bin and spark titling, and automated idea expansion." />
+                  </ListItem>
+                  <ListItem sx={{ p: 0 }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
+                      •
+                    </ListItemIcon>
+                    <ListItemText primary="Centralized AI assistant that uses all of your sparks as an inspiration knowledge base." />
+                  </ListItem>
+                </List>
+              </Box>
+              {/* <Box sx={{ mb: 3 }}>
                 <Typography
                   variant="body2"
                   sx={{
@@ -368,7 +457,7 @@ function SparkBinsCard() {
                   full file management system and rich text editing for polished
                   organization and retrieval.
                 </Typography>
-              </Box>
+              </Box> */}
 
               {/* Action Links */}
               <Box

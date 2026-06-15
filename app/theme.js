@@ -12,7 +12,7 @@ const lightTheme = createTheme({
       hover: '#f2e49f91',
     },
     secondary: {
-      main: '#9b780d',
+      main: '#7a6424',
       light: '#f2e49f',
       dark: '#8b6f1b',
     },
@@ -54,15 +54,13 @@ const lightTheme = createTheme({
         '*::-webkit-scrollbar': {
           width: '8px',
           height: '8px',
-          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-track': {
           backgroundColor: theme.palette.background.default,
-          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-thumb': {
           backgroundColor: theme.palette.secondary.light,
-          borderRadius: '1rem',
+          borderRadius: '4px',
         },
         '*::-webkit-scrollbar-thumb:hover': {
           backgroundColor: theme.palette.secondary.main,
@@ -136,15 +134,13 @@ const darkTheme = createTheme({
         '*::-webkit-scrollbar': {
           width: '8px',
           height: '8px',
-          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-track': {
           backgroundColor: theme.palette.background.default,
-          borderRadius: '1rem',
         },
         '*::-webkit-scrollbar-thumb': {
           backgroundColor: theme.palette.secondary.light,
-          borderRadius: '1rem',
+          borderRadius: '4px',
         },
         '*::-webkit-scrollbar-thumb:hover': {
           backgroundColor: theme.palette.secondary.main,
