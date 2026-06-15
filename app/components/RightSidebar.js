@@ -30,13 +30,13 @@ export default function RightSidebar({
   const items = subMenuItems[selectedNav] || [];
   const [isChromium] = useState(() => {
     if (typeof window === "undefined") return true;
-    
+
     const userAgent = navigator.userAgent;
     const isChrome = /Chrome|Chromium|Opera/.test(userAgent);
     const isEdge = /Edg/.test(userAgent);
     const isFirefox = /Firefox/.test(userAgent);
     const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
-    
+
     return (isChrome || isEdge) && !isFirefox && !isSafari;
   });
 
@@ -86,7 +86,8 @@ export default function RightSidebar({
             ? {
                 // Chromium (Chrome, Edge, Opera): Full glass morphism with SVG
                 filter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
-                WebkitFilter: "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
+                WebkitFilter:
+                  "drop-shadow(-8px -10px 20px rgba(0, 0, 0, 0.31))",
                 backdropFilter: `brightness(1.05) blur(3px) url(#rightSidebarDisplacementFilter)`,
                 WebkitBackdropFilter: `brightness(1.05) blur(3px) url(#rightSidebarDisplacementFilter)`,
               }
@@ -128,30 +129,31 @@ export default function RightSidebar({
         }}
       >
         {/* Header with Collapse Button */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "5px 5px 0px 20px",
-            borderBottom: `1px solid ${theme.palette.divider}`,
-            flexShrink: 0,
-            position: "relative",
-            zIndex: 1,
-          }}
-        >
-          <Typography
-            variant="h6"
+        {!isCollapsed && (
+          <Box
             sx={{
-              fontWeight: 600,
-              ...theme.typography.primaryFont,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "5px 5px 0px 20px",
+              borderBottom: `1px solid ${theme.palette.divider}`,
+              flexShrink: 0,
+              position: "relative",
+              zIndex: 1,
             }}
           >
-            {selectedNavLabel}
-          </Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 600,
+                ...theme.typography.primaryFont,
+              }}
+            >
+              {selectedNavLabel}
+            </Typography>
 
-          {/* Collapse Button - Show on all screens when not collapsed */}
-          {!isCollapsed && (
+            {/* Collapse Button - Show on all screens when not collapsed */}
+
             <IconButton
               onClick={onToggleCollapse}
               sx={{
@@ -163,8 +165,8 @@ export default function RightSidebar({
             >
               <ChevronLeft sx={{ fontSize: "20px" }} />
             </IconButton>
-          )}
-        </Box>
+          </Box>
+        )}
 
         {/* Menu Items */}
         <List
