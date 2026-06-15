@@ -424,7 +424,6 @@ function SparkBinsCard() {
               position: "relative",
               width: "100%",
               aspectRatio: "16 / 9",
-              padding: "24px",
               borderRadius: "3rem",
             }}
           >
