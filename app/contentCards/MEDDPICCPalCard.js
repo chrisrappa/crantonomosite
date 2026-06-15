@@ -182,7 +182,7 @@ function MEDDPICCPalCard() {
                   position: "relative",
                   width: "100%",
                   aspectRatio: "16 / 9",
-                  borderRadius: "8px",
+                  borderRadius: "2rem",
                   overflow: "hidden",
                   mb: 2,
                 }}
@@ -191,7 +191,7 @@ function MEDDPICCPalCard() {
                   src={carouselImages[currentImageIndex].src}
                   alt={carouselImages[currentImageIndex].alt}
                   fill
-                  style={{ objectFit: "fill" }}
+                  style={{ objectFit: "cover" }}
                 />
                 {/* Magnify Icon Button */}
                 <IconButton
@@ -389,28 +389,28 @@ function MEDDPICCPalCard() {
           onClose={() => setOpenImageModal(false)}
           maxWidth="lg"
           fullWidth
-          PaperProps={{
-            sx: {
-              backgroundColor: theme.palette.background.paper,
+          sx={{
+            "& .MuiPaper-root": {
+              backgroundColor: "transparent",
+              boxShadow: "none",
             },
           }}
         >
           <DialogTitle
+            elevation={0}
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "flex-end",
               alignItems: "center",
               padding: "16px 24px",
-              borderBottom: `1px solid ${theme.palette.divider}`,
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              {carouselImages[currentImageIndex].alt}
-            </Typography>
             <IconButton
               onClick={() => setOpenImageModal(false)}
               sx={{
                 color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.paper,
+                '&:hover': { backgroundColor: theme.palette.secondary.main },
               }}
             >
               <CloseIcon />
@@ -421,7 +421,7 @@ function MEDDPICCPalCard() {
               position: "relative",
               width: "100%",
               aspectRatio: "16 / 9",
-              padding: "24px",
+              borderRadius: '3rem'
             }}
           >
             <Image
@@ -430,6 +430,7 @@ function MEDDPICCPalCard() {
               fill
               style={{
                 objectFit: "contain",
+                borderRadius: "3rem",
               }}
             />
           </Box>

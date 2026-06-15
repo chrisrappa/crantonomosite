@@ -37,13 +37,13 @@ function SparkBinsCard() {
   const [openImageModal, setOpenImageModal] = useState(false);
   const [isChromium] = useState(() => {
     if (typeof window === "undefined") return true;
-    
+
     const userAgent = navigator.userAgent;
     const isChrome = /Chrome|Chromium|Opera/.test(userAgent);
     const isEdge = /Edg/.test(userAgent);
     const isFirefox = /Firefox/.test(userAgent);
     const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
-    
+
     return (isChrome || isEdge) && !isFirefox && !isSafari;
   });
 
@@ -393,28 +393,27 @@ function SparkBinsCard() {
           onClose={() => setOpenImageModal(false)}
           maxWidth="lg"
           fullWidth
-          PaperProps={{
-            sx: {
-              backgroundColor: theme.palette.background.paper,
+          sx={{
+            "& .MuiPaper-root": {
+              backgroundColor: "transparent",
+              boxShadow: "none",
             },
           }}
         >
           <DialogTitle
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "flex-end",
               alignItems: "center",
               padding: "16px 24px",
-              borderBottom: `1px solid ${theme.palette.divider}`,
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>
-              {carouselImages[currentImageIndex].alt}
-            </Typography>
             <IconButton
               onClick={() => setOpenImageModal(false)}
               sx={{
                 color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.paper,
+                "&:hover": { backgroundColor: theme.palette.secondary.main },
               }}
             >
               <CloseIcon />
@@ -426,6 +425,7 @@ function SparkBinsCard() {
               width: "100%",
               aspectRatio: "16 / 9",
               padding: "24px",
+              borderRadius: "3rem",
             }}
           >
             <Image
@@ -434,6 +434,7 @@ function SparkBinsCard() {
               fill
               style={{
                 objectFit: "contain",
+                borderRadius: "3rem",
               }}
             />
           </Box>
