@@ -11,17 +11,25 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
+import { getCachedFullLength, setCachedFullLength } from "../helpers/videoCaching";
 
 function FullLengthVideo() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  console.log("vidoes", videos);
-
   useEffect(() => {
     const getFullLengthVideos = async () => {
       try {
+        // Check for cached videos first
+        const cachedVideos = getCachedFullLength();
+        if (cachedVideos.length > 0) {
+          setVideos(cachedVideos);
+          setLoading(false);
+          return;
+        }
+
+        // If no cache, fetch from API
         const res = await fetch("/api/youtube/full-length?limit=24", {
           cache: "no-store",
         });
@@ -31,7 +39,11 @@ function FullLengthVideo() {
         }
 
         const data = await res.json();
-        setVideos(data.videos || []);
+        const videos = data.videos || [];
+        
+        // Cache the videos
+        setCachedFullLength(videos);
+        setVideos(videos);
       } catch (fetchError) {
         setError(fetchError.message || "Error fetching full-length videos");
       } finally {

@@ -12,7 +12,7 @@ const lightTheme = createTheme({
       hover: '#f2e49f91',
     },
     secondary: {
-      main: '#f0cf6b',
+      main: '#9b780d',
       light: '#f2e49f',
       dark: '#8b6f1b',
     },
