@@ -17,13 +17,13 @@ function ExperienceCard() {
   const theme = useTheme();
   const [isChromium] = useState(() => {
     if (typeof window === "undefined") return true;
-    
+
     const userAgent = navigator.userAgent;
     const isChrome = /Chrome|Chromium|Opera/.test(userAgent);
     const isEdge = /Edg/.test(userAgent);
     const isFirefox = /Firefox/.test(userAgent);
     const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
-    
+
     return (isChrome || isEdge) && !isFirefox && !isSafari;
   });
 
@@ -79,11 +79,14 @@ function ExperienceCard() {
                 ? {
                     // Chromium (Chrome, Edge, Opera): Full glass morphism with SVG
                     filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
-                    WebkitFilter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
+                    WebkitFilter:
+                      "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
                     backdropFilter: `brightness(1.05) blur(5px) url(#displacementFilter)`,
                     WebkitBackdropFilter: `brightness(1.05) blur(5px) url(#displacementFilter)`,
-                                    boxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
-                WebkitBoxShadow: "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                    boxShadow:
+                      "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                    WebkitBoxShadow:
+                      "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
                   }
                 : {
                     // Firefox/Safari: Simpler styling without SVG
@@ -134,6 +137,8 @@ function ExperienceCard() {
                 marginBottom: "4px",
                 position: "relative",
                 zIndex: 1,
+                                          fontFamily: "'Kode Mono', monospace",
+
               }}
             >
               {i.title} - {i.company}
@@ -148,7 +153,7 @@ function ExperienceCard() {
                 display: "block",
                 position: "relative",
                 zIndex: 1,
-                fontWeight: 700
+                fontWeight: 700,
               }}
             >
               {i.duration}
@@ -199,7 +204,13 @@ function ExperienceCard() {
             {/* Description */}
             <Typography
               variant="body2"
-              sx={{ lineHeight: "1.6", position: "relative", zIndex: 1, fontWeight: 500, fontSize: "0.95rem" }}
+              sx={{
+                lineHeight: "1.6",
+                position: "relative",
+                zIndex: 1,
+                fontWeight: 500,
+                fontSize: "0.95rem",
+              }}
             >
               {i.description}
             </Typography>

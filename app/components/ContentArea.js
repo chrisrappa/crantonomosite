@@ -162,7 +162,7 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
               textTransform: "none",
               fontWeight: 600,
               color: "#ffffff",
-              width: '300px',
+              width: "300px",
             }}
           >
             Download PDF Version
@@ -182,11 +182,12 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
           <Typography
             variant="h4"
             sx={{
-              fontWeight: 700,
-              marginBottom: "8px",
+              fontWeight: 600,
+              letterSpacing: "0.5px",
+              fontSize: "1.75rem",
+              fontFamily: "'Kode Mono', monospace",
               textAlign: { xs: "center", lg: "right" },
               textShadow: `2px 2px 4px ${theme.palette.text.primary}33`,
-              ...theme.typography.primaryFont,
             }}
           >
             {data?.title}

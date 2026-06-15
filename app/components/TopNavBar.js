@@ -47,7 +47,8 @@ export default function TopNavBar({ onMobileMenuToggle, isMobileDrawerOpen, isSm
             sx={{
               fontWeight: 600,
               letterSpacing: '0.5px',
-              ...muiTheme.typography.primaryFont,
+              fontSize: '1.75rem',
+              fontFamily: "'Kode Mono', monospace",
             }}
           >
             Crantonomo
