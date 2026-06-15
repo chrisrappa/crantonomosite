@@ -137,8 +137,7 @@ function ExperienceCard() {
                 marginBottom: "4px",
                 position: "relative",
                 zIndex: 1,
-                                          fontFamily: "'Kode Mono', monospace",
-
+                fontFamily: "'Kode Mono', monospace",
               }}
             >
               {i.title} - {i.company}
