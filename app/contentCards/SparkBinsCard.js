@@ -349,7 +349,7 @@ function SparkBinsCard() {
                     sx={{
                       borderColor: theme.palette.primary.main,
                       color: theme.palette.text.primary,
-                      backgroundColor: theme.palette.primary.main + "30",
+                      backgroundColor: "#fffff020",
                       "& .MuiChip-icon": {
                         color: "inherit",
                         marginLeft: "8px",
