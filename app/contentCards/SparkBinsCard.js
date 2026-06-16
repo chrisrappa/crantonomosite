@@ -466,7 +466,8 @@ function SparkBinsCard() {
               >
                 <Button
                   component={Link}
-                  href="#"
+                  href="https://www.sparkbins.com"
+                  target="_blank"
                   variant="contained"
                   sx={{
                     backgroundColor: theme.palette.primary.main,
@@ -482,7 +483,7 @@ function SparkBinsCard() {
                     },
                   }}
                 >
-                  Walkthrough Video
+                  Visit App
                   <LaunchIcon sx={{ fontSize: "1rem" }} />
                 </Button>
 

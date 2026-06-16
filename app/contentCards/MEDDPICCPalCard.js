@@ -441,7 +441,8 @@ function MEDDPICCPalCard() {
               >
                 <Button
                   component={Link}
-                  href="#"
+                  href="https://www.meddpiccpal.com"
+                  target="_blank"
                   variant="contained"
                   sx={{
                     backgroundColor: theme.palette.primary.main,
@@ -457,7 +458,7 @@ function MEDDPICCPalCard() {
                     },
                   }}
                 >
-                  Walkthrough Video
+                  Visit App
                   <LaunchIcon sx={{ fontSize: "1rem" }} />
                 </Button>
 
