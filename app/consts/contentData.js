@@ -59,7 +59,7 @@ const contentData = {
     },
     sparkBins: {
       title: "SparkBins",
-      description: "AI-powered code snippet manager.",
+      description: "AI-powered idea notes manager.",
       content: "Details about the SparkBins project will be displayed here.",
     },
   },

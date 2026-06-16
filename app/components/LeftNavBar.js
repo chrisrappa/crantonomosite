@@ -14,7 +14,6 @@ export default function LeftNavBar({
   const theme = useTheme();
 
   const handleNavClick = ({ id, label, Icon }) => {
-    console.log('id, label, Icon', id, label, Icon);
     onSelectNav({ id, label, Icon });
   };
 
@@ -61,17 +60,17 @@ export default function LeftNavBar({
     <Box
       sx={{
         width: "70px",
-        margin: '0.5rem',
+        margin: "0.5rem",
         height: "98%",
-        border: `1px solid transparent`,
-        background: `linear-gradient(${theme.palette.background.paper}, ${theme.palette.background.paper}) padding-box, linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main}) border-box`,
+        border: `2px solid transparent`,
+        background: `linear-gradient(${theme.palette.background.paper}, ${theme.palette.background.paper}) padding-box, linear-gradient(180deg, ${theme.palette.primary.main}, ${theme.palette.secondary.light}) border-box`,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
         padding: "0px 8px",
         overflow: "hidden",
-        borderRadius: '1rem',
+        borderRadius: "1rem",
       }}
     >
       {/* Top Section with Expand Button */}
