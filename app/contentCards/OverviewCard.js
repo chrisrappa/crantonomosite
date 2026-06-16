@@ -95,16 +95,16 @@ export default function OverviewCard({ data }) {
               }
             : {
                 // Firefox/Safari: Simpler styling without SVG
-                backdropFilter: "brightness(1.1) blur(8px)",
-                WebkitBackdropFilter: "brightness(1.1) blur(8px)",
+                backdropFilter: "brightness(1) blur(6px)",
+                WebkitBackdropFilter: "brightness(1) blur(6px)",
                 boxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 20px rgba(0, 0, 0, 0.06)
                 `,
                 WebkitBoxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 20px rgba(0, 0, 0, 0.06)
                 `,
               }),

@@ -78,9 +78,9 @@ function ExperienceCard() {
               ...(isChromium
                 ? {
                     // Chromium (Chrome, Edge, Opera): Full glass morphism with SVG
-                    filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
+                    filter: "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.31))",
                     WebkitFilter:
-                      "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.5))",
+                      "drop-shadow(-8px -10px 46px rgba(0, 0, 0, 0.31))",
                     backdropFilter: `brightness(1.05) blur(5px) url(#displacementFilter)`,
                     WebkitBackdropFilter: `brightness(1.05) blur(5px) url(#displacementFilter)`,
                     boxShadow:
@@ -90,16 +90,16 @@ function ExperienceCard() {
                   }
                 : {
                     // Firefox/Safari: Simpler styling without SVG
-                    backdropFilter: "brightness(1.1) blur(8px)",
-                    WebkitBackdropFilter: "brightness(1.1) blur(8px)",
+                    backdropFilter: "brightness(1) blur(6px)",
+                    WebkitBackdropFilter: "brightness(1) blur(6px)",
                     boxShadow: `
-                      inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                      inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                      inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                      inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                       -8px -10px 46px rgba(0, 0, 0, 0.06)
                     `,
                     WebkitBoxShadow: `
-                      inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                      inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                      inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                      inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                       -8px -10px 46px rgba(0, 0, 0, 0.06)
                     `,
                   }),
@@ -113,9 +113,9 @@ function ExperienceCard() {
                 ...(isChromium
                   ? {
                       boxShadow:
-                        "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                        "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.2), -8px -10px 20px rgba(0, 0, 0, 0.06)",
                       WebkitBoxShadow:
-                        "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.4), inset 0 0 1px 1px rgba(255, 255, 255, 0.47)",
+                        "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.2), -8px -10px 20px rgba(0, 0, 0, 0.06)",
                     }
                   : {
                       boxShadow: "none",

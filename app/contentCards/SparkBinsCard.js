@@ -103,7 +103,7 @@ function SparkBinsCard() {
           position: "relative",
           backgroundColor: "rgba(255, 255, 255, 0.05)",
           borderRadius: "28px",
-          overflow: "visible",
+          overflow: "hidden",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -123,16 +123,16 @@ function SparkBinsCard() {
               }
             : {
                 // Firefox/Safari: Simpler styling without SVG
-                backdropFilter: "brightness(1.1) blur(8px)",
-                WebkitBackdropFilter: "brightness(1.1) blur(8px)",
+                backdropFilter: "brightness(1) blur(6px)",
+                WebkitBackdropFilter: "brightness(1) blur(6px)",
                 boxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 30px rgba(0, 0, 0, 0.06)
                 `,
                 WebkitBoxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 30px rgba(0, 0, 0, 0.06)
                 `,
               }),
@@ -167,6 +167,7 @@ function SparkBinsCard() {
             padding: "32px",
             position: "relative",
             zIndex: 1,
+            overflow: "auto",
           }}
         >
           <Box
@@ -179,7 +180,7 @@ function SparkBinsCard() {
                 md: "column",
                 lg: "row",
               },
-              overflow: { xs: "auto", md: "auto", lg: "hidden" },
+              overflow: "auto",
             }}
           >
             <Box

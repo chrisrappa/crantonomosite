@@ -51,13 +51,13 @@ function MEDDPICCPalCard() {
   const [openImageModal, setOpenImageModal] = useState(false);
   const [isChromium] = useState(() => {
     if (typeof window === "undefined") return true;
-    
+
     const userAgent = navigator.userAgent;
     const isChrome = /Chrome|Chromium|Opera/.test(userAgent);
     const isEdge = /Edg/.test(userAgent);
     const isFirefox = /Firefox/.test(userAgent);
     const isSafari = /Safari/.test(userAgent) && !/Chrome/.test(userAgent);
-    
+
     return (isChrome || isEdge) && !isFirefox && !isSafari;
   });
 
@@ -121,16 +121,16 @@ function MEDDPICCPalCard() {
               }
             : {
                 // Firefox/Safari: Simpler styling without SVG
-                backdropFilter: "brightness(1.1) blur(8px)",
-                WebkitBackdropFilter: "brightness(1.1) blur(8px)",
+                backdropFilter: "brightness(1) blur(6px)",
+                WebkitBackdropFilter: "brightness(1) blur(6px)",
                 boxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 30px rgba(0, 0, 0, 0.06)
                 `,
                 WebkitBoxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 30px rgba(0, 0, 0, 0.06)
                 `,
               }),
@@ -325,7 +325,16 @@ function MEDDPICCPalCard() {
                   <Chip
                     key={index}
                     icon={
-                      <Box sx={{ position: "relative", width: "20px", height: "20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <Box
+                        sx={{
+                          position: "relative",
+                          width: "20px",
+                          height: "20px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
                         <Image
                           src={tech.techIcon}
                           alt={tech.techName}
@@ -340,7 +349,7 @@ function MEDDPICCPalCard() {
                     sx={{
                       borderColor: theme.palette.primary.main,
                       color: theme.palette.text.primary,
-                      backgroundColor: theme.palette.primary.main + "10",
+                      backgroundColor: "#fffff020",
                       "& .MuiChip-icon": {
                         color: "inherit",
                         marginLeft: "8px",
@@ -361,39 +370,64 @@ function MEDDPICCPalCard() {
                   Problem Statement
                 </Typography>
                 <Typography>
-                  Sales teams often struggle to capture and organize insights from Zoom sales calls or are 
-                  forced to do the tedious work of manually reviewing call transcripts for key information.
+                  Sales teams often struggle to capture and organize insights
+                  from Zoom sales calls or are forced to do the tedious work of
+                  manually reviewing call transcripts for key information.
                 </Typography>
                 <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
                   App Solution
                 </Typography>
                 <Typography>
-                    MEDDPICC Pal uses AI to automatically analyze Zoom sales call transcripts and extract key insights based on the MEDDPICC sales qualification framework, providing sales teams with structured, actionable intelligence without the need for manual review.
+                  MEDDPICC Pal uses AI to automatically analyze Zoom sales call
+                  transcripts and extract key insights based on the MEDDPICC
+                  sales qualification framework, providing sales teams with
+                  structured, actionable intelligence without the need for
+                  manual review.
                 </Typography>
                 <Typography variant="h6" sx={{ mt: 3, mb: 1 }}>
                   Features
                 </Typography>
                 <List sx={{ p: 0, m: 0 }}>
                   <ListItem sx={{ p: 0, mb: 1 }}>
-                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
                       •
                     </ListItemIcon>
                     <ListItemText primary="Transcript analysis using OpenAI's language models to identify and extract critical information" />
                   </ListItem>
                   <ListItem sx={{ p: 0, mb: 1 }}>
-                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
                       •
                     </ListItemIcon>
                     <ListItemText primary="Customizable rules for each MEDDPICC component to prioritize key insights" />
                   </ListItem>
                   <ListItem sx={{ p: 0, mb: 1 }}>
-                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
                       •
                     </ListItemIcon>
                     <ListItemText primary="Easy-to-read output that turns raw meeting recordings into actionable sales intelligence" />
                   </ListItem>
                   <ListItem sx={{ p: 0 }}>
-                    <ListItemIcon sx={{ minWidth: "24px", color: theme.palette.text.primary }}>
+                    <ListItemIcon
+                      sx={{
+                        minWidth: "24px",
+                        color: theme.palette.text.primary,
+                      }}
+                    >
                       •
                     </ListItemIcon>
                     <ListItemText primary="Seamless intelligence delivery to emails or CRM systems" />
@@ -482,7 +516,7 @@ function MEDDPICCPalCard() {
               sx={{
                 color: theme.palette.text.primary,
                 backgroundColor: theme.palette.background.paper,
-                '&:hover': { backgroundColor: theme.palette.secondary.main },
+                "&:hover": { backgroundColor: theme.palette.secondary.main },
               }}
             >
               <CloseIcon />
@@ -493,7 +527,7 @@ function MEDDPICCPalCard() {
               position: "relative",
               width: "100%",
               aspectRatio: "16 / 9",
-              borderRadius: '3rem'
+              borderRadius: "3rem",
             }}
           >
             <Image

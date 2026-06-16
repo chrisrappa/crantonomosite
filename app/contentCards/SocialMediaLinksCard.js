@@ -111,16 +111,16 @@ function SocialMediaLinksCard() {
               }
             : {
                 // Firefox/Safari: Simpler styling without SVG
-                backdropFilter: "brightness(1.1) blur(8px)",
-                WebkitBackdropFilter: "brightness(1.1) blur(8px)",
+                backdropFilter: "brightness(1) blur(6px)",
+                WebkitBackdropFilter: "brightness(1) blur(6px)",
                 boxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 20px rgba(0, 0, 0, 0.06)
                 `,
                 WebkitBoxShadow: `
-                  inset 0 1px 3px rgba(255, 255, 255, 0.3),
-                  inset 6px 6px 12px rgba(255, 255, 255, 0.2),
+                  inset 0 1px 3px rgba(255, 255, 255, 0.1),
+                  inset 6px 6px 12px rgba(255, 255, 255, 0.1),
                   -8px -10px 20px rgba(0, 0, 0, 0.06)
                 `,
               }),
@@ -131,6 +131,17 @@ function SocialMediaLinksCard() {
             zIndex: 0,
             overflow: "hidden",
             borderRadius: "12px",
+            ...(isChromium
+              ? {
+                  boxShadow:
+                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.2), -8px -10px 20px rgba(0, 0, 0, 0.06)",
+                  WebkitBoxShadow:
+                    "inset 6px 6px 0px -6px rgba(255, 255, 255, 0.3), inset 0 0 1px 1px rgba(255, 255, 255, 0.2), -8px -10px 20px rgba(0, 0, 0, 0.06)",
+                }
+              : {
+                  boxShadow: "none",
+                  WebkitBoxShadow: "none",
+                }),
             pointerEvents: "none",
           },
         }}
