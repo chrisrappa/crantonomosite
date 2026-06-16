@@ -527,31 +527,11 @@ function SparkBinsCard() {
             },
           }}
         >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              padding: "16px 24px",
-            }}
-          >
-            <IconButton
-              onClick={() => setOpenImageModal(false)}
-              sx={{
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.paper,
-                "&:hover": { backgroundColor: theme.palette.secondary.main },
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </DialogTitle>
           <Box
             sx={{
               position: "relative",
               width: "100%",
               aspectRatio: "16 / 9",
-              borderRadius: "3rem",
             }}
           >
             <Image
@@ -559,11 +539,30 @@ function SparkBinsCard() {
               alt={carouselImages[currentImageIndex].alt}
               fill
               style={{
-                objectFit: "contain",
+                objectFit: "cover",
                 borderRadius: "3rem",
               }}
             />
           </Box>
+          <Button
+            onClick={() => setOpenImageModal(false)}
+            sx={{
+              color: "#ffffff",
+              backgroundColor: theme.palette.primary.main,
+              width: "10rem",
+              height: "3rem",
+              position: "absolute",
+              right: 0,
+              bottom: 0,
+              borderRadius: "1.5rem 0 1.5rem 0",
+              "&:hover": { backgroundColor: theme.palette.secondary.main },
+            }}
+          >
+            <CloseIcon />
+            <Typography variant="button" sx={{ ml: 1, fontSize: "1rem" }}>
+              Close
+            </Typography>
+          </Button>
         </Dialog>
       </Box>
     </>

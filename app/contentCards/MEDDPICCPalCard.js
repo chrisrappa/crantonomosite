@@ -22,6 +22,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import CloseIcon from "@mui/icons-material/Close";
+import { BusAlertTwoTone } from "@mui/icons-material";
 
 // Sample carousel images
 const carouselImages = [
@@ -200,7 +201,7 @@ function MEDDPICCPalCard() {
                   position: "relative",
                   width: "100%",
                   aspectRatio: "16 / 9",
-                  borderRadius: "2rem",
+                  borderRadius: "1rem",
                   overflow: "hidden",
                   mb: 2,
                 }}
@@ -495,6 +496,7 @@ function MEDDPICCPalCard() {
           onClose={() => setOpenImageModal(false)}
           maxWidth="lg"
           fullWidth
+          elevation={0}
           sx={{
             "& .MuiPaper-root": {
               backgroundColor: "transparent",
@@ -502,32 +504,11 @@ function MEDDPICCPalCard() {
             },
           }}
         >
-          <DialogTitle
-            elevation={0}
-            sx={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
-              padding: "16px 24px",
-            }}
-          >
-            <IconButton
-              onClick={() => setOpenImageModal(false)}
-              sx={{
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.paper,
-                "&:hover": { backgroundColor: theme.palette.secondary.main },
-              }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </DialogTitle>
           <Box
             sx={{
               position: "relative",
               width: "100%",
               aspectRatio: "16 / 9",
-              borderRadius: "3rem",
             }}
           >
             <Image
@@ -535,11 +516,31 @@ function MEDDPICCPalCard() {
               alt={carouselImages[currentImageIndex].alt}
               fill
               style={{
-                objectFit: "contain",
-                borderRadius: "3rem",
+                objectFit: "cover",
+                borderRadius: "1.5rem",
               }}
             />
           </Box>
+
+          <Button
+            onClick={() => setOpenImageModal(false)}
+            sx={{
+              color: "#ffffff",
+              backgroundColor: theme.palette.primary.main,
+              width: "10rem",
+              height: "3rem",
+              position: "absolute",
+              right: 0,
+              bottom: 0,
+              borderRadius: "1.5rem 0 1.5rem 0",
+              "&:hover": { backgroundColor: theme.palette.secondary.main },
+            }}
+          >
+            <CloseIcon />
+            <Typography variant="button" sx={{ ml: 1, fontSize: "1rem" }}>
+              Close
+            </Typography>
+          </Button>
         </Dialog>
       </Box>
     </>

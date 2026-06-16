@@ -1,68 +1,68 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const lightTheme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
     primary: {
-      main: '#581f18',
-      light: '#8d281f',
-      dark: '#3a1313',
+      main: "#581f18",
+      light: "#8d281f",
+      dark: "#3a1313",
     },
     action: {
-      hover: '#f2e49f91',
+      hover: "#f2e49f91",
     },
     secondary: {
-      main: '#7a6424',
-      light: '#f2e49f',
-      dark: '#8b6f1b',
+      main: "#7a6424",
+      light: "#f2e49f",
+      dark: "#8b6f1b",
     },
     background: {
-      default: '#f5f5f5',
-      paper: '#ffffff',
+      default: "#f5f5f5",
+      paper: "#ffffff",
     },
     text: {
-      primary: '#000000',
-      secondary: '#666666',
-      tertiary: '#f7e8bc',
-      light: '#ffffff',
+      primary: "#000000",
+      secondary: "#666666",
+      tertiary: "#f7e8bc",
+      light: "#ffffff",
     },
   },
   typography: {
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "-apple-system",
+      "BlinkMacSystemFont",
       '"Segoe UI"',
-      'Roboto',
+      "Roboto",
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-    ].join(','),
+      "Arial",
+      "sans-serif",
+    ].join(","),
     primaryFont: {
       fontFamily: '"Inter", "Helvetica Neue", sans-serif',
       fontWeight: 500,
-      color: '#000000',
+      color: "#000000",
     },
     secondaryFont: {
       fontFamily: '"Poppins", "Arial", sans-serif',
       fontWeight: 400,
-      color: '#666666',
+      color: "#666666",
     },
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: (theme) => ({
-        '*::-webkit-scrollbar': {
-          width: '8px',
-          height: '8px',
+        "*::-webkit-scrollbar": {
+          width: "8px",
+          height: "8px",
         },
-        '*::-webkit-scrollbar-track': {
+        "*::-webkit-scrollbar-track": {
           backgroundColor: theme.palette.background.default,
         },
-        '*::-webkit-scrollbar-thumb': {
+        "*::-webkit-scrollbar-thumb": {
           backgroundColor: theme.palette.secondary.light,
-          borderRadius: '4px',
+          borderRadius: "4px",
         },
-        '*::-webkit-scrollbar-thumb:hover': {
+        "*::-webkit-scrollbar-thumb:hover": {
           backgroundColor: theme.palette.secondary.main,
         },
       }),
@@ -70,13 +70,13 @@ const lightTheme = createTheme({
     MuiButton: {
       styleOverrides: {
         contained: {
-          textTransform: 'none',
-          fontSize: '1rem',
+          textTransform: "none",
+          fontSize: "1rem",
           fontWeight: 500,
         },
         outlined: {
-          textTransform: 'none',
-          fontSize: '1rem',
+          textTransform: "none",
+          fontSize: "1rem",
         },
       },
     },
@@ -85,78 +85,85 @@ const lightTheme = createTheme({
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#803226',
-      light: '#8d281f',
-      dark: '#3a1313',
+      main: "#803226",
+      light: "#8d281f",
+      dark: "#3a1313",
     },
     secondary: {
-      main: '#f0cf6b',
-      light: '#f2e49f',
-      dark: '#8b6f1b',
+      main: "#f0cf6b",
+      light: "#f2e49f",
+      dark: "#8b6f1b",
     },
     background: {
-      default: '#121212',
-      paper: '#1e1e1e',
+      default: "#121212",
+      paper: "#1e1e1e",
     },
     text: {
-      primary: '#ffffff',
-      secondary: '#b0b0b0',
-      tertiary: '#f7e8bc',
-      light: '#ffffff',
+      primary: "#ffffff",
+      secondary: "#b0b0b0",
+      tertiary: "#f7e8bc",
+      light: "#ffffff",
     },
   },
   typography: {
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "-apple-system",
+      "BlinkMacSystemFont",
       '"Segoe UI"',
-      'Roboto',
+      "Roboto",
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-    ].join(','),
+      "Arial",
+      "sans-serif",
+    ].join(","),
     primaryFont: {
       fontFamily: '"Inter", "Helvetica Neue", sans-serif',
       fontWeight: 500,
-      color: '#ffffff',
+      color: "#ffffff",
     },
     secondaryFont: {
       fontFamily: '"Poppins", "Arial", sans-serif',
       fontWeight: 400,
-      color: '#b0b0b0',
+      color: "#b0b0b0",
     },
   },
   components: {
     MuiCssBaseline: {
       styleOverrides: (theme) => ({
-        '*::-webkit-scrollbar': {
-          width: '8px',
-          height: '8px',
+        "*::-webkit-scrollbar": {
+          width: "8px",
+          height: "8px",
         },
-        '*::-webkit-scrollbar-track': {
+        "*::-webkit-scrollbar-track": {
           backgroundColor: theme.palette.background.default,
         },
-        '*::-webkit-scrollbar-thumb': {
+        "*::-webkit-scrollbar-thumb": {
           backgroundColor: theme.palette.secondary.light,
-          borderRadius: '4px',
+          borderRadius: "4px",
         },
-        '*::-webkit-scrollbar-thumb:hover': {
+        "*::-webkit-scrollbar-thumb:hover": {
           backgroundColor: theme.palette.secondary.main,
         },
       }),
     },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          backgroundImage: 'none', // Disables --Paper-overlay globally
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         contained: {
-          textTransform: 'none',
-          fontSize: '1rem',
+          textTransform: "none",
+          fontSize: "1rem",
           fontWeight: 500,
         },
         outlined: {
-          textTransform: 'none',
-          fontSize: '1rem',
+          textTransform: "none",
+          fontSize: "1rem",
         },
       },
     },
