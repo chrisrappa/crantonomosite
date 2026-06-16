@@ -144,10 +144,11 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
       <Box
         sx={{
           mb: "1rem",
-          mt: "1rem",
+          mt: "0.5rem",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-end",
+          flexWrap: "wrap-reverse",
         }}
       >
         {data?.title === "Experience" && (
@@ -162,7 +163,9 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
               textTransform: "none",
               fontWeight: 600,
               color: "#ffffff",
-              width: "300px",
+              maxWidth: { xs: "none", lg: "300px" },
+              minWidth: "300px",
+              flex: "1",
             }}
           >
             Download PDF Version
@@ -172,11 +175,14 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
           sx={{
             display: "flex",
             justifyContent: "flex-end",
-            alignItems: "flex-end",
+            alignItems: {md: "center", lg: "flex-end"},
             width: "100%",
+            minWidth: { xs: "none", lg: "500px" },
             flexDirection: "column",
             gap: "4px",
-            marginRight: "2rem",
+            marginRight: { xs: "0", lg: "2rem" },
+            mb: { xs: 2, lg: 0 },
+            flex: "2",
           }}
         >
           <Typography
@@ -184,7 +190,7 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
             sx={{
               fontWeight: 600,
               letterSpacing: "0.5px",
-              fontSize: "1.75rem",
+              fontSize: { xs: "1.25rem", md: "1.75rem" },
               fontFamily: "'Kode Mono', monospace",
               textAlign: { xs: "center", lg: "right" },
               textShadow: `2px 2px 4px ${theme.palette.text.primary}33`,

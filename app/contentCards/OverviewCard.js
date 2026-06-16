@@ -232,7 +232,6 @@ export default function OverviewCard({ data }) {
                       transition: "all 0.2s ease",
                       cursor: "pointer",
                       width: "100%",
-                      // border: `1px solid ${theme.palette.primary.main}20`,
                       boxShadow: `0 1px 10px ${theme.palette.primary.main}50`,
                     }}
                   >
@@ -245,7 +244,7 @@ export default function OverviewCard({ data }) {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        mr: '1rem',
+                        mr: "1rem",
                         padding: "0.05rem",
                         backgroundColor: "rgb(255, 255, 255)",
                       }}
@@ -319,7 +318,7 @@ export default function OverviewCard({ data }) {
             container
             sx={{
               alignItems: "center",
-              // mx: 5,
+              justifyContent: "center",
               flexWrap: "wrap",
               gap: 2,
               display: "flex",
@@ -332,7 +331,7 @@ export default function OverviewCard({ data }) {
                 sx={{
                   width: {
                     xs: "calc(50% - 8px)",
-                    md: "calc(33% - 8px)",
+                    md: "calc(25% - 8px)",
                     lg: "calc(15% - 6px)",
                   },
                   height: 100,
@@ -359,6 +358,7 @@ export default function OverviewCard({ data }) {
               borderRadius: "8px",
               cursor: "pointer",
               display: "flex",
+              flexWrap: "wrap",
               transition: "transform 0.2s ease, box-shadow 0.2s ease",
               "&:hover": {
                 transform: "translateY(-4px)",
