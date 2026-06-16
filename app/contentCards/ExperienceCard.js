@@ -65,7 +65,7 @@ function ExperienceCard() {
               color: theme.palette.text.primary,
               padding: "16px",
               borderRadius: "28px",
-              cursor: "pointer",
+              cursor: "default",
               transition:
                 "transform 0.2s ease, box-shadow 0.2s ease, opacity 0.26s ease-out",
               willChange: "backdrop-filter",

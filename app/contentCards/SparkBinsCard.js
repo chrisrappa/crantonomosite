@@ -351,6 +351,7 @@ function SparkBinsCard() {
                       borderColor: theme.palette.primary.main,
                       color: theme.palette.text.primary,
                       backgroundColor: "#fffff020",
+                      cursor: "default",
                       "& .MuiChip-icon": {
                         color: "inherit",
                         marginLeft: "8px",

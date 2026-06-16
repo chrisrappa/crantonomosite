@@ -7,7 +7,7 @@ const contentData = {
   overview: {
     home: {
       title: "A.I. Supercharged Engineering Lead",
-      img: "primaryHeadshot.png",
+      img: "headshot_serious.jpg",
       description:
         "Years of classic style programming, experience at pre-revenue to Fortune 50 companies, and highly leveraged with agentic AI systems.",
       content:

@@ -171,12 +171,8 @@ export default function OverviewCard({ data }) {
                       backgroundColor: "transparent",
                       color: theme.palette.text.primary,
                       borderRadius: "8px",
-                      "&:hover": {
-                        backgroundColor: "transparent",
-                        cursor: "default",
-                      },
                       transition: "all 0.2s ease",
-                      cursor: "pointer",
+                      cursor: "default",
                     }}
                   >
                     <ListItemIcon
@@ -225,12 +221,8 @@ export default function OverviewCard({ data }) {
                       backgroundColor: theme.palette.background.paper + "70",
                       margin: "10px 0px",
                       borderRadius: "8px",
-                      "&:hover": {
-                        backgroundColor: "transparent",
-                        cursor: "default",
-                      },
+                      cursor: "default",
                       transition: "all 0.2s ease",
-                      cursor: "pointer",
                       width: "100%",
                       boxShadow: `0 1px 10px ${theme.palette.primary.main}50`,
                     }}
@@ -356,7 +348,7 @@ export default function OverviewCard({ data }) {
               color: "#ffffff",
               padding: "16px",
               borderRadius: "8px",
-              cursor: "pointer",
+              cursor: "default",
               display: "flex",
               flexWrap: "wrap",
               transition: "transform 0.2s ease, box-shadow 0.2s ease",

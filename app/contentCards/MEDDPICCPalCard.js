@@ -350,14 +350,11 @@ function MEDDPICCPalCard() {
                       borderColor: theme.palette.primary.main,
                       color: theme.palette.text.primary,
                       backgroundColor: "#fffff020",
+                      cursor: "default",
                       "& .MuiChip-icon": {
                         color: "inherit",
                         marginLeft: "8px",
                         marginRight: "-4px",
-                      },
-                      "&:hover": {
-                        backgroundColor: theme.palette.primary.main + "20",
-                        borderColor: theme.palette.primary.main,
                       },
                     }}
                   />

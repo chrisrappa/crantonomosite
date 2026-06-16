@@ -27,7 +27,7 @@ const topMenuItems = [
 ];
 
 const bottomMenuItems = [
-  { id: "aichat", label: "Agent Chat", icon: AssistantIcon },
+  // { id: "aichat", label: "Agent Chat", icon: AssistantIcon },
   { id: "contact", label: "Contact", icon: AlternateEmailIcon },
 ];
 
