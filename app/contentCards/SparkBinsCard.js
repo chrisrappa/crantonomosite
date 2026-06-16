@@ -25,13 +25,13 @@ import CloseIcon from "@mui/icons-material/Close";
 
 // Sample carousel images
 const carouselImages = [
-  { src: "/sparkBinsPrimaryApp.png", alt: "Spark Bins - Dashboard" },
+  { src: "/sparkbins-dash-3.png", alt: "Spark Bins - Dashboard" },
   {
-    src: "/sparkbinsIdeaCaptureVoicerecord.png",
+    src: "/sparkbins-new-1.png",
     alt: "Spark Bins - Idea Capture",
   },
   {
-    src: "/sparkbinsRichTextEditing.png",
+    src: "/sparkbins-edit-1.png",
     alt: "Spark Bins - Rich Text Editing",
   },
 ];
@@ -540,7 +540,7 @@ function SparkBinsCard() {
               fill
               style={{
                 objectFit: "cover",
-                borderRadius: "3rem",
+                borderRadius: "1.5rem",
               }}
             />
           </Box>

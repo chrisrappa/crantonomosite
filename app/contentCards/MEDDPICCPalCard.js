@@ -22,12 +22,11 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
 import CloseIcon from "@mui/icons-material/Close";
-import { BusAlertTwoTone } from "@mui/icons-material";
 
 // Sample carousel images
 const carouselImages = [
   { src: "/meddpiccpalSplash.png", alt: "MEDDPICC Pal - Landing" },
-  { src: "/meddpiccpalRules4.png", alt: "MEDDPICC Pal - Rules" },
+  { src: "/meddpiccpal-rules-2.png", alt: "MEDDPICC Pal - Rules" },
   {
     src: "/meddpiccpalTranscript.png",
     alt: "MEDDPICC Pal - Transcript",
