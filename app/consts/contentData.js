@@ -6,12 +6,10 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 const contentData = {
   overview: {
     home: {
-      title: "A.I. Supercharged Engineering Lead",
+      title: "Staff Full-Stack Engineer, A.I.-Augmented",
       img: "headshot_serious.jpg",
       description:
-        "Years of classic style programming, experience at pre-revenue to Fortune 50 companies, and highly leveraged with agentic AI systems.",
-      content:
-        "This is your main dashboard view. Customize this area with your portfolio information.",
+        "Years of classic style programming and highly leveraged with agentic AI systems applied to operation critical systems at Fortune 50 companies.",
       stats: [
         {
           label: "Specialty",
@@ -37,18 +35,6 @@ const contentData = {
     experience: {
       title: "Experience",
       description: "Classic style resume entries detailing my career journey.",
-    },
-  },
-  settings: {
-    account: {
-      title: "Account Settings",
-      description: "Manage your account information.",
-      content: "Update your account settings here.",
-    },
-    security: {
-      title: "Security Settings",
-      description: "Manage your security preferences.",
-      content: "Security options will appear here.",
     },
   },
   projects: {
@@ -85,13 +71,6 @@ const contentData = {
       title: "Schedule a Meeting",
       description: "Book a meeting with me.",
       content: "Meeting schedule content will be displayed here.",
-    },
-  },
-  logout: {
-    logout: {
-      title: "Logout",
-      description: "You have been logged out.",
-      content: "Redirecting to login page...",
     },
   },
 };

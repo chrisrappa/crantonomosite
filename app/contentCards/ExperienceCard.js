@@ -119,10 +119,6 @@ function ExperienceCard() {
                     }),
                 pointerEvents: "none",
               },
-              "&:hover": {
-                transform: "translateY(-4px)",
-                boxShadow: `0 4px 12px ${theme.palette.primary.main}0`,
-              },
             }}
           >
             {/* Title - Role and Company */}

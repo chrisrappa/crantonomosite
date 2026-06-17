@@ -1,13 +1,7 @@
 import {
   Home,
   BarChart,
-  Settings as SettingsIcon,
-  Lock,
-  Help,
   Logout as LogoutIcon,
-  Dashboard,
-  Settings,
-  Logout,
 } from "@mui/icons-material";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
@@ -19,6 +13,7 @@ import AssistantIcon from "@mui/icons-material/Assistant";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from "@mui/icons-material/Info";
 import DataObjectIcon from '@mui/icons-material/DataObject';
+import HistoryIcon from '@mui/icons-material/History';
 
 const topMenuItems = [
   { id: "overview", label: "Overview", icon: InfoIcon },
@@ -35,14 +30,14 @@ const subMenuItems = {
   overview: [
     {
       id: "overview",
-      label: "Basic Info",
-      icon: Home,
+      label: "Primary Stats",
+      icon: BarChart,
       description: "Primary Stats",
     },
     {
       id: "experience",
       label: "Experience",
-      icon: BarChart,
+      icon: HistoryIcon,
       description: "Primary Resume",
     },
   ],
