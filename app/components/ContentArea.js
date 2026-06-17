@@ -155,8 +155,8 @@ export default function ContentArea({ selectedNav, selectedSubMenu }) {
           <Button
             variant="contained"
             component="a"
-            href="/Chris_Rappa.pdf"
-            download="Chris_Rappa.pdf"
+            href="/StaffEngineerResume.pdf"
+            download="StaffEngineerResume.pdf"
             startIcon={<PictureAsPdfIcon />}
             sx={{
               ...theme.typography.secondaryFont,

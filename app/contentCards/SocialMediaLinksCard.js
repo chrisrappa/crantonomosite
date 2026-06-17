@@ -3,11 +3,8 @@
 import React, { useState } from "react";
 import {
   Box,
-  Card,
-  CardContent,
   Avatar,
   Button,
-  Typography,
   useTheme,
 } from "@mui/material";
 import Link from "next/link";

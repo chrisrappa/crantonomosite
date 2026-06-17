@@ -1,14 +1,10 @@
 import {
   Box,
-  Button,
-  Card,
-  CardContent,
   Typography,
   useTheme,
   Tooltip,
-} from "@mui/material"; // Card, CardContent used for outer container
+} from "@mui/material";
 import React, { useState } from "react";
-import { alpha } from "@mui/material/styles";
 
 import experienceEntries from "../consts/experienceEntries";
 import Image from "next/image";
