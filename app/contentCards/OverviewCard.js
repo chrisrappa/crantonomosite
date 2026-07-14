@@ -368,6 +368,58 @@ export default function OverviewCard({ data }) {
               }}
             >
               <Avatar
+                alt="Cato Mott II"
+                src="/catomott.jpeg"
+                sx={{ width: 100, height: 100, marginRight: "1rem" }}
+              />
+            </Grid>
+            <Grid sx={{ flex: 11, minWidth: "220px" }}>
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                Cato Mott II - CTO, Elevate Health
+              </Typography>
+              <Link
+                href="https://www.linkedin.com/in/catomott2/"
+                target="_blank"
+              >
+                View LinkedIn Profile
+                <LaunchIcon sx={{ fontSize: "1rem", marginLeft: "4px" }} />
+              </Link>
+              <Typography variant="body2" sx={{ marginTop: "8px" }}>
+                {`"Christian reported to me across two organizations, BioPlus and Elevance Health, 
+                and in both, he proved to be someone I could hand a hard problem to and trust to 
+                see it through. He consistently turned ambiguous requirements into clean, reliable solutions, 
+                and he did it with the kind of professionalism and follow-through that's genuinely rare. 
+                I'd welcome the chance to work with him again."
+                `}
+              </Typography>
+            </Grid>
+          </Card>
+          <Card
+            sx={{
+              backgroundColor: theme.palette.primary.main,
+              color: "#ffffff",
+              padding: "16px",
+              borderRadius: "8px",
+              cursor: "default",
+              display: "flex",
+              flexWrap: "wrap",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: `0 4px 12px ${theme.palette.primary.main}40`,
+              },
+            }}
+          >
+            <Grid
+              container
+              sx={{
+                flex: 1,
+                gap: "25px",
+                alignItems: "flex-start",
+                minWidth: "125px",
+              }}
+            >
+              <Avatar
                 alt="Ashlee Barsky"
                 src="/ashleebarsky.png"
                 sx={{ width: 100, height: 100, marginRight: "1rem" }}
